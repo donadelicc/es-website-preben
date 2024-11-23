@@ -16,6 +16,7 @@ import { FooterSocials } from "@app/components/Footer";
 
 const Header = () => {
   const isMobileScreen = useMediaQuery("(max-width: 640px)");
+  const isCollaped = useMediaQuery("(max-width: 1040px)");
 
   return (
     <header className="flex justify-between items-center px-8 py-4">
@@ -28,7 +29,7 @@ const Header = () => {
           className={"group-hover:opacity-80 transition-opacity"}
         />
       </Link>
-      {isMobileScreen ? (
+      {isCollaped ? (
         <Sheet>
           <SheetTrigger asChild className="ml-auto">
             <Button size="icon" variant="secondary">

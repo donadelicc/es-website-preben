@@ -9,14 +9,14 @@ import {
   SelectValue,
   Title,
 } from "@app/components";
-import { CURRENT_YEARS } from "@app/constants";
+import { ALUMNI_YEARS } from "@app/constants";
 import { StudentDialog } from "@app/components/Dialogs/StudentDialog";
 
-export default function Students() {
+export default function Alumni() {
   const { currentValue: currentYear, onChange: onYearChange } =
-    useSelect("2026");
+    useSelect("2024");
 
-  const { students } = useStudents("current", currentYear);
+  const { students } = useStudents("alumni", currentYear);
 
   return (
     <main className="flex min-h-screen flex-col">
@@ -30,7 +30,7 @@ export default function Students() {
                   <SelectValue placeholder="Choose year" />
                 </SelectTrigger>
                 <SelectContent>
-                  {CURRENT_YEARS.map((year) => (
+                  {ALUMNI_YEARS.map((year) => (
                     <SelectItem value={year} key={year}>
                       {year}
                     </SelectItem>
@@ -42,7 +42,8 @@ export default function Students() {
         </div>
       </section>
       <section className="flex my-2 md:my-8 justify-center">
-        <div className="w-11/12 flex flex-wrap justify-center gap-6">
+        {/*todo : make flex, and make more responsive */}
+        <div className="w-11/12 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-6">
           {students.map((student) => (
             <StudentDialog student={student} key={student.name} />
           ))}

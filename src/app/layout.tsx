@@ -15,6 +15,9 @@ const fontSans = FontSans({
 export const metadata: Metadata = {
   title: "NTNU School of Entrepreneurship",
   description: "NTNU School of Entrepreneurship",
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({

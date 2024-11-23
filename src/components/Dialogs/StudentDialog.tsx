@@ -24,22 +24,20 @@ const getFirstName = (name: string) => {
   return name.split(" ")[0];
 };
 
+// todo: add loading state to images.
 const StartupCard = (student: Student) => {
-  const isMobile = useMediaQuery("(max-width: 640px)");
-
   return (
-    <div>
+    <>
       <Image
         src={urlForImage(student.image)}
         alt={student.name}
-        width={isMobile ? 125 : 175}
+        width={175}
         height={225}
-        className={`min-h-[100px] md:min-h-[225px]`}
       />
       <H6 className="font-medium group-hover:bg-accent group-hover:text-background text-center duration-300 w-full">
         {getFirstName(student.name)}
       </H6>
-    </div>
+    </>
   );
 };
 
@@ -67,7 +65,7 @@ const StudentDialog = ({ student }: StudentDialogProps) => {
           <Image
             src={urlForImage(student.image)}
             alt={student.name}
-            width={50}
+            width={77}
             height={100}
             className="rounded-md"
           />

@@ -11,17 +11,6 @@ export const STARTUP_VALUES: SelectObject[] = [
   },
 ];
 
-export const STUDENT_VALUES: SelectObject[] = [
-  {
-    value: "current",
-    label: "Current students",
-  },
-  {
-    value: "alumni",
-    label: "Former students",
-  },
-];
-
 export const CURRENT_YEARS: string[] = ["2026", "2025"];
 export const ALUMNI_YEARS: string[] = [
   "2024",

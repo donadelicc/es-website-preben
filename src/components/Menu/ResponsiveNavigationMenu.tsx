@@ -1,3 +1,5 @@
+"use client"
+import { cn } from "@app/lib";
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -10,13 +12,17 @@ import { usePathname } from "next/navigation";
 
 const ResponsiveNavigationMenu = () => {
   const pathname = usePathname();
+  // todo: fix horizontal list
   return (
-    <NavigationMenu className="block md:flex mx-auto md:mx-0">
+    <NavigationMenu className="flex mx-auto md:mx-0">
       <NavigationMenuList>
         <NavigationMenuItem className="my-4 md:my-0">
           <Link href="/students" legacyBehavior passHref>
             <NavigationMenuLink
-              className={navigationMenuTriggerStyle()}
+              className={cn(
+                navigationMenuTriggerStyle(),
+                pathname === "/students" && "font-bold",
+              )}
               active={pathname === "/students"}
             >
               Students
@@ -24,9 +30,25 @@ const ResponsiveNavigationMenu = () => {
           </Link>
         </NavigationMenuItem>
         <NavigationMenuItem className="my-4 md:my-0">
+          <Link href="/alumni" legacyBehavior passHref>
+            <NavigationMenuLink
+              className={cn(
+                navigationMenuTriggerStyle(),
+                pathname === "/alumni" && "font-bold",
+              )}
+              active={pathname === "/alumni"}
+            >
+              Alumni
+            </NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
+        <NavigationMenuItem className="my-4 md:my-0">
           <Link href="/startups" legacyBehavior passHref>
             <NavigationMenuLink
-              className={navigationMenuTriggerStyle()}
+              className={cn(
+                navigationMenuTriggerStyle(),
+                pathname === "/startups" && "font-bold",
+              )}
               active={pathname === "/startups"}
             >
               Startups
@@ -36,7 +58,10 @@ const ResponsiveNavigationMenu = () => {
         <NavigationMenuItem className="my-4 md:my-0">
           <Link href="/program" legacyBehavior passHref>
             <NavigationMenuLink
-              className={navigationMenuTriggerStyle()}
+              className={cn(
+                navigationMenuTriggerStyle(),
+                pathname === "/program" && "font-bold",
+              )}
               active={pathname === "/program"}
             >
               Program
@@ -46,7 +71,10 @@ const ResponsiveNavigationMenu = () => {
         <NavigationMenuItem className="my-4 md:my-0">
           <Link href="/about" legacyBehavior passHref>
             <NavigationMenuLink
-              className={navigationMenuTriggerStyle()}
+              className={cn(
+                navigationMenuTriggerStyle(),
+                pathname === "/about" && "font-bold",
+              )}
               active={pathname === "/about"}
             >
               About
@@ -56,7 +84,10 @@ const ResponsiveNavigationMenu = () => {
         <NavigationMenuItem className="my-4 md:my-0">
           <Link href="/contact" legacyBehavior passHref>
             <NavigationMenuLink
-              className={navigationMenuTriggerStyle()}
+              className={cn(
+                navigationMenuTriggerStyle(),
+                pathname === "/contact" && "font-bold",
+              )}
               active={pathname === "/contact"}
             >
               Contact

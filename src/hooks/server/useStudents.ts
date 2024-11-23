@@ -4,7 +4,10 @@ import { Student } from "@app/types";
 import { useEffect, useState } from "react";
 import { client } from "@app/config";
 
-const useStudents = (currentView: string, currentYear: string) => {
+const useStudents = (
+  currentView: "current" | "alumni",
+  currentYear: string,
+) => {
   const [students, setStudents] = useState<Student[]>([]);
 
   const fetchStudents = async (isCurrent: boolean, year: string) => {

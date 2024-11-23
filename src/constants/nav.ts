@@ -25,4 +25,5 @@ export const paths = [
   "/sok",
   "/startup",
   "/students",
+  "/alumni",
 ];
