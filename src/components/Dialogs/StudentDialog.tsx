@@ -24,7 +24,6 @@ const getFirstName = (name: string) => {
   return name.split(" ")[0];
 };
 
-// todo: add loading state to images.
 const StartupCard = (student: Student) => {
   return (
     <>
@@ -55,10 +54,8 @@ const StudentDialog = ({ student }: StudentDialogProps) => {
 
   return (
     <Dialog>
-      <DialogTrigger className="flex flex-col items-center group">
-        <>
-          <StartupCard {...student} />
-        </>
+      <DialogTrigger className="flex flex-col items-center group ">
+        <StartupCard {...student} />
       </DialogTrigger>
       <DialogContent>
         <DialogHeader className="flex flex-row justify-start items-center">

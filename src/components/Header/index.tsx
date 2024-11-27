@@ -17,6 +17,7 @@ import { FooterSocials } from "@app/components/Footer";
 const Header = () => {
   const isMobileScreen = useMediaQuery("(max-width: 640px)");
   const isCollaped = useMediaQuery("(max-width: 1040px)");
+  const orientation = isCollaped ? "vertical" : "horizontal";
 
   return (
     <header className="flex justify-between items-center px-8 py-4">
@@ -45,7 +46,7 @@ const Header = () => {
               justifyContent: "center",
             }}
           >
-            <ResponsiveNavigationMenu />
+            <ResponsiveNavigationMenu orientation={orientation} />
             <SheetFooter>
               <div className="flex justify-center items-center">
                 <FooterSocials />
@@ -54,7 +55,7 @@ const Header = () => {
           </SheetContent>
         </Sheet>
       ) : (
-        <ResponsiveNavigationMenu />
+        <ResponsiveNavigationMenu orientation={orientation} />
       )}
     </header>
   );

@@ -43,7 +43,7 @@ export default function Alumni() {
       </section>
       <section className="flex my-2 md:my-8 justify-center">
         {/*todo : make flex, and make more responsive */}
-        <div className="w-11/12 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-6">
+        <div className="w-11/12 flex flex-wrap justify-center gap-6">
           {students.map((student) => (
             <StudentDialog student={student} key={student.name} />
           ))}
