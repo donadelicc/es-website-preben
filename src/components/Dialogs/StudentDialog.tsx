@@ -1,5 +1,4 @@
 import { Student } from "@app/types";
-import { useMediaQuery } from "@app/hooks";
 import Image from "next/image";
 import { urlForImage } from "@app/config";
 import {
