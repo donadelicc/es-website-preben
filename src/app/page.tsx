@@ -70,7 +70,11 @@ export default async function Home() {
         </div>
       </section>
       <section className="my-4 flex flex-col items-center">
-        <video controls className="w-4/5 md:w-3/5">
+        <video
+          controls
+          className="w-4/5 md:w-3/5 aspect-video"
+          poster="/NSE.png"
+        >
           <source src={content.video} type="video/mp4" />
         </video>
       </section>
