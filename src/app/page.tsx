@@ -17,7 +17,7 @@ import Link from "next/link";
 
 async function getHomeData() {
   const query = `*[ _type == "home" ]`;
-  return client.fetch(query).then((res: HomePage[]) => res[0]);
+  return client.fetch<HomePage[]>(query).then((res: HomePage[]) => res[0]);
 }
 
 async function getNotifications() {

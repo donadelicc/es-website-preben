@@ -7,7 +7,7 @@ import Link from "next/link";
 import { useMediaQuery } from "@app/hooks";
 import { HomePage } from "@app/types";
 import { HeaderSectionWrapper } from "@app/sections";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 interface HeaderSectionHomeProps {
   title: HomePage["title"];
@@ -22,19 +22,22 @@ const HeaderSectionHome = ({
 }: HeaderSectionHomeProps) => {
   const isMobile = useMediaQuery("(max-width: 640px)");
   const imageRef = useRef<HTMLImageElement>(null);
+  const [imageHeight, setImageHeight] = useState<number>(400);
 
   return (
-    <HeaderSectionWrapper minHeight={imageRef?.current?.height}>
+    <HeaderSectionWrapper minHeight={imageHeight}>
       {!isMobile && (
         <Image
           src={urlForImage(image)}
           alt={"Picture for home page"}
           width={300}
-          height={200}
+          height={imageHeight}
           className={"absolute left-0 top-0"}
-          ref={imageRef}
-        />
-      )}
+          onLoadingComplete={({ naturalHeight }) => {
+            setImageHeight(naturalHeight);
+          }}
+        />)
+      }
       <div className="w-4/5 md:w-3/5 z-10 flex flex-col justify-center items-center mx-auto">
         <Title className={"text-secondary text-center md:text-left"}>
           {title}

@@ -1,20 +1,14 @@
 "use client";
 
 import { useSelect, useStudents } from "@app/hooks";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-  Title,
-} from "@app/components";
+import { Tabs, TabsList, TabsTrigger, Title } from "@app/components";
 import { CURRENT_YEARS } from "@app/constants";
 import { StudentDialog } from "@app/components/Dialogs/StudentDialog";
 
+  import { useState } from "react";
+
 export default function Students() {
-  const { currentValue: currentYear, onChange: onYearChange } =
-    useSelect("2026");
+  const [currentYear, setCurrentYear] = useState("2026");
 
   const { students } = useStudents("current", currentYear);
 
@@ -25,18 +19,19 @@ export default function Students() {
           <Title className="text-secondary">Our students</Title>
           <div className="mt-2 md:mt-0">
             <div className="mt-2">
-              <Select value={currentYear} onValueChange={onYearChange}>
-                <SelectTrigger>
-                  <SelectValue placeholder="Choose year" />
-                </SelectTrigger>
-                <SelectContent>
+              <Tabs
+                value={currentYear}
+                onValueChange={setCurrentYear}
+                className="mt-2 md:mt-0"
+              >
+                <TabsList>
                   {CURRENT_YEARS.map((year) => (
-                    <SelectItem value={year} key={year}>
+                    <TabsTrigger key={year} value={year}>
                       {year}
-                    </SelectItem>
+                    </TabsTrigger>
                   ))}
-                </SelectContent>
-              </Select>
+                </TabsList>
+              </Tabs>
             </div>
           </div>
         </div>
