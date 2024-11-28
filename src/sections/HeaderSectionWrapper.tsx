@@ -12,7 +12,6 @@ const HeaderSectionWrapper = ({ children, minHeight }: WrapperProps) => {
   return (
     <section
       className="py-6 relative flex justify-center"
-      style={{ minHeight: height }}
     >
       {children}
     </section>

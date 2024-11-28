@@ -20,13 +20,13 @@ const HeaderSectionHome = ({
   image,
   description,
 }: HeaderSectionHomeProps) => {
-  const isMobile = useMediaQuery("(max-width: 640px)");
+  const isMd = useMediaQuery("(max-width: 768px)");
   const imageRef = useRef<HTMLImageElement>(null);
   const [imageHeight, setImageHeight] = useState<number>(400);
 
   return (
     <HeaderSectionWrapper minHeight={imageHeight}>
-      {!isMobile && (
+      {!isMd && (
         <Image
           src={urlForImage(image)}
           alt={"Picture for home page"}
@@ -39,19 +39,19 @@ const HeaderSectionHome = ({
         />)
       }
       <div className="w-4/5 md:w-3/5 z-10 flex flex-col justify-center items-center mx-auto">
-        <Title className={"text-secondary text-center md:text-left"}>
+        <Title className={"text-secondary text-center hidden md:block"}>
           {title}
         </Title>
-        <div className="flex flex-row md:flex-col justify-center md:justify-between mt-2 md:mt-0 items-center w-full">
-          <H2 className="mt-2 w-3/5 text-center hidden md:block">
+        <div className="flex flex-col justify-center md:justify-between mt-2 md:mt-0 items-center w-full">
+          <H2 className="mt-2 md:w-3/5 text-lg md:text-2xl text-center">
             {description}
           </H2>
-          <div className="mt-2 flex flex-col md:flex-row justify-center items-center">
+          <div className="mt-8 sm:mt-2 flex gap-2 flex-col sm:flex-row justify-center items-center">
             <Button
               variant="default"
               asChild
               size="lg"
-              className="w-full md:w-1/2 mr-2"
+              className="w-full md:w-1/2"
             >
               <Link href={"/idea"}>Do you have an idea?</Link>
             </Button>
@@ -59,7 +59,7 @@ const HeaderSectionHome = ({
               variant="default"
               asChild
               size="lg"
-              className="w-full md:w-1/2 ml-0 md:ml-2 mr-2 md:mr-0 mt-2 md:mt-0"
+              className="w-full md:w-1/2"
             >
               <Link href={"/sok"}>How to apply</Link>
             </Button>

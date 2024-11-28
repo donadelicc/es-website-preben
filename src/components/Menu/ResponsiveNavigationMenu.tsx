@@ -14,7 +14,7 @@ const menuItems = [
   { href: "/students", label: "Students" },
   { href: "/alumni", label: "Alumni" },
   { href: "/startups", label: "Startups" },
-  { href: "/news", label: "News & Blog"},
+  //{ href: "/news", label: "News & Blog"},
   { href: "/program", label: "Program" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },

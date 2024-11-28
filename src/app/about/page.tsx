@@ -12,7 +12,7 @@ export default async function About() {
   const content = await getData();
 
   return (
-    <main className="flex min-h-screen flex-col">
+    <main className="flex min-h-screen flex-col pb-32">
       <HeaderSectionAbout
         title={content.title}
         description={content.description}

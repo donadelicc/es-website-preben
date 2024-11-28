@@ -7,7 +7,6 @@ export * from "./Dialogs";
 export * from "./Footer";
 export * from "./Form";
 export * from "./Header";
-export * from "./Header/ProgramHeader";
 export * from "./Menu";
 export * from "./SanityBlock";
 export * from "./Socials";

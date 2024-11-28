@@ -16,7 +16,8 @@ export default function Students() {
     <main className="flex min-h-screen flex-col">
       <section className="flex my-8 justify-center">
         <div className="flex flex-col md:flex-row justify-center md:justify-between items-center w-11/12">
-          <Title className="text-secondary">Our students</Title>
+          <Title className="text-secondary">Our Students <span className="text-primary text-3xl">{currentYear}</span></Title>
+          
           <div className="mt-2 md:mt-0">
             <div className="mt-2">
               <Tabs

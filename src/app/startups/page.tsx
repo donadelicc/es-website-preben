@@ -17,8 +17,8 @@ export default function Startups() {
   return (
     <main className="flex min-h-screen flex-col">
       <section className="flex my-8 justify-center">
-        <div className="flex flex-col md:flex-row justify-center md:justify-between items-center w-11/12">
-          <Title className="text-secondary">Our startups</Title>
+        <div className="flex flex-col md:flex-row gap-8 justify-center md:justify-between items-center w-11/12">
+          <Title className="text-secondary">Our startups - <span className="text-primary">{currentValue}</span></Title>
           <Tabs
             value={currentValue}
             onValueChange={onChange}
