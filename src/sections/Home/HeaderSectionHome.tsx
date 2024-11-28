@@ -7,7 +7,7 @@ import Link from "next/link";
 import { useMediaQuery } from "@app/hooks";
 import { HomePage } from "@app/types";
 import { HeaderSectionWrapper } from "@app/sections";
-import { useRef, useState } from "react";
+import { useState } from "react";
 
 interface HeaderSectionHomeProps {
   title: HomePage["title"];

@@ -1,13 +1,10 @@
-import { useMediaQuery } from "@app/hooks";
-
 export interface WrapperProps {
   children: React.ReactNode;
+  //todo remove
   minHeight?: number;
 }
 
-const HeaderSectionWrapper = ({ children, minHeight }: WrapperProps) => {
-  const isMobile = useMediaQuery("(max-width: 640px)");
-
+const HeaderSectionWrapper = ({ children }: WrapperProps) => {
   return (
     <section className="py-6 relative flex justify-center">{children}</section>
   );
