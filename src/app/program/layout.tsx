@@ -3,9 +3,5 @@ export default function ProgramLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return (
-    <section className="relative py-4 flex flex-col">
-      {children}
-    </section>
-  );
+  return <section className="relative py-4 flex flex-col">{children}</section>;
 }

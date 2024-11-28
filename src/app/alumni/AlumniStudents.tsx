@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { useSelect, useStudents } from "@app/hooks";
 import {
@@ -12,7 +12,7 @@ import {
 import { ALUMNI_YEARS } from "@app/constants";
 import { StudentDialog } from "@app/components/Dialogs/StudentDialog";
 
-export default function AlumniStudents(){
+export default function AlumniStudents() {
   const { currentValue: currentYear, onChange: onYearChange } =
     useSelect("2024");
 
@@ -21,7 +21,10 @@ export default function AlumniStudents(){
     <>
       <section className="flex my-8 justify-center">
         <div className="flex flex-col md:flex-row justify-center md:justify-between items-center w-11/12">
-          <Title className="text-secondary">Our alumni <span className="text-primary text-3xl">{currentYear}</span></Title>
+          <Title className="text-secondary">
+            Our alumni{" "}
+            <span className="text-primary text-3xl">{currentYear}</span>
+          </Title>
           <div className="mt-2 md:mt-0">
             <div className="mt-2">
               <Select value={currentYear} onValueChange={onYearChange}>

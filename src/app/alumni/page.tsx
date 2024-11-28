@@ -13,7 +13,7 @@ export default async function Alumni() {
 
   return (
     <main className="flex min-h-screen flex-col">
-      <AlumniStudents/>
+      <AlumniStudents />
       <AlumniSection image={content.image} blocks={content.content} />
     </main>
   );

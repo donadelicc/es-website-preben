@@ -8,12 +8,12 @@ async function getData() {
   return client.fetch<ContactPerson[]>(query);
 }
 
-async function getFacultyMembers(){
+async function getFacultyMembers() {
   const query = `*[ _type == 'facultyMembers' ]`;
   return client.fetch(query);
 }
 
-// todo: combine faculty members with contact inforamtion. 
+// todo: combine faculty members with contact inforamtion.
 
 export default async function Contact() {
   const content = sortAscending(await getData());

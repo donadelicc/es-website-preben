@@ -1,12 +1,31 @@
-"use client"
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger, Button, H2, SanityBlock, Tabs, TabsContent, TabsList, TabsTrigger, Title } from "@app/components";
+"use client";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+  Button,
+  H2,
+  SanityBlock,
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+  Title,
+} from "@app/components";
 import { BostonSection, CernSection } from "@app/sections";
 import { CernAndBostonPage, ProgramStructurePage } from "@app/types";
 import Link from "next/link";
 import { useState } from "react";
 
-export default function ProgramPage({program, cern}: {program: ProgramStructurePage, cern: CernAndBostonPage}){
-  const [activeTab, setActiveTab] = useState('tab1');
+export default function ProgramPage({
+  program,
+  cern,
+}: {
+  program: ProgramStructurePage;
+  cern: CernAndBostonPage;
+}) {
+  const [activeTab, setActiveTab] = useState("tab1");
 
   return (
     <Tabs value={activeTab} onValueChange={setActiveTab}>
@@ -35,8 +54,8 @@ export default function ProgramPage({program, cern}: {program: ProgramStructureP
                   practices
                 </li>
                 <li>
-                  Project that fails is a good fundament to start a new one, with
-                  new knowledge
+                  Project that fails is a good fundament to start a new one,
+                  with new knowledge
                 </li>
               </ul>
             </div>
@@ -114,10 +133,7 @@ export default function ProgramPage({program, cern}: {program: ProgramStructureP
               <source src={cern.video} type="video/mp4" />
             </video>
           </section>
-          <BostonSection
-            blocks={cern.bostonContent}
-            image={cern.bostonImage}
-          />
+          <BostonSection blocks={cern.bostonContent} image={cern.bostonImage} />
         </>
       </TabsContent>
     </Tabs>

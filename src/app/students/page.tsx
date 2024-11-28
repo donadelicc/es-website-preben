@@ -1,11 +1,11 @@
 "use client";
 
-import { useSelect, useStudents } from "@app/hooks";
+import { useStudents } from "@app/hooks";
 import { Tabs, TabsList, TabsTrigger, Title } from "@app/components";
 import { CURRENT_YEARS } from "@app/constants";
 import { StudentDialog } from "@app/components/Dialogs/StudentDialog";
 
-  import { useState } from "react";
+import { useState } from "react";
 
 export default function Students() {
   const [currentYear, setCurrentYear] = useState("2026");
@@ -16,8 +16,11 @@ export default function Students() {
     <main className="flex min-h-screen flex-col">
       <section className="flex my-8 justify-center">
         <div className="flex flex-col md:flex-row justify-center md:justify-between items-center w-11/12">
-          <Title className="text-secondary">Our Students <span className="text-primary text-3xl">{currentYear}</span></Title>
-          
+          <Title className="text-secondary">
+            Our Students{" "}
+            <span className="text-primary text-3xl">{currentYear}</span>
+          </Title>
+
           <div className="mt-2 md:mt-0">
             <div className="mt-2">
               <Tabs

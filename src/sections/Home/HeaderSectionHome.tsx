@@ -21,7 +21,6 @@ const HeaderSectionHome = ({
   description,
 }: HeaderSectionHomeProps) => {
   const isMd = useMediaQuery("(max-width: 768px)");
-  const imageRef = useRef<HTMLImageElement>(null);
   const [imageHeight, setImageHeight] = useState<number>(400);
 
   return (
@@ -36,8 +35,8 @@ const HeaderSectionHome = ({
           onLoadingComplete={({ naturalHeight }) => {
             setImageHeight(naturalHeight);
           }}
-        />)
-      }
+        />
+      )}
       <div className="w-4/5 md:w-3/5 z-10 flex flex-col justify-center items-center mx-auto">
         <Title className={"text-secondary text-center hidden md:block"}>
           {title}
