@@ -13,6 +13,7 @@ import {
   TabsTrigger,
   Title,
 } from "@app/components";
+import { cn } from "@app/lib";
 import { BostonSection, CernSection } from "@app/sections";
 import { CernAndBostonPage, ProgramStructurePage } from "@app/types";
 import Link from "next/link";
@@ -61,9 +62,11 @@ export default function ProgramPage({
             </div>
           </section>
           <section className="my-4 md:flex flex-col items-center hidden">
-            <div className="w-full md:w-4/5 text-center text-accent">
-              <Title>{`"${program.quote.quote}"`}</Title>
-              <H2 className="mt-2 text-accent">{program.quote.author}</H2>
+            <div className="w-full md:w-4/5 text-center text-accent my-8 max-w-[640px]">
+              <Title className="text-lg md:text-xl xl:text-2xl">{`"${program.quote.quote}"`}</Title>
+              <H2 className="mt-2 text-accent text-lg">
+                {program.quote.author}
+              </H2>
             </div>
           </section>
           <section className="my-4 flex flex-col items-center">
@@ -72,17 +75,19 @@ export default function ProgramPage({
                 <AccordionItem value={semester.title} key={semester.title}>
                   <AccordionTrigger>
                     <div className="flex flex-row justify-between w-full">
-                      <span className="flex items-center font-bold text-left text-sm min-w-28">
+                      <span className="flex items-center font-bold text-left text-md min-w-28">
                         {semester.title}
                       </span>
                       <div className="flex flex-wrap gap-2 mt-2 md:mt-0 justify-end mr-2">
                         {semester.courses.map((course) => (
-                          <Button
+                          <div
                             key={course.title}
-                            className="text-xs h-auto p-0.5 px-1.5"
-                            size="sm"
-                            variant={course.url ? "default" : "ghost"}
-                            disabled={!course.url}
+                            className={cn(
+                              "text-xs rounded-md h-auto p-0.5 px-1.5 bg-primary",
+                              course.url
+                                ? "bg-primary text-primary-foreground shadow"
+                                : "bg-accent text-accent-foreground",
+                            )}
                           >
                             {course.url ? (
                               <span className="w-32 truncate">
@@ -91,7 +96,7 @@ export default function ProgramPage({
                             ) : (
                               <span className="w-12">+1</span>
                             )}
-                          </Button>
+                          </div>
                         ))}
                       </div>
                     </div>
