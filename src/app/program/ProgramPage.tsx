@@ -70,12 +70,16 @@ export default function ProgramPage({
             </div>
           </section>
           <section className="my-4 flex flex-col items-center">
-            <Accordion type="single" collapsible className="max-w-[640px]">
+            <Accordion
+              type="single"
+              collapsible
+              className="flex flex-col flex-grow w-full min-w-0 max-w-[640px]"
+            >
               {program.semesters.map((semester) => (
                 <AccordionItem value={semester.title} key={semester.title}>
                   <AccordionTrigger>
                     <div className="flex flex-row justify-between w-full">
-                      <span className="flex items-center font-bold text-left text-md min-w-28">
+                      <span className="flex items-center font-bold text-left text-md min-w-32">
                         {semester.title}
                       </span>
                       <div className="flex flex-wrap gap-2 mt-2 md:mt-0 justify-end mr-2">
@@ -83,26 +87,22 @@ export default function ProgramPage({
                           <div
                             key={course.title}
                             className={cn(
-                              "text-xs rounded-md h-auto p-0.5 px-1.5 bg-primary",
+                              "text-xs rounded-md h-6 px-1.5 bg-primary inline-flex items-center justify-center",
                               course.url
-                                ? "bg-primary text-primary-foreground shadow"
-                                : "bg-accent text-accent-foreground",
+                                ? "bg-primary text-primary-foreground w-32 "
+                                : "bg-accent text-accent-foreground w-12",
                             )}
                           >
-                            {course.url ? (
-                              <span className="w-32 truncate">
-                                {course.title}
-                              </span>
-                            ) : (
-                              <span className="w-12">+1</span>
-                            )}
+                            <span className="truncate max-w-full">
+                              {course.url ? course.title : "+1"}
+                            </span>
                           </div>
                         ))}
                       </div>
                     </div>
                   </AccordionTrigger>
                   <AccordionContent>
-                    <div className="flex gap-2 justify-end items-center flex-wrap">
+                    <div className="flex gap-2 justify-end items-center flex-wrap max-w-[640px]">
                       <SanityBlock blocks={semester.description} />
                       {semester.courses.map((course) => (
                         <Button

@@ -72,7 +72,7 @@ export default async function Home() {
       <section className="my-4 flex flex-col items-center">
         <video
           controls
-          className="w-4/5 md:w-3/5 aspect-video"
+          className="w-4/5 md:w-3/5 aspect-video shadow-lg"
           poster="/NSE.png"
         >
           <source src={content.video} type="video/mp4" />
