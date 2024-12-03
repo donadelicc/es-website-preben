@@ -20,30 +20,30 @@ const HeaderSectionAbout = ({
   image,
   description,
 }: HeaderSectionAboutProps) => {
-  const isMobile = useMediaQuery("(max-width: 640px)");
+  const isMd = useMediaQuery("(max-width: 768px)");
   const imageRef = useRef<HTMLImageElement>(null);
 
   return (
     <HeaderSectionWrapper minHeight={imageRef?.current?.height}>
       <div className="w-4/5 md:w-3/5 z-10 flex flex-col justify-center items-center mx-auto">
-        <Title className={"text-secondary text-center md:text-left"}>
+        <Title className={"text-secondary text-center "}>
           {title}
         </Title>
         <H2 className="mt-2 w-3/5 text-center hidden md:block">
           {description}
         </H2>
         <div className="mt-6 flex flex-row items-center justify-center w-full">
-            <Button
-              variant="default"
-              asChild
-              size="lg"
-              className="w-1/2 md:w-1/4 flex justify-center items-center"
-            >
-              <Link href="/sok">How to apply</Link>
-            </Button>
+          <Button
+            variant="default"
+            asChild
+            size="lg"
+            className="w-1/2 md:w-1/4 flex justify-center items-center"
+          >
+            <Link href="/sok">How to apply</Link>
+          </Button>
         </div>
       </div>
-      {!isMobile && (
+      {!isMd && (
         <Image
           src={urlForImage(image)}
           alt={"Picture for about page"}

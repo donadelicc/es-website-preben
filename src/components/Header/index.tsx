@@ -14,7 +14,7 @@ import { IconMenu2 } from "@tabler/icons-react";
 import { FooterSocials } from "@app/components/Footer";
 import { Link } from "@app/i18n/routing";
 
-const Header = () => {
+const Header = ({locale} : {locale: string}) => {
   const isMobileScreen = useMediaQuery("(max-width: 640px)");
   const isCollaped = useMediaQuery("(max-width: 1040px)");
   const orientation = isCollaped ? "vertical" : "horizontal";
@@ -46,7 +46,7 @@ const Header = () => {
               justifyContent: "center",
             }}
           >
-            <ResponsiveNavigationMenu orientation={orientation} />
+            <ResponsiveNavigationMenu orientation={orientation} locale={locale} />
             <SheetFooter>
               <div className="flex justify-center items-center">
                 <FooterSocials />
@@ -55,7 +55,7 @@ const Header = () => {
           </SheetContent>
         </Sheet>
       ) : (
-        <ResponsiveNavigationMenu orientation={orientation} />
+        <ResponsiveNavigationMenu orientation={orientation} locale={locale} />
       )}
     </header>
   );
