@@ -13,10 +13,10 @@ import {
   TabsTrigger,
   Title,
 } from "@app/components";
+import { Link } from "@app/i18n/routing";
 import { cn } from "@app/lib";
 import { BostonSection, CernSection } from "@app/sections";
 import { CernAndBostonPage, ProgramStructurePage } from "@app/types";
-import Link from "next/link";
 import { useState } from "react";
 
 export default function ProgramPage({

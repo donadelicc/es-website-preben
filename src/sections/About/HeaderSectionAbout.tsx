@@ -1,13 +1,13 @@
 "use client";
 
 import { Button, H2, Title } from "@app/components";
-import Link from "next/link";
 import Image from "next/image";
 import { urlForImage } from "@app/config";
 import { AboutPage } from "@app/types";
 import { useMediaQuery } from "@app/hooks";
 import { HeaderSectionWrapper } from "@app/sections";
 import { useRef } from "react";
+import { Link } from "@app/i18n/routing";
 
 interface HeaderSectionAboutProps {
   title: AboutPage["title"];
@@ -33,14 +33,14 @@ const HeaderSectionAbout = ({
           {description}
         </H2>
         <div className="mt-6 flex flex-row items-center justify-center w-full">
-          <Button
-            variant="default"
-            asChild
-            size="lg"
-            className="w-full md:w-1/4 ml-2"
-          >
-            <Link href={"/sok"}>How to apply</Link>
-          </Button>
+            <Button
+              variant="default"
+              asChild
+              size="lg"
+              className="w-1/2 md:w-1/4 flex justify-center items-center"
+            >
+              <Link href="/sok">How to apply</Link>
+            </Button>
         </div>
       </div>
       {!isMobile && (

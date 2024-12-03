@@ -27,6 +27,9 @@ const AlumniSection = ({ image, blocks }: AlumniSectionProps) => {
       )}
       <div className="md:mx-10">
         <div className="flex flex-row items-center justify-between">
+          <Title className="text-accent text-4xl mx-auto md:mx-0">
+            ESAF
+          </Title>
           {isMobile && (
             <Image
               src={urlForImage(image)}
@@ -35,9 +38,6 @@ const AlumniSection = ({ image, blocks }: AlumniSectionProps) => {
               height={150}
             />
           )}
-          <Title className="text-accent text-4xl mx-auto md:mx-0 block md:hidden">
-            ESAF
-          </Title>
         </div>
         <div className="p-4 md:p-0">
           <SanityBlock blocks={blocks} />

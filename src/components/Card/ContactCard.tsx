@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { H1 } from "@app/components";
-import Link from "next/link";
 import { IconMail, IconPhone } from "@tabler/icons-react";
+import { Link } from "@app/i18n/routing";
 
 interface ContactCardProps {
   imageUri: string;

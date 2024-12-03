@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { Button } from "@app/components";
-import Link from "next/link";
 import { useMediaQuery } from "@app/hooks";
 import {
   Sheet,
@@ -13,6 +12,7 @@ import {
 } from "@app/components/Menu";
 import { IconMenu2 } from "@tabler/icons-react";
 import { FooterSocials } from "@app/components/Footer";
+import { Link } from "@app/i18n/routing";
 
 const Header = () => {
   const isMobileScreen = useMediaQuery("(max-width: 640px)");

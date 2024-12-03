@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { NSE_FB_URL, NSE_IG_URL, NSE_LINKEDIN_URL } from "@app/constants";
 import {
   IconBrandFacebook,
@@ -9,6 +8,7 @@ import {
 } from "@tabler/icons-react";
 import { Button } from "@app/components";
 import { useMediaQuery } from "@app/hooks";
+import { Link } from "@app/i18n/routing";
 
 const SocialSectionApply = () => {
   const isMobile = useMediaQuery("(max-width: 640px)");

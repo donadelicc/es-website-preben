@@ -1,6 +1,6 @@
 import { H6 } from "@app/components";
-import Link from "next/link";
 import { NSE_MAIL_URL, NSE_PHONE_URL } from "@app/constants";
+import { Link } from "@app/i18n/routing";
 
 const ContactInformation = () => {
   return (

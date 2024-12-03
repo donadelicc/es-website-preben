@@ -7,14 +7,20 @@ import {
   NavigationMenuList,
   navigationMenuTriggerStyle,
 } from "./NavigationMenu";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+  Title,
+} from "@app/components";
+import { usePathname, useRouter } from "next/navigation";
+import { Link } from "@app/i18n/routing";
 
 const menuItems = [
   { href: "/students", label: "Students" },
   { href: "/alumni", label: "Alumni" },
   { href: "/startups", label: "Startups" },
-  //{ href: "/news", label: "News & Blog"},
   { href: "/program", label: "Program" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
@@ -25,8 +31,13 @@ const ResponsiveNavigationMenu = ({
 }: {
   orientation: "horizontal" | "vertical";
 }) => {
+  const router = useRouter();
   const pathname = usePathname();
 
+  const handleLocaleChange = (locale: string) => {
+    router.push(pathname, pathname, { locale });
+  };
+ 
   return (
     <NavigationMenu className="flex mx-auto md:mx-0" orientation={orientation}>
       <NavigationMenuList>
@@ -54,6 +65,13 @@ const ResponsiveNavigationMenu = ({
             </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>
+
+        <Tabs value={router.locale} onValueChange={handleLocaleChange}>
+          <TabsList>
+            <TabsTrigger value="tab1">no</TabsTrigger>
+            <TabsTrigger value="tab2">en</TabsTrigger>
+          </TabsList>
+        </Tabs>
       </NavigationMenuList>
     </NavigationMenu>
   );
