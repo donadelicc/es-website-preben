@@ -3,11 +3,11 @@
 import Image from "next/image";
 import { urlForImage } from "@app/config";
 import { Button, H2, Title } from "@app/components";
+import Link from "next/link";
 import { useMediaQuery } from "@app/hooks";
 import { HomePage } from "@app/types";
 import { HeaderSectionWrapper } from "@app/sections";
 import { useState } from "react";
-import { Link } from "@app/i18n/routing";
 
 interface HeaderSectionHomeProps {
   title: HomePage["title"];
@@ -50,17 +50,17 @@ const HeaderSectionHome = ({
               variant="default"
               asChild
               size="lg"
-              className="w-full md:w-1/2 flex justify-center items-center"
+              className="w-full md:w-1/2"
             >
-              <Link href="/idea">Do you have an idea?</Link>
+              <Link href={"/idea"}>Do you have an idea?</Link>
             </Button>
             <Button
               variant="default"
               asChild
               size="lg"
-              className="w-full md:w-1/2 flex justify-center items-center"
+              className="w-full md:w-1/2"
             >
-              <Link href="/sok">How to apply</Link>
+              <Link href={"/sok"}>How to apply</Link>
             </Button>
           </div>
         </div>

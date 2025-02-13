@@ -10,7 +10,7 @@ import {
 } from "@app/components";
 import { HeaderSectionApply, SocialSectionApply } from "@app/sections";
 import { IconExternalLink } from "@tabler/icons-react";
-import { Link } from "@app/i18n/routing";
+import Link from "next/link";
 
 async function getData() {
   const query = `*[_type == 'apply']`;

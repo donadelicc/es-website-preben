@@ -1,13 +1,13 @@
 "use client";
 
 import { Button, H2, Title } from "@app/components";
+import Link from "next/link";
 import Image from "next/image";
 import { urlForImage } from "@app/config";
 import { AboutPage } from "@app/types";
 import { useMediaQuery } from "@app/hooks";
 import { HeaderSectionWrapper } from "@app/sections";
 import { useRef } from "react";
-import { Link } from "@app/i18n/routing";
 
 interface HeaderSectionAboutProps {
   title: AboutPage["title"];
@@ -20,13 +20,13 @@ const HeaderSectionAbout = ({
   image,
   description,
 }: HeaderSectionAboutProps) => {
-  const isMd = useMediaQuery("(max-width: 768px)");
+  const isMobile = useMediaQuery("(max-width: 640px)");
   const imageRef = useRef<HTMLImageElement>(null);
 
   return (
     <HeaderSectionWrapper minHeight={imageRef?.current?.height}>
       <div className="w-4/5 md:w-3/5 z-10 flex flex-col justify-center items-center mx-auto">
-        <Title className={"text-secondary text-center "}>
+        <Title className={"text-secondary text-center md:text-left"}>
           {title}
         </Title>
         <H2 className="mt-2 w-3/5 text-center hidden md:block">
@@ -37,13 +37,13 @@ const HeaderSectionAbout = ({
             variant="default"
             asChild
             size="lg"
-            className="w-1/2 md:w-1/4 flex justify-center items-center"
+            className="w-full md:w-1/4 ml-2"
           >
-            <Link href="/sok">How to apply</Link>
+            <Link href={"/sok"}>How to apply</Link>
           </Button>
         </div>
       </div>
-      {!isMd && (
+      {!isMobile && (
         <Image
           src={urlForImage(image)}
           alt={"Picture for about page"}

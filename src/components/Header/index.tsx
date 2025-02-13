@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { Button } from "@app/components";
+import Link from "next/link";
 import { useMediaQuery } from "@app/hooks";
 import {
   Sheet,
@@ -12,9 +13,8 @@ import {
 } from "@app/components/Menu";
 import { IconMenu2 } from "@tabler/icons-react";
 import { FooterSocials } from "@app/components/Footer";
-import { Link } from "@app/i18n/routing";
 
-const Header = ({locale} : {locale: string}) => {
+const Header = () => {
   const isMobileScreen = useMediaQuery("(max-width: 640px)");
   const isCollaped = useMediaQuery("(max-width: 1040px)");
   const orientation = isCollaped ? "vertical" : "horizontal";
@@ -46,7 +46,7 @@ const Header = ({locale} : {locale: string}) => {
               justifyContent: "center",
             }}
           >
-            <ResponsiveNavigationMenu orientation={orientation} locale={locale} />
+            <ResponsiveNavigationMenu orientation={orientation} />
             <SheetFooter>
               <div className="flex justify-center items-center">
                 <FooterSocials />
@@ -55,7 +55,7 @@ const Header = ({locale} : {locale: string}) => {
           </SheetContent>
         </Sheet>
       ) : (
-        <ResponsiveNavigationMenu orientation={orientation} locale={locale} />
+        <ResponsiveNavigationMenu orientation={orientation} />
       )}
     </header>
   );

@@ -6,8 +6,8 @@ import { urlForImage } from "@app/config";
 import { H2, Title } from "@app/components";
 import { useMediaQuery } from "@app/hooks";
 import { IdeaPage } from "@app/types";
+import Link from "next/link";
 import { useRef } from "react";
-import { Link } from "@app/i18n/routing";
 
 interface HeaderSectionIdeaProps {
   title: IdeaPage["title"];

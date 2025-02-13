@@ -1,5 +1,5 @@
+import Link from "next/link";
 import { NSE_FB_URL, NSE_IG_URL } from "@app/constants";
-import { Link } from "@app/i18n/routing";
 import { IconBrandFacebook, IconBrandInstagram } from "@tabler/icons-react";
 
 const FooterSocials = () => {

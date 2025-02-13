@@ -13,7 +13,7 @@ import {
 } from "@app/components";
 import { HeaderSectionHome } from "@app/sections";
 import { IconExternalLink } from "@tabler/icons-react";
-import { Link } from "@app/i18n/routing";
+import Link from "next/link";
 
 async function getHomeData() {
   const query = `*[ _type == "home" ]`;

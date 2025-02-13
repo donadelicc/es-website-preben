@@ -11,7 +11,7 @@ import { Button, H6, SanityBlock } from "@app/components";
 import { Startup } from "@app/types";
 import { Avatar, AvatarImage } from "@app/components/Avatar";
 import { IconBrandLinkedin, IconMail, IconWorldWww } from "@tabler/icons-react";
-import { Link } from "@app/i18n/routing";
+import Link from "next/link";
 
 interface StartupDialogProps {
   startup: Startup;

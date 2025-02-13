@@ -10,10 +10,10 @@ import {
   DialogTrigger,
   H6,
 } from "@app/components";
+import Link from "next/link";
 import { IconBrandLinkedin } from "@tabler/icons-react";
 import { ScrollArea } from "@app/components/Dialogs/ScrollArea";
 import { splitTextIntoParagraphs } from "@app/util";
-import { Link } from "@app/i18n/routing";
 
 interface StudentDialogProps {
   student: Student;
