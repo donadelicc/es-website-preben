@@ -109,18 +109,7 @@ const home = {
       type: "object",
       fields: [
         { name: "title", title: "Title", type: "string" },
-        { name: "description", title: "Description", type: "text" },
-        {
-          name: "formFields",
-          title: "Form Fields",
-          type: "array",
-          of: [{ type: "string" }],
-        },
-        {
-          name: "submitText",
-          title: "Submit Button Text",
-          type: "string",
-        },
+        { name: "description", title: "Description", type: "text" }
       ],
     },
   ],

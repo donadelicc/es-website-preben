@@ -15,7 +15,7 @@ const InformationSection = ({ sections }: InformationSectionProps) => {
       <div className="w-10/12 md:w-3/5 mx-auto text-center">
         <Title>Mer enn en master</Title>
         <H2 className="text-gray-600 mt-2">
-          NTNU's Entreprenørskole skiller seg ut på mer enn én måte.
+          NTNUs Entreprenørskole skiller seg ut på mer enn én måte.
         </H2>
       </div>
 

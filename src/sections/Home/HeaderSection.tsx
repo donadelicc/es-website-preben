@@ -22,7 +22,6 @@ const HeaderSection = ({
   description,
   cta,
 }: HeaderSectionProps) => {
-  const isMd = useMediaQuery("(max-width: 768px)");
   const [imageHeight, setImageHeight] = useState<number>(400);
 
   return (
