@@ -12,3 +12,4 @@ export * from "./Home/InformationSection";
 export * from "./Home/SuccessStoriesSection";
 export * from "./Home/NewsSection";
 export * from "./Home/StatisticsSections";
+export * from "./Home/IdeaSection";

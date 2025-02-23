@@ -8,6 +8,7 @@ import {
   SuccessStoriesSection,
   NewsSection,
   StatisticsSection,
+  IdeaSection,
 } from "@app/sections";
 
 async function getHomeData() {
@@ -30,38 +31,18 @@ export default async function Home() {
         cta={content.cta}
       />
 
-      {/* ✅ Sponsor Section (New) */}
       <SponsorSection sponsors={content.partners} />
 
-      {/* ✅ Information Section (New) */}
       <InformationSection sections={content.sections} />
 
-      {/* ✅ Success Stories */}
       <SuccessStoriesSection successStories={content.successStories} />
 
-      {/* ✅ News Section */}
       <NewsSection news={content.news} />
 
-      {/* ✅ Statistics */}
       <StatisticsSection statistics={content.statistics} />
 
-      {/* ✅ Contact Form */}
-      <section className="my-6 w-10/12 md:w-3/5 mx-auto">
-        <Title>{content.contact.title}</Title>
-        <H2 className="mt-2">{content.contact.description}</H2>
-        <form className="flex flex-col mt-4">
-          {content.contact.formFields.map((field, index) => (
-            <input
-              key={index}
-              placeholder={field}
-              className="p-2 border border-gray-300 rounded mt-2"
-            />
-          ))}
-          <Button type="submit" className="mt-4">
-            {content.contact.submitText}
-          </Button>
-        </form>
-      </section>
+      <IdeaSection content={content} />
+
     </main>
   );
 }

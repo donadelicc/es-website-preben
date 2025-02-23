@@ -67,8 +67,7 @@ interface Statistic {
 interface ContactSection {
   title: string;
   description: string;
-  formFields: string[];
-  submitText: string;
+  image: Image;
 }
 
 /** ✅ Updated HomePage Type to Match `home.ts` Schema */
@@ -83,8 +82,6 @@ export interface HomePage extends SanityMeta {
   news: NewsItem[];
   statistics: Statistic[];
   contact: ContactSection;
-  some: string[]; // Instagram links
-  video: string;
 }
 
 export interface AboutPage extends SanityMeta {
