@@ -26,13 +26,65 @@ export interface Block {
   level?: number;
 }
 
+/** ✅ New Call to Action Type */
+interface CallToAction {
+  text: string;
+  link: string;
+}
+
+/** ✅ New Partner Logos Type */
+type PartnerLogo = Image;
+
+/** ✅ New Section Type */
+interface Section {
+  title: string;
+  description: string;
+}
+
+/** ✅ New Success Story Type */
+interface SuccessStory {
+  name: string;
+  position: string;
+  story: string;
+  image: Image;
+}
+
+/** ✅ New News & Publications Type */
+interface NewsItem {
+  title: string;
+  date: string;
+  description: string;
+  link: string;
+}
+
+/** ✅ New Statistics Type */
+interface Statistic {
+  value: string;
+  description: string;
+}
+
+/** ✅ New Contact Section Type */
+interface ContactSection {
+  title: string;
+  description: string;
+  formFields: string[];
+  submitText: string;
+}
+
+/** ✅ Updated HomePage Type to Match `home.ts` Schema */
 export interface HomePage extends SanityMeta {
   title: string;
-  some: string[];
   description: string;
-  video: string;
-  quote: Quote;
   image: Image;
+  cta: CallToAction;
+  partners: PartnerLogo[];
+  sections: Section[];
+  successStories: SuccessStory[];
+  news: NewsItem[];
+  statistics: Statistic[];
+  contact: ContactSection;
+  some: string[]; // Instagram links
+  video: string;
 }
 
 export interface AboutPage extends SanityMeta {
@@ -114,11 +166,11 @@ export interface FacultyMember extends SortableItem {
   sortOrder: number;
 }
 
-export interface Notification extends SanityMeta {
-  content: Block[];
-  link: string;
-  title: string;
-}
+// export interface Notification extends SanityMeta {
+//   content: Block[];
+//   link: string;
+//   title: string;
+// }
 
 export interface Startup {
   name: string;
