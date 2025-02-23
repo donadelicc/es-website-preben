@@ -1,9 +1,9 @@
 import { client } from "@app/config";
-import { HomePage, Notification } from "@app/types";
+import { urlForImage } from "@app/config";
+import { HomePage } from "@app/types";
 import {
   Button,
   H2,
-  InstagramView,
   SanityBlock,
   Title,
   Card,
@@ -11,75 +11,62 @@ import {
   CardHeader,
   CardTitle,
 } from "@app/components";
-import { HeaderSectionHome } from "@app/sections";
-import { IconExternalLink } from "@tabler/icons-react";
+import {
+  HeaderSection,
+  InformationSection,
+  SponsorSection,
+  SuccessStoriesSection,
+  NewsSection,
+  StatisticsSection,
+} from "@app/sections";
 import Link from "next/link";
+import Image from "next/image";
 
 async function getHomeData() {
-  const query = `*[ _type == "home" ]`;
-  return client.fetch<HomePage[]>(query).then((res: HomePage[]) => res[0]);
-}
-
-async function getNotifications() {
-  const query = `*[ _type == 'notifications' ]`;
-  return client.fetch<Notification[]>(query).then((res) => res);
+  const query = `*[_type == "home"]`;
+  return client.fetch<HomePage[]>(query, {}, {cache: "no-store"}).then((res: HomePage[]) => res[0]);
 }
 
 export default async function Home() {
   const content = await getHomeData();
-  const notifications = await getNotifications();
 
   return (
     <main className="flex min-h-screen flex-col">
-      <HeaderSectionHome
+      {/* ✅ Updated Header Section with CTA */}
+      <HeaderSection
         title={content.title}
         description={content.description}
         image={content.image}
+        cta={content.cta}
       />
-      <section className="my-4 flex flex-col items-center">
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-10/12 md:w-3/5">
-          {notifications.map((notification) => (
-            <Card
-              key={notification.title}
-              className="bg-accent text-accent-foreground relative pb-8"
-            >
-              <CardHeader className="flex flex-row justify-between items-center">
-                <CardTitle>{notification.title}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <SanityBlock blocks={notification.content} />
-              </CardContent>
-              <Button
-                variant="outline"
-                className="absolute bottom-2 right-2"
-                asChild
-              >
-                <Link href={notification.link}>
-                  Gå til event
-                  <IconExternalLink size={18} className="ml-2" stroke={1} />
-                </Link>
-              </Button>
-            </Card>
+
+      {/* ✅ Sponsor Section (New) */}
+        <SponsorSection sponsors={content.partners} />
+
+      {/* ✅ Information Section (New) */}
+      <InformationSection sections={content.sections} />
+
+      {/* ✅ Success Stories */}
+      <SuccessStoriesSection successStories={content.successStories} />
+
+
+      {/* ✅ News Section */}
+      <NewsSection news={content.news} />
+
+      {/* ✅ Statistics */}
+      <StatisticsSection statistics={content.statistics} />
+
+
+      {/* ✅ Contact Form */}
+      <section className="my-6 w-10/12 md:w-3/5 mx-auto">
+        <Title>{content.contact.title}</Title>
+        <H2 className="mt-2">{content.contact.description}</H2>
+        <form className="flex flex-col mt-4">
+          {content.contact.formFields.map((field, index) => (
+            <input key={index} placeholder={field} className="p-2 border border-gray-300 rounded mt-2" />
           ))}
-        </div>
-      </section>
-      <section className="my-4 flex flex-col items-center">
-        <div className="w-10/12 md:w-1/2 text-center text-accent">
-          <Title>{content.quote.quote}</Title>
-          <H2 className="mt-2 text-accent">{content.quote.author}</H2>
-        </div>
-      </section>
-      <section className="my-4 flex flex-col items-center">
-        <video
-          controls
-          className="w-4/5 md:w-3/5 aspect-video shadow-lg"
-          poster="/NSE.png"
-        >
-          <source src={content.video} type="video/mp4" />
-        </video>
-      </section>
-      <section className="my-4 flex md:flex-row justify-center items-center flex-col">
-        <InstagramView urls={content.some} />
+          <Button type="submit" className="mt-4">{content.contact.submitText}</Button>
+        </form>
       </section>
     </main>
   );
