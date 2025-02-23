@@ -1,29 +1,38 @@
 "use client";
-
 import { useState } from "react";
 import Image from "next/image";
 import { urlForImage } from "@app/config";
 import { HomePage } from "@app/types";
-import { Title, H2, Card, CardContent, CardHeader, CardTitle, Button } from "@app/components";
+import {
+  Title,
+  H2,
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  Button,
+} from "@app/components";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 interface SuccessStoriesSectionProps {
   successStories: HomePage["successStories"];
 }
 
-const SuccessStoriesSection = ({ successStories }: SuccessStoriesSectionProps) => {
+const SuccessStoriesSection = ({
+  successStories,
+}: SuccessStoriesSectionProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const displayedStories = successStories.slice(currentIndex, currentIndex + 2);
 
   const handleNext = () => {
-    setCurrentIndex((prev) => 
-      prev + 2 >= successStories.length ? 0 : prev + 2
+    setCurrentIndex((prev) =>
+      prev + 2 >= successStories.length ? 0 : prev + 2,
     );
   };
 
   const handlePrevious = () => {
-    setCurrentIndex((prev) => 
-      prev - 2 < 0 ? Math.floor((successStories.length - 1) / 2) * 2 : prev - 2
+    setCurrentIndex((prev) =>
+      prev - 2 < 0 ? Math.floor((successStories.length - 1) / 2) * 2 : prev - 2,
     );
   };
 
@@ -40,7 +49,7 @@ const SuccessStoriesSection = ({ successStories }: SuccessStoriesSectionProps) =
               size="icon"
               onClick={handlePrevious}
               className="rounded-full"
-              style={{ backgroundColor: '#f97316'}}
+              style={{ backgroundColor: "#f97316" }}
             >
               <FaChevronLeft className="h-4 w-4 text-white" />
             </Button>
@@ -49,7 +58,7 @@ const SuccessStoriesSection = ({ successStories }: SuccessStoriesSectionProps) =
               size="icon"
               onClick={handleNext}
               className="rounded-full hover:bg-gray-100"
-              style={{ backgroundColor: '#f97316' }}
+              style={{ backgroundColor: "#f97316" }}
             >
               <FaChevronRight className="h-4 w-4 text-white" />
             </Button>

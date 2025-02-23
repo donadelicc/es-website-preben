@@ -1,5 +1,5 @@
 import { HomePage } from "@app/types";
-import { Title, Card, CardContent, CardHeader, CardTitle, Button, SanityBlock } from "@app/components";
+import { Title } from "@app/components";
 import Link from "next/link";
 import { H2 } from "@app/components";
 
@@ -23,14 +23,18 @@ const NewsSection = ({ news }: NewsSectionProps) => {
             key={newsItem.title}
             className="bg-white [background-color:white] p-6 shadow-md rounded-lg text-left w-full sm:w-1/2 md:w-1/5 lg:w-1/5 flex flex-col min-h-[300px]"
           >
-            <p className="text-gray-400 text-sm mb-4 text-left">{newsItem.date}</p>
-            <H2 className="font-semibold text-lg text-left mb-4">{newsItem.title}</H2>
+            <p className="text-gray-400 text-sm mb-4 text-left">
+              {newsItem.date}
+            </p>
+            <H2 className="font-semibold text-lg text-left mb-4">
+              {newsItem.title}
+            </H2>
             <p className="text-gray-500 text-sm mt-2">{newsItem.description}</p>
-            
-            <Link 
-              href={newsItem.link} 
+
+            <Link
+              href={newsItem.link}
               className="text-sm font-semibold mt-auto pt-4 inline-block"
-              style={{ color: '#f97316', fontWeight: 'bold' }}
+              style={{ color: "#f97316", fontWeight: "bold" }}
             >
               Les mer
             </Link>

@@ -16,7 +16,12 @@ interface HeaderSectionProps {
   cta: HomePage["cta"];
 }
 
-const HeaderSection = ({ title, image, description, cta }: HeaderSectionProps) => {
+const HeaderSection = ({
+  title,
+  image,
+  description,
+  cta,
+}: HeaderSectionProps) => {
   const isMd = useMediaQuery("(max-width: 768px)");
   const [imageHeight, setImageHeight] = useState<number>(400);
 
@@ -31,7 +36,9 @@ const HeaderSection = ({ title, image, description, cta }: HeaderSectionProps) =
             width={500}
             height={400}
             className="rounded-lg shadow-md w-full"
-            onLoad={({ target }) => setImageHeight((target as HTMLImageElement).naturalHeight)}
+            onLoad={({ target }) =>
+              setImageHeight((target as HTMLImageElement).naturalHeight)
+            }
           />
         </div>
 
@@ -43,7 +50,12 @@ const HeaderSection = ({ title, image, description, cta }: HeaderSectionProps) =
           {/* ✅ CTA Button */}
           {cta && (
             <div className="mt-4 flex gap-2">
-              <Button variant="default" asChild size="lg" className="px-16 py-6 text-lg">
+              <Button
+                variant="default"
+                asChild
+                size="lg"
+                className="px-16 py-6 text-lg"
+              >
                 <Link href={cta.link}>{cta.text}</Link>
               </Button>
             </div>
