@@ -37,7 +37,7 @@ export default async function Home() {
 
       <SuccessStoriesSection successStories={content.successStories} />
 
-      <NewsSection news={content.news} />
+      {/* <NewsSection news={content.news} /> */}
 
       <StatisticsSection statistics={content.statistics} />
 
