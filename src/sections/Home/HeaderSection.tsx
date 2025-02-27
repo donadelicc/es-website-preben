@@ -4,7 +4,6 @@ import Image from "next/image";
 import { urlForImage } from "@app/config";
 import { Button, H2, Title } from "@app/components";
 import Link from "next/link";
-import { useMediaQuery } from "@app/hooks";
 import { HomePage } from "@app/types";
 import { HeaderSectionWrapper } from "@app/sections";
 import { useState } from "react";

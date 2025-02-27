@@ -1,6 +1,5 @@
 import { client } from "@app/config";
 import { HomePage } from "@app/types";
-import { Button, H2, Title } from "@app/components";
 import {
   HeaderSection,
   InformationSection,
@@ -42,7 +41,6 @@ export default async function Home() {
       <StatisticsSection statistics={content.statistics} />
 
       <IdeaSection content={content} />
-
     </main>
   );
 }

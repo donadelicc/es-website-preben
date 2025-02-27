@@ -12,7 +12,7 @@ stats ser litt dårlig utnpå mobil
 
 ide section ser dårlig ut - fjern bilde
 
-genrelt --> margin på hele nettsiden
+gerelt --> margin på hele nettsiden
 
 ----------------------------------
 

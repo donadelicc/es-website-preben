@@ -1,20 +1,22 @@
 import { Button, Title, H3 } from "@app/components";
-import { HomePage} from "@app/types";
+import { HomePage } from "@app/types";
 import { urlForImage } from "@app/config";
+import Image from "next/image";
 
 interface IdeaSectionProps {
-    content: HomePage;
+  content: HomePage;
 }
 
 const IdeaSection = ({ content }: IdeaSectionProps) => {
   const formFields = [
-    { id: 'name', type: 'text', label: 'Name' },
-    { id: 'email', type: 'email', label: 'Email' },
-    { id: 'jobTitle', type: 'text', label: 'Job Title' },
-    { id: 'message', type: 'textarea', label: 'Message', rows: 4 },
+    { name: "name", type: "text", label: "Name" },
+    { name: "email", type: "email", label: "Email" },
+    { name: "jobTitle", type: "text", label: "Job Title" },
+    { name: "message", type: "textarea", label: "Message" },
   ];
 
-  const inputClasses = "w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent";
+  const inputClasses =
+    "w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent";
   const labelClasses = "block text-gray-700 text-sm font-medium mb-1";
 
   return (
@@ -25,46 +27,48 @@ const IdeaSection = ({ content }: IdeaSectionProps) => {
             <Title>{content.contact.title}</Title>
             <H3 className="mt-4">{content.contact.description}</H3>
             {content.contact.image && (
-              <img
+              <Image
                 src={urlForImage(content.contact.image)}
                 alt="Contact section image"
                 className="mt-8 rounded-lg w-3/4 object-cover mx-auto block"
+                width={500}
+                height={500}
               />
             )}
           </div>
         </div>
-        
+
         <form
           className="md:w-1/2 flex flex-col gap-4 p-8 border border-gray-200 rounded-xl shadow-lg bg-white"
           action="mailto:your-email@example.com"
           method="post"
           encType="text/plain"
         >
-          {formFields.map(({ id, type, label, rows }) => (
-            <div key={id} className="flex flex-col">
-              <label className={labelClasses} htmlFor={id}>
+          {formFields.map(({ name, type, label }) => (
+            <div key={name} className="flex flex-col">
+              <label className={labelClasses} htmlFor={name}>
                 {label}
               </label>
-              {type === 'textarea' ? (
+              {type === "textarea" ? (
                 <textarea
-                  id={id}
-                  name={id}
+                  id={name}
+                  name={name}
                   className={inputClasses}
-                  rows={rows}
+                  rows={4}
                   required
                 />
               ) : (
                 <input
                   type={type}
-                  id={id}
-                  name={id}
+                  id={name}
+                  name={name}
                   className={inputClasses}
                   required
                 />
               )}
             </div>
           ))}
-          
+
           <Button type="submit" className="mt-2 mx-auto px-8">
             Submit
           </Button>
@@ -72,6 +76,6 @@ const IdeaSection = ({ content }: IdeaSectionProps) => {
       </div>
     </section>
   );
-}
+};
 
 export { IdeaSection };
