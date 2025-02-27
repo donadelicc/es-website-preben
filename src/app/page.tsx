@@ -15,7 +15,11 @@ export default async function Home() {
 
   try {
     const query = `*[_type == "home"]`;
-    const result = await client.fetch<HomePage[]>(query, {}, { cache: "no-store" });
+    const result = await client.fetch<HomePage[]>(
+      query,
+      {},
+      { cache: "no-store" },
+    );
 
     if (result && result.length > 0) {
       content = result[0];
