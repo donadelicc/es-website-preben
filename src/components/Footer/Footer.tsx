@@ -33,7 +33,6 @@ const Footer = () => {
     </svg>
   );
 
-
   return (
     <FullWidthContainer bgColor="bg-[#FFF5E6]">
       <footer className="bg-[#FFF5E6] px-6 py-10">
