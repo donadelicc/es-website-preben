@@ -5,7 +5,7 @@ import {
   InformationSection,
   SponsorSection,
   SuccessStoriesSection,
-  NewsSection,
+  // NewsSection,
   StatisticsSection,
   IdeaSection,
 } from "@app/sections";
