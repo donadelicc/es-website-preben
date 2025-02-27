@@ -7,7 +7,7 @@ export * from "./Idea/HeaderSectionIdea";
 export * from "./Program/CernSection";
 export * from "./Program/BostonSection";
 export * from "./Program/AlumniSection";
-export * from "./Home/SponsorSection";
+export * from "./Home/LogoSection";
 export * from "./Home/InformationSection";
 export * from "./Home/SuccessStoriesSection";
 export * from "./Home/NewsSection";

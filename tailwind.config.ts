@@ -13,11 +13,23 @@ const config = {
   theme: {
     container: {
       center: true,
-      padding: "2rem",
+      padding: {
+        DEFAULT: "4rem", // Increased from 2rem
+        sm: "4rem", // Increased from 2rem
+        md: "6rem", // Increased from 4rem
+        lg: "8rem", // Increased from 6rem
+        xl: "10rem", // Increased from 8rem
+        "2xl": "12rem", // Increased from 10rem
+      },
       screens: {
-        "2xl": "1400px",
+        sm: "640px",
+        md: "768px",
+        lg: "1024px",
+        xl: "1280px",
+        "2xl": "1536px", // Increase slightly for ultra-wide screens
       },
     },
+
     colors: {
       background: "#FFFFFF",
     },
@@ -66,6 +78,10 @@ const config = {
         sm: "calc(var(--radius) - 4px)",
       },
       keyframes: {
+        slide: {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-50%)" },
+        },
         "accordion-down": {
           from: { height: "0" },
           to: { height: "var(--radix-accordion-content-height)" },
@@ -78,6 +94,7 @@ const config = {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        slide: "slide 40s linear infinite",
       },
       fontFamily: {
         sans: ["var(--font-sans)", ...fontFamily.sans],

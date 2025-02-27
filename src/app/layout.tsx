@@ -4,7 +4,9 @@ import "./globals.css";
 import { Montserrat as FontSans } from "next/font/google";
 
 import { cn } from "@app/lib";
-import { Footer, Header } from "@app/components";
+import { Container } from "@app/components";
+import { Navbar } from "@app/components/Navbar";
+import { Footer } from "@app/components/Footer";
 import { Analytics } from "@vercel/analytics/react";
 
 const fontSans = FontSans({
@@ -33,10 +35,10 @@ export default function RootLayout({
           fontSans.variable,
         )}
       >
-        <Header />
-        {children}
-        <Analytics />
+        <Navbar />
+        <Container>{children}</Container>
         <Footer />
+        <Analytics />
       </body>
     </html>
   );

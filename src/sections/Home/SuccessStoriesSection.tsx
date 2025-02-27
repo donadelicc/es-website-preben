@@ -37,12 +37,12 @@ const SuccessStoriesSection = ({
   };
 
   return (
-    <section className="my-6 w-10/12 md:w-3/5 mx-auto">
-      <div className="flex items-center justify-between mb-8">
+    <section className="my-6 w-10/12 md:w-[95%] mx-auto mb-32 mt-24">
+      <div className="flex items-center justify-between mb-16">
         <div className="w-full text-center">
           <Title>Suksesshistorier</Title>
         </div>
-        {successStories.length > 2 && (
+        {successStories.length > 3 && (
           <div className="flex gap-2">
             <Button
               variant="ghost"
@@ -65,24 +65,27 @@ const SuccessStoriesSection = ({
           </div>
         )}
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
+      <div className="flex flex-wrap justify-center gap-16 mt-8">
         {displayedStories.map((story) => (
-          <Card key={story.name} className="p-6 bg-white shadow-lg rounded-lg">
+          <Card
+            key={story.name}
+            className="p-8 bg-white shadow-lg rounded-lg w-full sm:w-[calc(90%-32px)] lg:w-[calc(60%-32px)] xl:w-[calc(40%-32px)]"
+          >
             <div className="flex items-center gap-4">
               <Image
                 src={urlForImage(story.image)}
                 alt={story.name}
-                width={80}
-                height={80}
+                width={60}
+                height={60}
                 className="rounded-full border-2 border-gray-100 shadow-sm"
               />
               <CardHeader className="p-0">
-                <CardTitle>{story.name}</CardTitle>
+                <CardTitle className="text-lg">{story.name}</CardTitle>
                 <H2 className="text-sm">{story.position}</H2>
               </CardHeader>
             </div>
             <CardContent className="mt-4">
-              <p>{story.story}</p>
+              <p className="text-base">{story.story}</p>
             </CardContent>
           </Card>
         ))}

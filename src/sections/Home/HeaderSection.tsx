@@ -25,15 +25,15 @@ const HeaderSection = ({
 
   return (
     <HeaderSectionWrapper minHeight={imageHeight}>
-      <div className="w-10/12 md:w-4/5 flex flex-col md:flex-row justify-between items-center mx-auto my-16">
+      <div className="w-full flex flex-col md:flex-row justify-between items-center mx-auto mt-2 mb-8">
         {/* ✅ Hero Image - Moved to top for mobile */}
-        <div className="w-full md:w-1/2 mb-8 md:mb-0 md:order-2">
+        <div className="w-full md:w-1/2 mb-8 md:mb-0 md:order-2 md:ml-12">
           <Image
             src={urlForImage(image)}
             alt="Hero Image"
             width={500}
             height={400}
-            className="rounded-lg shadow-md w-full"
+            className="rounded-lg w-full"
             onLoad={({ target }) =>
               setImageHeight((target as HTMLImageElement).naturalHeight)
             }
@@ -43,16 +43,22 @@ const HeaderSection = ({
         {/* ✅ Text Content */}
         <div className="w-full md:w-1/2 text-left md:order-1">
           <Title className="text-secondary">{title}</Title>
-          <H2 className="mt-2 text-lg md:text-xl">{description}</H2>
+          <H2 className="mt-2 text-base md:text-lg text-gray-600">
+            {description}
+          </H2>
 
           {/* ✅ CTA Button */}
           {cta && (
-            <div className="mt-4 flex gap-2">
+            <div className="mt-6 flex gap-2">
               <Button
                 variant="default"
                 asChild
                 size="lg"
                 className="px-16 py-6 text-lg"
+                style={{
+                  backgroundColor: "#f97316",
+                  color: "#ffffff",
+                }}
               >
                 <Link href={cta.link}>{cta.text}</Link>
               </Button>

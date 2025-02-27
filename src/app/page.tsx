@@ -3,7 +3,7 @@ import { HomePage } from "@app/types";
 import {
   HeaderSection,
   InformationSection,
-  SponsorSection,
+  LogoSection,
   SuccessStoriesSection,
   // NewsSection,
   StatisticsSection,
@@ -48,7 +48,7 @@ export default async function Home() {
         cta={content.cta || null}
       />
 
-      <SponsorSection sponsors={content.partners || []} />
+      <LogoSection />
 
       <InformationSection sections={content.sections || []} />
 
