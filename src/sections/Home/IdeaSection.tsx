@@ -1,7 +1,5 @@
 import { Button, Title, H3 } from "@app/components";
 import { HomePage } from "@app/types";
-import { urlForImage } from "@app/config";
-import Image from "next/image";
 
 interface IdeaSectionProps {
   content: HomePage;
@@ -28,7 +26,7 @@ const IdeaSection = ({ content }: IdeaSectionProps) => {
   return (
     <section className="my-12 w-full md:w-11/12 mx-auto">
       <div className="flex flex-col md:flex-row gap-12 items-start">
-        <div className="md:w-1/2 relative">
+        <div className="w-full md:w-1/2 relative">
           <div className="sticky top-24 flex flex-col">
             <Title>{content.contact.title}</Title>
             {splitTextIntoSentences(content.contact.description).map(
@@ -38,31 +36,31 @@ const IdeaSection = ({ content }: IdeaSectionProps) => {
                 </H3>
               ),
             )}
-            <div className="flex justify-center mt-8 relative">
-              <svg
-                width="200"
-                height="150"
-                viewBox="0 0 80 60"
+          </div>
+          <div className="flex justify-center mt-8 relative hidden md:block">
+            <svg
+              width="160"
+              height="120"
+              viewBox="0 0 80 60"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              className="text-[#FF5F15] absolute"
+            >
+              <path
+                d="M5 5 Q 40 45 75 25 L 65 35 M 75 25 L 65 15"
+                stroke="currentColor"
+                strokeWidth="3"
+                strokeLinecap="round"
+                strokeLinejoin="round"
                 fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                className="text-[#FF5F15] absolute"
-              >
-                <path
-                  d="M5 5 Q 40 45 75 25 L 65 35 M 75 25 L 65 15"
-                  stroke="currentColor"
-                  strokeWidth="3"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  fill="none"
-                />
-              </svg>
-            </div>
+              />
+            </svg>
           </div>
         </div>
 
         <form
-          className="md:w-1/2 flex flex-col gap-4 p-8 border border-gray-200 rounded-xl shadow-lg bg-white"
-          action="mailto:your-email@example.com"
+          className="w-full flex flex-col gap-4 p-8 border border-gray-200 rounded-xl shadow-lg bg-white"
+          action="mailto:besart.olluri@ntnu.no"
           method="post"
           encType="text/plain"
         >
