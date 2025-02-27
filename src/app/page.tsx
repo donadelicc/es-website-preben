@@ -10,35 +10,49 @@ import {
   IdeaSection,
 } from "@app/sections";
 
-async function getHomeData() {
-  const query = `*[_type == "home"]`;
-  return client
-    .fetch<HomePage[]>(query, {}, { cache: "no-store" })
-    .then((res: HomePage[]) => res[0]);
-}
-
 export default async function Home() {
-  const content = await getHomeData();
+  let content: HomePage | null = null;
+
+  try {
+    const query = `*[_type == "home"]`;
+    const result = await client.fetch<HomePage[]>(query, {}, { cache: "no-store" });
+
+    if (result && result.length > 0) {
+      content = result[0];
+    }
+  } catch (error) {
+    console.error("Sanity fetch error:", error);
+  }
+
+  // ✅ Show a fallback UI if content is missing
+  if (!content) {
+    return (
+      <main className="flex min-h-screen flex-col items-center justify-center">
+        <h1 className="text-2xl font-bold">Something went wrong.</h1>
+        <p>Please try again later.</p>
+      </main>
+    );
+  }
 
   return (
     <main className="flex min-h-screen flex-col">
       {/* ✅ Updated Header Section with CTA */}
       <HeaderSection
-        title={content.title}
-        description={content.description}
-        image={content.image}
-        cta={content.cta}
+        title={content.title || "Welcome"}
+        description={content.description || "No description available"}
+        image={content.image || null}
+        cta={content.cta || null}
       />
 
-      <SponsorSection sponsors={content.partners} />
+      <SponsorSection sponsors={content.partners || []} />
 
-      <InformationSection sections={content.sections} />
+      <InformationSection sections={content.sections || []} />
 
-      <SuccessStoriesSection successStories={content.successStories} />
+      <SuccessStoriesSection successStories={content.successStories || []} />
 
-      {/* <NewsSection news={content.news} /> */}
+      {/* <NewsSection news={content.news || []} /> */}
 
-      <StatisticsSection statistics={content.statistics} />
+      <StatisticsSection statistics={content.statistics || []} />
 
       <IdeaSection content={content} />
     </main>
