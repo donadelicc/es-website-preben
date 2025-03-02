@@ -14,8 +14,6 @@ const LogoSection = () => {
     ...(alumniStartups || []),
   ].filter(Boolean); // Remove any undefined/null values
 
-  console.log("All startups:", allStartups);
-
   if (!allStartups.length) {
     return null;
   }

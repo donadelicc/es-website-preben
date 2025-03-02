@@ -124,29 +124,32 @@ export interface ApplyPage extends SanityMeta {
 }
 
 interface Course {
+  courseCode: string;
   title: string;
+  credits: string;
   url: string;
 }
 
 interface Semester {
   title: string;
-  description: Block[];
+  topic: string;
   courses: Course[];
 }
-export interface ProgramStructurePage extends SanityMeta {
-  quote: Quote;
-  semesters: Semester[];
+
+interface BostonInfo {
   title: string;
-  content: Block[];
+  topic: string;
+  text: string;
+  url: string;
 }
 
-export interface CernAndBostonPage extends SanityMeta {
-  video: string;
-  cernImage: Image;
-  cernContent: Block[];
-  bostonContent: Block[];
+export interface ProgramStructurePage extends SanityMeta {
   title: string;
-  bostonImage: Image;
+  topic: string;
+  intro: string;
+  readMoreLink: string;
+  semesters: Semester[];
+  bostonInfo: BostonInfo;
 }
 
 export interface AlumniOrganizationPage extends SanityMeta {
@@ -162,12 +165,6 @@ export interface FacultyMember extends SortableItem {
   bio: Block[];
   sortOrder: number;
 }
-
-// export interface Notification extends SanityMeta {
-//   content: Block[];
-//   link: string;
-//   title: string;
-// }
 
 export interface Startup {
   name: string;
@@ -187,14 +184,4 @@ export interface Student {
   current: boolean;
   image: Image;
   year: number;
-}
-
-export interface IdeaPage extends SanityMeta {
-  title: string;
-  image: Image;
-  contentp1: Block[];
-  video: string;
-  commercializations: string[];
-  contentp2: Block[];
-  contact: ContactPerson;
 }

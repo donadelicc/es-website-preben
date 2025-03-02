@@ -53,7 +53,7 @@ const Footer = () => {
                       href={link.href}
                       className={`${
                         link.isButton
-                          ? "bg-[#FF5F15] text-white px-4 py-2 rounded-md hover:bg-orange-600"
+                          ? "bg-[#FF5F15] text-white px-4 py-2 rounded-md hover:bg-orange-600 text-white"
                           : "text-gray-600 hover:text-gray-900"
                       }`}
                     >

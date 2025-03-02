@@ -14,17 +14,17 @@ const InformationSection = ({ sections }: InformationSectionProps) => {
     <FullWidthContainer bgColor="bg-[#FFF5E6]">
       <section className="w-full py-24 my-16">
         <div className="w-11/12 md:w-4/5 lg:w-3/4 mx-auto text-center">
-          <Title>Mer enn en master</Title>
-          <H2 className="text-gray-600 mt-2">
+          <Title className="text-2xl sm:text-3xl">Mer enn en master</Title>
+          <H2 className="text-gray-600 mt-2 sm:text-xl">
             NTNUs Entreprenørskole skiller seg ut på mer enn én måte.
           </H2>
         </div>
 
-        <div className="mt-16 flex flex-wrap justify-center gap-8 w-11/12 lg:w-[98%] mx-auto">
+        <div className="mt-16 flex flex-wrap justify-center gap-24 w-11/12 lg:w-[98%] mx-auto">
           {sections.map((section, index) => (
             <div
               key={index}
-              className="bg-white [background-color:white] p-8 shadow-md rounded-lg text-left w-full sm:w-[calc(50%-16px)] lg:w-[calc(25%-24px)] flex flex-col min-h-[280px]"
+              className="bg-white p-8 shadow-md rounded-lg text-left w-full sm:w-[90%] lg:w-[calc(30%-24px)] flex flex-col min-h-[280px]"
             >
               <div className="flex justify-start mb-6">
                 {React.createElement(icons[index % icons.length], {
