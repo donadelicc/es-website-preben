@@ -9,31 +9,50 @@ const apply = {
       type: "string",
     },
     {
-      name: "image",
-      title: "Image",
-      type: "image",
-    },
-    {
-      name: "content",
-      title: "Content",
+      name: "subsections",
+      title: "Subsections",
       type: "array",
-      of: [{ type: "block" }],
+      of: [
+        {
+          type: "object",
+          fields: [
+            {
+              name: "title",
+              title: "Title",
+              type: "string",
+            },
+            {
+              name: "content",
+              title: "Content",
+              type: "array",
+              of: [{ type: "block" }],
+            },
+          ],
+        },
+      ],
     },
     {
-      name: "information",
-      title: "Upcoming information",
+      name: "FAQ",
+      title: "FAQ",
       type: "array",
-      of: [{ type: "info" }],
-    },
-    {
-      name: "video",
-      title: "Video URL",
-      type: "url",
-    },
-    {
-      name: "video_mobile",
-      title: "Video URL (Mobile)",
-      type: "url",
+      of: [
+      {
+        type: "object",
+        fields: [
+          {
+            name: "title",
+            title: "Title",
+            type: "string",
+          },
+          {
+            name: "content",
+            title: "Content",
+            type: "array",
+            of: [{ type: "block" }],
+          },
+          ],
+        },
+      ],
     },
   ],
 };

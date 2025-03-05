@@ -81,7 +81,7 @@ export default function ProgramPage({ program }: ProgramPageProps) {
                   <p className="text-gray-600">{course.title}</p>
                 </div>
               ))}
-            </div>
+              </div>
             {index === 1 && (
               <div className="mt-2 p-4 shadow-md rounded-lg w-full md:w-1/5">
                 <h2 className="text-xl font-bold mb-6 text-center"

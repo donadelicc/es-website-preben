@@ -114,13 +114,20 @@ interface EventInformationApply {
   link?: string;
 }
 
-export interface ApplyPage extends SanityMeta {
-  video: string;
-  image: Image;
-  information: EventInformationApply[];
-  video_mobile: string;
+interface Subsection {
   title: string;
   content: Block[];
+}
+
+interface FAQItem {
+  title: string;
+  content: Block[];
+}
+
+export interface ApplyPage extends SanityMeta {
+  title: string;
+  subsections: Subsection[];
+  FAQ: FAQItem[];
 }
 
 interface Course {
