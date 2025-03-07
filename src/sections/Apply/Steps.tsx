@@ -32,9 +32,12 @@ interface StepsSectionProps {
               <p className="text-gray-600 mb-2">{item.text}</p>
               <a 
                 href={item.url}
-                className="text-orange-500 hover:text-orange-600 font-medium"
+                className="font-medium hover:underline"
                 target="_blank"
                 rel="noopener noreferrer"
+                style={{
+                  color: '#f97316',
+                }}
               >
                 Les mer
               </a>

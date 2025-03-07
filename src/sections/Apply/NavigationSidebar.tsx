@@ -12,9 +12,8 @@ const sections: Section[] = [
   { id: 'first-step', title: 'Første steg' },
   { id: 'application-process', title: 'Søknadsprosessen' },
   { id: 'application-content', title: 'Søknadens innhold' },
-  { id: 'what-you-need', title: 'Slik søker du' },
+  { id: 'how-to-apply', title: 'Slik søker du' },
   { id: 'faq', title: 'FAQ' },
-  { id: 'questions', title: 'Noe uklart?' },
 ];
 
 export function NavigationSidebar() {
@@ -43,22 +42,45 @@ export function NavigationSidebar() {
   }, []);
 
   return (
-    <nav className="fixed left-0 top-1/4 ml-8 hidden lg:block">
-      <div className="space-y-4">
-        {sections.map((section) => (
-          <div key={section.id} className="flex items-center">
+    <nav className="sticky top-24 h-fit w-64">
+      <div className="relative space-y-8">
+        {/* Vertical line that spans all sections */}
+        <div className="absolute left-[3px] top-0 bottom-0 w-[2px] bg-gray-200" />
+        
+        {sections.map((section, index) => (
+          <div key={section.id} className="relative flex items-center">
+            {/* Circle indicator */}
             <div
-              className={`w-1 h-8 mr-4 rounded ${
-                activeSection === section.id ? 'bg-orange-500' : 'bg-gray-200'
+              className={`z-10 w-2 h-2 rounded-full mr-4 ${
+                activeSection === section.id ? '' : 'bg-gray-300'
               }`}
+              style={{
+                backgroundColor: activeSection === section.id ? '#f97316' : undefined
+              }}
             />
+            
+            {/* Active section vertical line */}
+            {activeSection === section.id && (
+              <div 
+                className="absolute left-[3px] w-[2px]"
+                style={{
+                  backgroundColor: '#f97316',
+                  top: index === 0 ? '0' : '-16px', // Adjust based on space-y-4
+                  bottom: index === sections.length - 1 ? '0' : '-16px',
+                }}
+              />
+            )}
+            
             <Link
               href={`#${section.id}`}
-              className={`text-sm hover:text-orange-500 transition-colors ${
+              className={`text-sm transition-colors ${
                 activeSection === section.id
-                  ? 'text-orange-500 font-medium'
+                  ? 'font-medium'
                   : 'text-gray-600'
               }`}
+              style={{
+                color: activeSection === section.id ? '#f97316' : undefined
+              }}
             >
               {section.title}
             </Link>
