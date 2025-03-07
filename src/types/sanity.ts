@@ -114,10 +114,61 @@ interface EventInformationApply {
   link?: string;
 }
 
-interface Subsection {
+interface TimelineItem {
+  date: string;
+  title: string;
+  description: Block[];
+}
+
+interface InformationBox {
+  title: string;
+  text: string;
+}
+
+interface Step {
+  title: string;
+  text: string;
+}
+
+interface OutroTextItem {
+  title: string;
+  text: string;
+  url: string;
+}
+
+export interface SanityBase {
+  _type: string;
+  _key: string;
+}
+
+export interface IntroSection extends SanityBase {
+  _type: "introSection";
   title: string;
   content: Block[];
 }
+
+export interface ProcessSection extends SanityBase {
+  _type: "processSection";
+  title: string;
+  introText: Block[];
+  timeline: TimelineItem[];
+}
+
+export interface ContentSection extends SanityBase {
+  _type: "contentSection";
+  title: string;
+  introText: Block[];
+  informationBoxes: InformationBox[];
+}
+
+export interface StepsSection extends SanityBase {
+  _type: "stepsSection";
+  title: string;
+  steps: Step[];
+  outroText: OutroTextItem[];
+}
+
+type Subsection = IntroSection | ProcessSection | ContentSection | StepsSection;
 
 interface FAQItem {
   title: string;
@@ -150,6 +201,13 @@ interface BostonInfo {
   url: string;
 }
 
+interface ProgramProgression {
+  title: string;
+  section: {
+    title: string;
+    text: string;
+  }[];
+}
 export interface ProgramStructurePage extends SanityMeta {
   title: string;
   topic: string;
@@ -157,6 +215,7 @@ export interface ProgramStructurePage extends SanityMeta {
   readMoreLink: string;
   semesters: Semester[];
   bostonInfo: BostonInfo;
+  programProgression: ProgramProgression;
 }
 
 export interface AlumniOrganizationPage extends SanityMeta {

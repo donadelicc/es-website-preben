@@ -9,11 +9,11 @@ import {
 interface FAQSectionProps {
   faqs: {
     title: string;
-    content: any[];
+    content: any[]; // or Block[] if you import the Block type
   }[];
 }
 
-export function FAQSection({ faqs }: FAQSectionProps) {
+export function FAQ({ faqs }: FAQSectionProps) {
   return (
     <div className="w-full">
       <h2 className="text-2xl font-semibold mb-6">Frequently Asked Questions</h2>

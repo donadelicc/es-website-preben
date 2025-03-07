@@ -99,6 +99,41 @@ const programStructure = {
         },
       ],
     },
+
+    {
+      name: "programProgression",
+      title: "Program Progression",
+      type: "object",
+      fields: [
+        {
+          name: "title",
+          title: "Title",
+          type: "string",
+        },
+        {
+          name: "section",
+          title: "Section",
+          type: "array",
+          of: [
+            {
+              type: "object",
+              fields: [
+                {
+                  name: "title",
+                  title: "Title",
+                  type: "string",
+                },
+                {
+                  name: "text",
+                  title: "Text",
+                  type: "text",
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    },
   ],
 };
 
