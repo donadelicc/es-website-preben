@@ -1,4 +1,4 @@
-import { SanityBlock } from "@app/components";
+import { SanityBlock, H3 } from "@app/components";
 
 interface IntroSectionProps {
   title: string;
@@ -8,7 +8,7 @@ interface IntroSectionProps {
 export function Intro({ title, content }: IntroSectionProps) {
   return (
     <div className="w-full">
-      <h2 className="text-2xl font-semibold mb-4">{title}</h2>
+      <H3 className="text-2xl font-semibold mb-4">{title}</H3>
       <div className="prose max-w-none">
         <SanityBlock blocks={content} />
       </div>

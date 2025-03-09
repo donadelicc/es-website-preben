@@ -1,3 +1,6 @@
+import { H3 } from "@app/components";
+import { PRIMARY_ORANGE } from "@app/constants/colors";
+
 interface StepsSectionProps {
     title: string;
     steps: {
@@ -14,12 +17,12 @@ interface StepsSectionProps {
   export function Steps({ title, steps, outroText }: StepsSectionProps) {
     return (
       <div className="w-full">
-        <h2 className="text-2xl font-semibold mb-4">{title}</h2>
+        <H3 className="text-2xl font-semibold mb-4">{title}</H3>
         
         <div className="space-y-6">
           {steps.map((step, index) => (
             <div key={index} className="bg-white p-6 rounded-lg shadow-sm">
-              <h3 className="font-medium text-lg mb-2">{step.title}</h3>
+              <H3 className="font-medium text-lg mb-2">{step.title}</H3>
               <p className="text-gray-600">{step.text}</p>
             </div>
           ))}
@@ -28,7 +31,7 @@ interface StepsSectionProps {
         <div className="mt-8 space-y-4">
           {outroText.map((item, index) => (
             <div key={index}>
-              <h3 className="font-medium text-lg">{item.title}</h3>
+              <H3 className="font-medium text-lg">{item.title}</H3>
               <p className="text-gray-600 mb-2">{item.text}</p>
               <a 
                 href={item.url}
@@ -36,7 +39,7 @@ interface StepsSectionProps {
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
-                  color: '#f97316',
+                  color: PRIMARY_ORANGE,
                 }}
               >
                 Les mer

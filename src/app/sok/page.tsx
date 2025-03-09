@@ -5,7 +5,7 @@ import { Steps } from "../../sections/Apply/Steps";
 import { NavigationSidebar } from "../../sections/Apply/NavigationSidebar";
 import { FAQ } from "../../sections/Apply/FAQ";
 import { getData } from "./get_data";
-
+import { H1 } from "@app/components/Typography";
 export default async function Apply() {
   const content = await getData();
   
@@ -16,11 +16,8 @@ export default async function Apply() {
         <div className="w-64"></div>
         
         {/* Title aligned with main content */}
-        <h1 className="text-5xl font-bold mb-24"
-        style={{
-          color: '#f97316',
-        }}
-        >{content.title}</h1>
+        <H1 className="text-5xl font-bold mb-24"
+        >{content.title}</H1>
       </div>
 
       <div className="flex gap-8">

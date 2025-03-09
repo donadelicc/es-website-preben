@@ -38,7 +38,6 @@ export async function getData() {
       {},
       { cache: "no-store" }
     );
-    console.log('Fetched data:', result);
     return result;
   } catch (error) {
     console.error('Error fetching program data:', error);

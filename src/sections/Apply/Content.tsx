@@ -1,7 +1,7 @@
 import React from 'react';
-import { SanityBlock } from "@app/components";
+import { SanityBlock, H3 } from "@app/components";
 import { IconFileText, IconKey, IconChartBar, IconFiles } from "@tabler/icons-react";
-
+import { PRIMARY_ORANGE } from "@app/constants/colors";
 const icons = [IconFileText, IconKey, IconChartBar, IconFiles];
 
 interface ContentSectionProps {
@@ -16,7 +16,7 @@ interface ContentSectionProps {
 export function Content({ title, introText, informationBoxes }: ContentSectionProps) {
   return (
     <div className="w-full">
-      <h2 className="text-2xl font-semibold mb-4">{title}</h2>
+      <H3 className="text-2xl font-semibold mb-4">{title}</H3>
       <div className="prose max-w-none mb-8">
         <SanityBlock blocks={introText} />
       </div>
@@ -30,10 +30,10 @@ export function Content({ title, introText, informationBoxes }: ContentSectionPr
             <div className="flex justify-start mb-6">
               {React.createElement(icons[index % icons.length], {
                 size: 48,
-                style: { color: "#f97316" },
+                style: { color: PRIMARY_ORANGE },
               })}
             </div>
-            <h3 className="font-semibold text-lg">{item.title}</h3>
+            <H3 className="font-semibold text-lg">{item.title}</H3>
             <p className="text-gray-500 mt-4 text-base">{item.text}</p>
           </div>
         ))}
