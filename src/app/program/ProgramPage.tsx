@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { ProgramStructurePage } from "@app/types";
 import { Button } from "@app/components";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { PRIMARY_ORANGE, PRIMARY_BLUE } from "@app/constants/colors";
 
 interface ProgramPageProps {
   program: ProgramStructurePage;
@@ -48,11 +49,24 @@ export default function ProgramPage({ program }: ProgramPageProps) {
     );
   };
 
+  const [expandedSemester, setExpandedSemester] = useState<number | null>(null);
+
+  const toggleSemester = (index: number) => {
+    setExpandedSemester(expandedSemester === index ? null : index);
+  };
+
   return (
     <main className="flex flex-col items-center bg-gray-100 p-8">
-      <h1 className="text-6xl font-bold mb-8" style={{ color: "#f97316" }}>
-        {program.title || 'Program'}
-      </h1>
+
+      <header className="w-full flex justify-center py-16">
+        <h1 className="text-6xl font-bold" style={{ color: PRIMARY_ORANGE }}>
+          {program.title || 'Program'}
+        </h1>
+      </header>
+
+      <h2 className="text-4xl font-bold mb-8" style={{ color: PRIMARY_BLUE }}>
+        {program.introTitle || 'Introduction'}
+      </h2>
       
       {program.intro && (
         <div className="max-w-3xl text-gray-800 leading-relaxed w-full mb-8">
@@ -72,87 +86,91 @@ export default function ProgramPage({ program }: ProgramPageProps) {
         </div>
       )}
 
-      <div className="flex justify-center gap-4 flex-nowrap w-full">
+      <div className="w-full max-w-3xl">
         {(program.semesters || []).map((semester, index) => (
-          <React.Fragment key={index}>
-            <div className="bg-white p-4 shadow-md rounded-lg w-full md:w-1/5">
-              <h2 className="text-xl font-bold mb-4 bg-orange-500 text-white p-2 rounded text-center"
-              style={{
-                color: "#f97316",
-              }}
+          <div key={index} className="mb-4">
+            {/* Combined container with border */}
+            <div className="bg-white shadow-md rounded-lg border border-gray-200">
+              {/* Semester Header - remove individual border/shadow */}
+              <div 
+                className="p-4 cursor-pointer flex justify-between items-center"
+                onClick={() => toggleSemester(index)}
               >
-                {semester.title}
-              </h2>
-              <div className="h-[100px] flex items-center justify-center mb-8"
-               style={{
-                backgroundColor: "#f97316",
-                color: "white",
-                padding: "10px",
-                borderRadius: "5px",
-              }}>
-                <p className="text-gray-700 text-center bg-orange-500 text-white p-2 rounded w-full">
-                  {semester.topic}
-                </p>
-              </div>
-              {semester.courses.map((course, idx) => (
-                <div key={idx} className="mb-4">
-                  <div className="flex items-center mb-1">
-                    {course.credits && (
-                      <span
-                        className="border border-orange-500 text-orange-500 px-1 py-0.5 rounded mr-1"
-                        style={{
-                          color: "#f97316",
-                          borderColor: "#f97316",
-                        }}
-                      >
-                        {course.credits} SP
-                      </span>
-                    )}
-                    <span className="font-semibold ml-2">{course.courseCode}</span>
-                  </div>
-                  <p className="text-gray-600">{course.title}</p>
+                <h2 className="text-xl font-medium" style={{ color: PRIMARY_BLUE }}>
+                  {semester.title}
+                </h2>
+                <div style={{ color: PRIMARY_ORANGE }}>
+                  {expandedSemester === index ? '−' : '+'}
                 </div>
-              ))}
               </div>
-            {index === 1 && (
-              <div className="mt-2 p-4 shadow-md rounded-lg w-full md:w-1/5">
-                <h2 className="text-xl font-bold mb-6 text-center"
-                style={{
-                  color: "#f97316",
-                }}
-                >Boston</h2>
-                <div className="h-[100px] flex items-center justify-center"
-                style={{
-                  backgroundColor: "#f97316",
-                  color: "white",
-                  padding: "10px",
-                  borderRadius: "5px",
-                }}>
-                  <p className="text-center bg-orange-500 text-white p-2 rounded w-full">
-                    {program.bostonInfo.topic}
-                  </p>
+
+              {/* Semester Content - now part of the same container */}
+              {expandedSemester === index && (
+                <div className="px-4 pb-4 space-y-4 border-t border-gray-200">
+                  {semester.courses.map((course, idx) => (
+                    <div key={idx} className="flex items-start space-x-4 pt-4">
+                      {/* Credits Box */}
+                      <div className="min-w-[48px] text-center">
+                        <span
+                          className="inline-block px-2 py-1 text-sm border rounded-md"
+                          style={{
+                            color: PRIMARY_ORANGE,
+                            borderColor: PRIMARY_ORANGE,
+                          }}
+                        >
+                          {course.credits}SP
+                        </span>
+                      </div>
+                      
+                      {/* Course Info */}
+                      <div>
+                        <div className="font-medium text-gray-900">{course.courseCode}</div>
+                        <div className="text-gray-600">{course.title}</div>
+                      </div>
+                    </div>
+                  ))}
                 </div>
-                <p className="mb-8 mt-8">{program.bostonInfo.text}</p>
+              )}
+            </div>
+          </div>
+        ))}
+
+        {/* Boston Section */}
+        <div className="mt-4">
+          <div className="bg-white shadow-md rounded-lg border border-gray-200">
+            {/* Header */}
+            <div 
+              className="p-4 cursor-pointer flex justify-between items-center"
+              onClick={() => setExpandedSemester(expandedSemester === -1 ? null : -1)}
+            >
+              <h2 className="text-xl font-medium" style={{ color: PRIMARY_BLUE }}>Sommer</h2>
+              <div style={{ color: PRIMARY_ORANGE }}>
+                {expandedSemester === -1 ? '−' : '+'}
+              </div>
+            </div>
+
+            {/* Content */}
+            {expandedSemester === -1 && (
+              <div className="px-4 pb-4 border-t border-gray-200">
+                <p className="text-gray-600 pt-4 mb-4">{program.bostonInfo.text}</p>
                 <a
                   href={program.bostonInfo.url}
-                  className="hover:underline font-bold"
-                  style={{
-                    color: "#f97316",
-                  }}
+                  className="font-medium hover:underline"
+                  style={{ color: PRIMARY_ORANGE }}
                 >
                   Les mer om sommerskolen i Boston
                 </a>
               </div>
             )}
-          </React.Fragment>
-        ))}
+          </div>
+        </div>
       </div>
 
       {progressionSections.length > 0 && (
         <section className="my-6 w-10/12 md:w-[95%] mx-auto mb-32 mt-24">
           <div className="flex items-center justify-between mb-16">
             <div className="w-full text-center">
-              <h2 className="text-4xl font-bold" style={{ color: "#f97316" }}>
+              <h2 className="text-4xl font-bold" style={{ color: PRIMARY_BLUE }}>
                 {progressionTitle}
               </h2>
             </div>
@@ -163,7 +181,7 @@ export default function ProgramPage({ program }: ProgramPageProps) {
                   size="icon"
                   onClick={handlePreviousProgression}
                   className="rounded-full"
-                  style={{ backgroundColor: "#f97316" }}
+                  style={{ backgroundColor: PRIMARY_ORANGE }}
                 >
                   <FaChevronLeft className="h-4 w-4 text-white" />
                 </Button>
@@ -172,7 +190,7 @@ export default function ProgramPage({ program }: ProgramPageProps) {
                   size="icon"
                   onClick={handleNextProgression}
                   className="rounded-full hover:bg-gray-100"
-                  style={{ backgroundColor: "#f97316" }}
+                  style={{ backgroundColor: PRIMARY_ORANGE }}
                 >
                   <FaChevronRight className="h-4 w-4 text-white" />
                 </Button>
@@ -187,7 +205,7 @@ export default function ProgramPage({ program }: ProgramPageProps) {
               >
                 <h3 
                   className="text-xl font-bold mb-4"
-                  style={{ color: "#f97316" }}
+                  style={{ color: PRIMARY_BLUE }}
                 >
                   {section.title}
                 </h3>
@@ -204,7 +222,7 @@ export default function ProgramPage({ program }: ProgramPageProps) {
         <a
           href={program.readMoreLink}
           className="mt-8 text-lg font-bold hover:underline"
-          style={{ color: "#f97316" }}
+          style={{ color: PRIMARY_ORANGE }}
         >
           Les mer
         </a>

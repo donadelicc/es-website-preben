@@ -13,9 +13,7 @@ export default async function Program() {
       </main>
     );
   }
-
-  console.log('Content being passed to ProgramPage:', content);
-  
+    
   return (
     <main className="flex min-h-screen flex-col mx-8">
       <ProgramPage program={content} />

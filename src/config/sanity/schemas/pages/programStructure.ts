@@ -9,14 +9,14 @@ const programStructure = {
       type: "string",
     },
     {
+      name: "introTitle",
+      title: "Introduction Title",
+      type: "string",
+    },
+    {
       name: "intro",
       title: "Introduction",
       type: "text",
-    },
-    {
-      name: "readMoreLink",
-      title: "Read More Link",
-      type: "url",
     },
     {
       name: "semesters",
@@ -133,6 +133,11 @@ const programStructure = {
           ],
         },
       ],
+    },
+    {
+      name: "readMoreLink",
+      title: "Read More Link",
+      type: "url",
     },
   ],
 };

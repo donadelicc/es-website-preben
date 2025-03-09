@@ -4,6 +4,7 @@ import { ProgramStructurePage } from "@app/types";
 export async function getData() {
   const query = `*[_type == 'programStructure'][0]{
     title,
+    introTitle,
     intro,
     readMoreLink,
     semesters[]{
