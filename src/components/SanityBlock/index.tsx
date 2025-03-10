@@ -1,5 +1,6 @@
 import { Block } from "@app/types";
 import { PortableText, PortableTextReactComponents } from "@portabletext/react";
+import { PRIMARY_GRAY } from "@app/constants";
 
 interface SanityBlockProps {
   blocks: Block[];
@@ -17,7 +18,9 @@ const components: Partial<PortableTextReactComponents> = {
     h3: (props: any) => (
       <h3 className="text-2xl font-bold text-accent mt-4">{props.children}</h3>
     ),
-    normal: (props: any) => <p className="text-black mt-2">{props.children}</p>,
+    normal: (props: any) => <p className="mt-2"
+    style={{ color: PRIMARY_GRAY }}
+    >{props.children}</p>,
   },
   listItem: (props: any) => (
     <li className="list-disc list-inside">{props.children}</li>

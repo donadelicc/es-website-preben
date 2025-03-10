@@ -86,12 +86,9 @@ export interface HomePage extends SanityMeta {
 
 export interface AboutPage extends SanityMeta {
   title: string;
+  titleText: string;
   image: Image;
-  content_p1: Block[];
-  quote: Quote;
-  video: string;
-  description: string;
-  content_p2: Block[];
+  aboutText: string;
 }
 
 export interface SortableItem extends SanityMeta {
@@ -217,12 +214,11 @@ export interface AlumniOrganizationPage extends SanityMeta {
   image: Image;
 }
 
-export interface FacultyMember extends SortableItem {
+export interface FacultyMember extends SanityMeta {
   name: string;
   title: string;
   image: Image;
   bio: Block[];
-  sortOrder: number;
 }
 
 export interface Startup {

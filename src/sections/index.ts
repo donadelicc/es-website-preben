@@ -1,4 +1,3 @@
-export * from "./About/HeaderSectionAbout";
 export * from "./HeaderSectionWrapper";
 export * from "./Home/HeaderSection";
 export * from "./Program/AlumniSection";
@@ -15,3 +14,7 @@ export * from "./Apply/Process";
 export * from "./Apply/Content";
 export * from "./Apply/Steps";
 export * from "./Apply/FAQ";
+
+export * from "./About/FacultyMembers";
+export * from "./About/AboutContent";
+

@@ -19,7 +19,7 @@ const StatisticsSection = ({ statistics }: StatisticsSectionProps) => {
               <p className="text-3xl md:text-5xl text-white font-extrabold mb-4">
                 {stat.value}
               </p>
-              <H2 className="text-sm md:text-lg text-white font-light text-center leading-tight">
+              <H2 className="text-sm md:text-lg text-white font-light text-center leading-tight font-bold">
                 {stat.description}
               </H2>
             </div>
