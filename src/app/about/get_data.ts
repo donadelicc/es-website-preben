@@ -1,7 +1,7 @@
 import { client } from "@app/config";
 import { AboutPage, FacultyMember } from "@app/types";
 
-export async function get_about_data() {
+export async function getAboutData() {
   const query = `*[_type == "about"][0]{
     title,
     titleText,

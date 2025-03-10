@@ -1,8 +1,8 @@
-import { get_about_data, getFacultyMembers } from "./get_data";
+import { getAboutData, getFacultyMembers } from "./get_data";
 import { FacultyMembers, AboutContent } from "@app/sections";
 
 export default async function About() {
-  const about = await get_about_data();
+  const about = await getAboutData();
   const facultyMembers = await getFacultyMembers();
 
   if (!about) {
