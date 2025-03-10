@@ -31,16 +31,16 @@ export async function getData() {
       }
     }
   }`;
-  
+
   try {
     const result = await client.fetch<ProgramStructurePage>(
       query,
       {},
-      { cache: "no-store" }
+      { cache: "no-store" },
     );
     return result;
   } catch (error) {
-    console.error('Error fetching program data:', error);
+    console.error("Error fetching program data:", error);
     return null;
   }
 }

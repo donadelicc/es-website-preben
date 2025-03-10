@@ -12,3 +12,4 @@ export * from "./SanityBlock";
 export * from "./Socials";
 export * from "./Typography";
 export * from "./Container";
+export * from "./NavigationSidebar";

@@ -17,11 +17,16 @@ interface FAQSectionProps {
 export function FAQ({ faqs }: FAQSectionProps) {
   return (
     <div className="w-full">
-      <H3 className="text-2xl font-semibold mb-6">Frequently Asked Questions</H3>
+      <H3 className="text-2xl font-semibold mb-6">
+        Frequently Asked Questions
+      </H3>
       <Accordion type="single" collapsible className="space-y-4">
         {faqs.map((faq, index) => (
           <AccordionItem key={index} value={`item-${index}`}>
-            <AccordionTrigger className="text-left" style={{ color: PRIMARY_BLUE }}>
+            <AccordionTrigger
+              className="text-left"
+              style={{ color: PRIMARY_BLUE }}
+            >
               {faq.title}
             </AccordionTrigger>
             <AccordionContent>

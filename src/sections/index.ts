@@ -1,9 +1,6 @@
 export * from "./About/HeaderSectionAbout";
 export * from "./HeaderSectionWrapper";
 export * from "./Home/HeaderSection";
-export * from "./Idea/HeaderSectionIdea";
-export * from "./Program/CernSection";
-export * from "./Program/BostonSection";
 export * from "./Program/AlumniSection";
 export * from "./Home/LogoSection";
 export * from "./Home/InformationSection";
@@ -17,5 +14,4 @@ export * from "./Apply/Intro";
 export * from "./Apply/Process";
 export * from "./Apply/Content";
 export * from "./Apply/Steps";
-export * from "./Apply/NavigationSidebar";
 export * from "./Apply/FAQ";

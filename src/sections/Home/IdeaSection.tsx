@@ -71,7 +71,9 @@ const IdeaSection = ({ content }: IdeaSectionProps) => {
         >
           {formFields.map(({ name, type, label }) => (
             <div key={name} className="flex flex-col">
-              <label className={labelClasses} htmlFor={name}
+              <label
+                className={labelClasses}
+                htmlFor={name}
                 style={{ color: PRIMARY_BLUE }}
               >
                 {label}

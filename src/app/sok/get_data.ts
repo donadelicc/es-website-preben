@@ -35,5 +35,5 @@ export async function getData() {
       content
     }
   }`;
-  return await client.fetch<ApplyPage[]>(query, {}, { cache: "no-store" });
+  return await client.fetch<ApplyPage>(query, {}, { cache: "no-store" });
 }

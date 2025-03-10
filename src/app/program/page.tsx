@@ -1,11 +1,9 @@
-import { client } from "@app/config";
-import { ProgramStructurePage } from "@app/types";
 import ProgramPage from "./ProgramPage";
 import { getData } from "./get_data";
 
 export default async function Program() {
   const content = await getData();
-  
+
   if (!content) {
     return (
       <main className="flex min-h-screen flex-col items-center justify-center">
@@ -13,10 +11,14 @@ export default async function Program() {
       </main>
     );
   }
-    
+
   return (
-    <main className="flex min-h-screen flex-col mx-8">
-      <ProgramPage program={content} />
-    </main>
+    <>
+      <div className="flex gap-8">
+        <main className="flex-1">
+          <ProgramPage program={content} />
+        </main>
+      </div>
+    </>
   );
 }

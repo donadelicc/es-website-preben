@@ -40,14 +40,21 @@ const apply = {
           name: "timeline",
           title: "Timeline",
           type: "array",
-          of: [{
-            type: "object",
-            fields: [
-              { name: "date", title: "Date", type: "string" },
-              { name: "title", title: "Title", type: "string" },
-              { name: "description", title: "Description", type: "array", of: [{ type: "block" }] }
-            ]
-          }]
+          of: [
+            {
+              type: "object",
+              fields: [
+                { name: "date", title: "Date", type: "string" },
+                { name: "title", title: "Title", type: "string" },
+                {
+                  name: "description",
+                  title: "Description",
+                  type: "array",
+                  of: [{ type: "block" }],
+                },
+              ],
+            },
+          ],
         },
       ],
     },
@@ -71,13 +78,15 @@ const apply = {
           name: "informationBoxes",
           title: "Information Boxes",
           type: "array",
-          of: [{
-            type: "object",
-            fields: [
-              { name: "title", title: "Title", type: "string" },
-              { name: "text", title: "Text", type: "text" }
-            ]
-          }]
+          of: [
+            {
+              type: "object",
+              fields: [
+                { name: "title", title: "Title", type: "string" },
+                { name: "text", title: "Text", type: "text" },
+              ],
+            },
+          ],
         },
       ],
     },
@@ -95,26 +104,30 @@ const apply = {
           name: "steps",
           title: "Steps",
           type: "array",
-          of: [{
-            type: "object",
-            fields: [
-              { name: "title", title: "Title", type: "string" },
-              { name: "text", title: "Text", type: "text" }
-            ]
-          }]
+          of: [
+            {
+              type: "object",
+              fields: [
+                { name: "title", title: "Title", type: "string" },
+                { name: "text", title: "Text", type: "text" },
+              ],
+            },
+          ],
         },
         {
           name: "outroText",
           title: "Outro Text",
           type: "array",
-          of: [{
-            type: "object",
-            fields: [
-              { name: "title", title: "Title", type: "string" },
-              { name: "text", title: "Text", type: "text" },
-              { name: "url", title: "URL", type: "url" }
-            ]
-          }]
+          of: [
+            {
+              type: "object",
+              fields: [
+                { name: "title", title: "Title", type: "string" },
+                { name: "text", title: "Text", type: "text" },
+                { name: "url", title: "URL", type: "url" },
+              ],
+            },
+          ],
         },
       ],
     },
@@ -127,7 +140,12 @@ const apply = {
           type: "object",
           fields: [
             { name: "title", title: "Title", type: "string" },
-            { name: "content", title: "Content", type: "array", of: [{ type: "block" }] },
+            {
+              name: "content",
+              title: "Content",
+              type: "array",
+              of: [{ type: "block" }],
+            },
           ],
         },
       ],

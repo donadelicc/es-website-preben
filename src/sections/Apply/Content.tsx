@@ -1,6 +1,11 @@
-import React from 'react';
+import React from "react";
 import { SanityBlock, H3 } from "@app/components";
-import { IconFileText, IconKey, IconChartBar, IconFiles } from "@tabler/icons-react";
+import {
+  IconFileText,
+  IconKey,
+  IconChartBar,
+  IconFiles,
+} from "@tabler/icons-react";
 import { PRIMARY_ORANGE } from "@app/constants/colors";
 const icons = [IconFileText, IconKey, IconChartBar, IconFiles];
 
@@ -13,14 +18,18 @@ interface ContentSectionProps {
   }[];
 }
 
-export function Content({ title, introText, informationBoxes }: ContentSectionProps) {
+export function Content({
+  title,
+  introText,
+  informationBoxes,
+}: ContentSectionProps) {
   return (
     <div className="w-full">
       <H3 className="text-2xl font-semibold mb-4">{title}</H3>
       <div className="prose max-w-none mb-8">
         <SanityBlock blocks={introText} />
       </div>
-      
+
       <div className="mt-16 flex flex-wrap justify-center gap-8 w-full">
         {informationBoxes.map((item, index) => (
           <div

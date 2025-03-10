@@ -8,7 +8,7 @@ import contact from "./contact";
 import partners from "./partners";
 import facultyMembers from "./facultyMembers";
 import notifications from "./notifications";
-import apply from './pages/apply'   
+import apply from "./pages/apply";
 
 export const schemas = [
   startup,

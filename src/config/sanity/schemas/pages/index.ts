@@ -5,13 +5,6 @@ import programStructure from "./programStructure";
 import cernAndBoston from "./cernAndBoston";
 import alumni from "./alumni";
 
-const pages = [
-  home,
-  about,
-  idea,
-  programStructure,
-  cernAndBoston,
-  alumni,
-];
+const pages = [home, about, idea, programStructure, cernAndBoston, alumni];
 
 export default pages;

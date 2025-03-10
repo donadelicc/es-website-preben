@@ -8,14 +8,14 @@ import contentSection from "./content";
 import stepsSection from "./steps";
 
 const modules = [
-  quote, 
-  info, 
-  semester, 
+  quote,
+  info,
+  semester,
   courses,
   introSection,
   processSection,
   contentSection,
-  stepsSection
+  stepsSection,
 ];
 
 export default modules;

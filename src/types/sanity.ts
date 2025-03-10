@@ -171,6 +171,7 @@ export interface StepsSection extends SanityBase {
 type Subsection = IntroSection | ProcessSection | ContentSection | StepsSection;
 
 interface FAQItem {
+  _key: string;
   title: string;
   content: Block[];
 }
@@ -210,7 +211,7 @@ interface ProgramProgression {
 }
 export interface ProgramStructurePage extends SanityMeta {
   title: string;
-  topic: string;
+  introTitle: string;
   intro: string;
   readMoreLink: string;
   semesters: Semester[];
