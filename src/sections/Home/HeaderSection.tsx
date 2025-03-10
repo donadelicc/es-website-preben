@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { urlForImage } from "@app/config";
-import { Button, H2, Title } from "@app/components";
+import { Button, H4, Title } from "@app/components";
 import Link from "next/link";
 import { HomePage } from "@app/types";
 import { HeaderSectionWrapper } from "@app/sections";
@@ -42,10 +42,10 @@ const HeaderSection = ({
 
         {/* ✅ Text Content */}
         <div className="w-full md:w-1/2 text-left md:order-1">
-          <Title className="text-secondary">{title}</Title>
-          <H2 className="mt-2 text-base md:text-lg text-gray-600">
+          <Title className="text-secondary mb-4">{title}</Title>
+          <H4 className="mt-2 text-base md:text-lg text-gray-600">
             {description}
-          </H2>
+          </H4>
 
           {/* ✅ CTA Button */}
           {cta && (

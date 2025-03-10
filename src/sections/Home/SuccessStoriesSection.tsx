@@ -40,7 +40,7 @@ const SuccessStoriesSection = ({
     <section className="my-6 w-10/12 md:w-[95%] mx-auto mb-32 mt-24">
       <div className="flex items-center justify-between mb-16">
         <div className="w-full text-center">
-          <Title>Suksesshistorier</Title>
+          <H2>Suksesshistorier</H2>
         </div>
         {successStories.length > 3 && (
           <div className="flex gap-2">

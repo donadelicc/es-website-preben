@@ -1,5 +1,5 @@
 import { HomePage } from "@app/types";
-import { Title, H2 } from "@app/components";
+import { Title, H2, H4, H3, H1 } from "@app/components";
 import { FaLightbulb, FaRocket, FaBullseye, FaChartLine } from "react-icons/fa";
 import React from "react";
 import { FullWidthContainer } from "@app/components/FullWidhtContainter";
@@ -12,12 +12,12 @@ const InformationSection = ({ sections }: InformationSectionProps) => {
 
   return (
     <FullWidthContainer bgColor="bg-[#FFF5E6]">
-      <section className="w-full py-24 my-16">
+      <section className="w-full py-18 my-16">
         <div className="w-11/12 md:w-4/5 lg:w-3/4 mx-auto text-center">
-          <Title className="text-2xl sm:text-3xl">Mer enn en master</Title>
-          <H2 className="text-gray-600 mt-2 sm:text-xl">
+          <H2 className="text-2xl sm:text-3xl mb-4">Mer enn en master</H2>
+          <H4 className="text-gray-600 mt-2 sm:text-xl">
             NTNUs Entreprenørskole skiller seg ut på mer enn én måte.
-          </H2>
+          </H4>
         </div>
 
         <div className="mt-16 flex flex-wrap justify-center gap-24 w-11/12 lg:w-[98%] mx-auto">
@@ -33,7 +33,7 @@ const InformationSection = ({ sections }: InformationSectionProps) => {
                 })}
               </div>
 
-              <H2 className="font-semibold text-lg">{section.title}</H2>
+              <H3 className="font-semibold text-lg">{section.title}</H3>
               <p className="text-gray-500 mt-4 text-base">
                 {section.description}
               </p>

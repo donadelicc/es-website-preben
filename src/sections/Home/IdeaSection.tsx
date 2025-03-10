@@ -1,8 +1,8 @@
 "use client";
 
-import { Button, Title, H6 } from "@app/components";
+import { Button, H6, H1, H2 } from "@app/components";
 import { HomePage } from "@app/types";
-
+import { PRIMARY_BLUE } from "@app/constants/colors";
 interface IdeaSectionProps {
   content: HomePage;
 }
@@ -31,8 +31,8 @@ const IdeaSection = ({ content }: IdeaSectionProps) => {
     <section className="my-12 w-full md:w-11/12 mx-auto mt-24">
       <div className="flex flex-col md:flex-row gap-12 items-start">
         <div className="w-full md:w-1/2 relative">
-          <div className="sticky top-24 flex flex-col">
-            <Title>{content.contact.title}</Title>
+          <div className="sticky top-24 flex flex-col mb-8">
+            <H2>{content.contact.title}</H2>
             {splitTextIntoSentences(content.contact.description).map(
               (sentence, index) => (
                 <H6 key={index} className="mt-2">
@@ -71,7 +71,9 @@ const IdeaSection = ({ content }: IdeaSectionProps) => {
         >
           {formFields.map(({ name, type, label }) => (
             <div key={name} className="flex flex-col">
-              <label className={labelClasses} htmlFor={name}>
+              <label className={labelClasses} htmlFor={name}
+                style={{ color: PRIMARY_BLUE }}
+              >
                 {label}
               </label>
               {type === "textarea" ? (
