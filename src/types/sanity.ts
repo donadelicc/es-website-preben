@@ -8,12 +8,6 @@ interface SanityMeta {
   _updatedAt: Date;
 }
 
-interface Quote {
-  _type: string;
-  quote: string;
-  author: string;
-}
-
 export interface Block {
   _key: string;
   _type: "block";

@@ -1,8 +1,7 @@
 import { AboutPage } from "@app/types";
-import { H1, H2, H4, H6, SanityBlock, P } from "@app/components";
+import { H2, P } from "@app/components";
 import Image from "next/image";
 import { urlForImage } from "@app/config";
-import { PRIMARY_ORANGE } from "@app/constants/colors";
 
 interface AboutContentProps {
   about: AboutPage;
@@ -13,9 +12,7 @@ export const AboutContent = ({ about }: AboutContentProps) => {
     <section className="w-full max-w-7xl mx-auto px-4 md:px-8">
       {/* Title section */}
       <div className="text-center py-12">
-        <H2 className="text-4xl md:text-5xl font-bold mb-6">
-          {about.title}
-        </H2>
+        <H2 className="text-4xl md:text-5xl font-bold mb-6">{about.title}</H2>
         <div className="max-w-3xl mx-auto">
           <P>{about.titleText}</P>
         </div>

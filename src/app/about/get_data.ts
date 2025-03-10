@@ -13,7 +13,7 @@ export async function get_about_data() {
     const result = await client.fetch<AboutPage>(
       query,
       {},
-      { cache: "no-store" }
+      { cache: "no-store" },
     );
     return result;
   } catch (error) {
@@ -34,7 +34,7 @@ export async function getFacultyMembers() {
     const result = await client.fetch<FacultyMember[]>(
       query,
       {},
-      { cache: "no-store" }
+      { cache: "no-store" },
     );
     return result;
   } catch (error) {
