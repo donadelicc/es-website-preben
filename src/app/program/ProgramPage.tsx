@@ -38,11 +38,6 @@ export default function ProgramPage({ program }: ProgramPageProps) {
   const progressionTitle =
     program.programProgression?.title || "Program Progression";
 
-  // Add null checks and default values
-  if (!program) {
-    return <div>Loading...</div>;
-  }
-
   const sentences = splitIntoSentences(program.intro || "");
 
   // Add state for tracking window width

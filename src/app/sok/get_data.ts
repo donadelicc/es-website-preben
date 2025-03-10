@@ -35,5 +35,16 @@ export async function getData() {
       content
     }
   }`;
-  return await client.fetch<ApplyPage>(query, {}, { cache: "no-store" });
+
+  try {
+    const result = await client.fetch<ApplyPage>(
+      query,
+      {},
+      { cache: "no-store" },
+    );
+    return result;
+  } catch (error) {
+    console.error("Error fetching apply data:", error);
+    return null;
+  }
 }
