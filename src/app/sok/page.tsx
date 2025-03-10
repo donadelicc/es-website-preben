@@ -18,6 +18,14 @@ const applySections = [
 export default async function Apply() {
   const content = await getData();
 
+  if (!content) {
+    return (
+      <main className="flex min-h-screen flex-col items-center justify-center">
+        <h1>No application data available</h1>
+      </main>
+    );
+  }
+
   return (
     <>
       <div className="flex gap-8">
