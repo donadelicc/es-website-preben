@@ -1,6 +1,6 @@
 "use client";
 
-import { Button, H6, H1, H2 } from "@app/components";
+import { Button, H6, H2 } from "@app/components";
 import { HomePage } from "@app/types";
 import { PRIMARY_BLUE } from "@app/constants/colors";
 interface IdeaSectionProps {
@@ -23,8 +23,6 @@ const IdeaSection = ({ content }: IdeaSectionProps) => {
     { name: "message", type: "textarea", label: "Message" },
   ];
 
-  const inputClasses =
-    "w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent";
   const labelClasses = "block text-gray-700 text-sm font-medium mb-1";
 
   return (

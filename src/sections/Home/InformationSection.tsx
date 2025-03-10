@@ -1,5 +1,5 @@
 import { HomePage } from "@app/types";
-import { Title, H2, H4, H3, H1 } from "@app/components";
+import { H2, H4, H3 } from "@app/components";
 import { FaLightbulb, FaRocket, FaBullseye, FaChartLine } from "react-icons/fa";
 import React from "react";
 import { FullWidthContainer } from "@app/components/FullWidhtContainter";

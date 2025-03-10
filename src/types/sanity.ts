@@ -106,14 +106,6 @@ export interface ContactPerson extends SortableItem {
   name: string;
 }
 
-interface EventInformationApply {
-  title: string;
-  description: string;
-  date: Date;
-  location: string;
-  link?: string;
-}
-
 interface TimelineItem {
   date: string;
   title: string;

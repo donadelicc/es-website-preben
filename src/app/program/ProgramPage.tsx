@@ -4,7 +4,7 @@ import { ProgramStructurePage } from "@app/types";
 import { Button } from "@app/components";
 import { H1, H3 } from "@app/components/Typography";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
-import { PRIMARY_ORANGE, PRIMARY_BLUE } from "@app/constants/colors";
+import { PRIMARY_ORANGE } from "@app/constants/colors";
 import { NavigationSidebar } from "@app/components/NavigationSidebar";
 
 interface ProgramPageProps {
@@ -31,18 +31,19 @@ const splitIntoSentences = (text: string): string[] => {
 };
 
 export default function ProgramPage({ program }: ProgramPageProps) {
-  // Add null checks and default values
-  if (!program) {
-    return <div>Loading...</div>;
-  }
-
-  const sentences = splitIntoSentences(program.intro || "");
   const [currentProgressionIndex, setCurrentProgressionIndex] = useState(0);
 
   // Add null checks for programProgression
   const progressionSections = program.programProgression?.section || [];
   const progressionTitle =
     program.programProgression?.title || "Program Progression";
+
+  // Add null checks and default values
+  if (!program) {
+    return <div>Loading...</div>;
+  }
+
+  const sentences = splitIntoSentences(program.intro || "");
 
   // Add state for tracking window width
   const [isMobile, setIsMobile] = useState(false);

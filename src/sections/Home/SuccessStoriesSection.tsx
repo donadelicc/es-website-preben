@@ -4,7 +4,6 @@ import Image from "next/image";
 import { urlForImage } from "@app/config";
 import { HomePage } from "@app/types";
 import {
-  Title,
   H2,
   Card,
   CardContent,
