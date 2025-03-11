@@ -27,7 +27,7 @@ const solanLinjeforening = {
       name: "video",
       title: "Video",
       type: "string",
-      description: "Enter YouTube video URL"
+      description: "Enter YouTube video URL",
     },
   ],
 };

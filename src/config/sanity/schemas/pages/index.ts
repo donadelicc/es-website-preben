@@ -6,6 +6,14 @@ import cernAndBoston from "./cernAndBoston";
 import alumni from "./alumni";
 import solanLinjeforening from "../solanLinjeforening";
 
-const pages = [home, about, idea, programStructure, cernAndBoston, alumni, solanLinjeforening];
+const pages = [
+  home,
+  about,
+  idea,
+  programStructure,
+  cernAndBoston,
+  alumni,
+  solanLinjeforening,
+];
 
 export default pages;

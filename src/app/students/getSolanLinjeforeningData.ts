@@ -14,7 +14,7 @@ export async function getSolanLinjeforeningData() {
     const result = await client.fetch<SolanLinjeforeningPage>(
       query,
       {},
-      { cache: "no-store" }
+      { cache: "no-store" },
     );
     return result;
   } catch (error) {

@@ -8,7 +8,8 @@ interface SolanLinjeforeningProps {
 export function SolanLinjeforening({ data }: SolanLinjeforeningProps) {
   // Function to extract YouTube video ID from URL
   const getYouTubeEmbedUrl = (url: string) => {
-    const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+    const regExp =
+      /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
     const match = url.match(regExp);
     return match && match[2].length === 11
       ? `https://www.youtube.com/embed/${match[2]}`
@@ -44,7 +45,7 @@ export function SolanLinjeforening({ data }: SolanLinjeforeningProps) {
         <div className="mb-4">
           <H2>{data.videoTitle}</H2>
           <div className="h-1 w-16 bg-[#f97316]" />
-        </div>        
+        </div>
         {videoEmbedUrl && (
           <div className="relative w-full pt-[56.25%]">
             <iframe

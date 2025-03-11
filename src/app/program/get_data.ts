@@ -7,9 +7,10 @@ export async function getData() {
     introTitle,
     intro,
     readMoreLink,
-    semesters[]{
+    sections[]{
       title,
       topic,
+      text,
       courses[]{
         courseCode,
         title,
@@ -23,12 +24,17 @@ export async function getData() {
       text,
       url
     },
-    programProgression{
+    cernInfo{
       title,
-      section[]{
-        title,
-        text
-      }
+      topic,
+      text,
+      url
+    },
+    berlinInfo{
+      title,
+      topic,
+      text,
+      url
     }
   }`;
 

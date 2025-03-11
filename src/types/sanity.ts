@@ -32,7 +32,9 @@ type PartnerLogo = Image;
 /** ✅ New Section Type */
 interface Section {
   title: string;
-  description: string;
+  topic: string;
+  text: string;
+  courses: Course[];
 }
 
 /** ✅ New Success Story Type */
@@ -192,14 +194,23 @@ interface ProgramProgression {
     text: string;
   }[];
 }
+
+interface ExternalInfo {
+  title: string;
+  topic: string;
+  text: string;
+  url: string;
+}
+
 export interface ProgramStructurePage extends SanityMeta {
   title: string;
   introTitle: string;
   intro: string;
+  sections: Section[];
+  bostonInfo: ExternalInfo;
+  cernInfo: ExternalInfo;
+  berlinInfo: ExternalInfo;
   readMoreLink: string;
-  semesters: Semester[];
-  bostonInfo: BostonInfo;
-  programProgression: ProgramProgression;
 }
 
 export interface AlumniOrganizationPage extends SanityMeta {

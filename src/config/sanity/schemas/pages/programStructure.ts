@@ -19,8 +19,8 @@ const programStructure = {
       type: "text",
     },
     {
-      name: "semesters",
-      title: "Semesters",
+      name: "sections",
+      title: "Sections",
       type: "array",
       of: [
         {
@@ -35,6 +35,11 @@ const programStructure = {
               name: "topic",
               title: "Topic",
               type: "string",
+            },
+            {
+              name: "text",
+              title: "Text",
+              type: "text",
             },
             {
               name: "courses",
@@ -99,10 +104,9 @@ const programStructure = {
         },
       ],
     },
-
     {
-      name: "programProgression",
-      title: "Program Progression",
+      name: "cernInfo",
+      title: "CERN Information",
       type: "object",
       fields: [
         {
@@ -111,26 +115,46 @@ const programStructure = {
           type: "string",
         },
         {
-          name: "section",
-          title: "Section",
-          type: "array",
-          of: [
-            {
-              type: "object",
-              fields: [
-                {
-                  name: "title",
-                  title: "Title",
-                  type: "string",
-                },
-                {
-                  name: "text",
-                  title: "Text",
-                  type: "text",
-                },
-              ],
-            },
-          ],
+          name: "topic",
+          title: "Topic",
+          type: "string",
+        },
+        {
+          name: "text",
+          title: "Text",
+          type: "text",
+        },
+        {
+          name: "url",
+          title: "URL",
+          type: "url",
+        },
+      ],
+    },
+    {
+      name: "berlinInfo",
+      title: "Berlin Information",
+      type: "object",
+      fields: [
+        {
+          name: "title",
+          title: "Title",
+          type: "string",
+        },
+        {
+          name: "topic",
+          title: "Topic",
+          type: "string",
+        },
+        {
+          name: "text",
+          title: "Text",
+          type: "text",
+        },
+        {
+          name: "url",
+          title: "URL",
+          type: "url",
         },
       ],
     },
