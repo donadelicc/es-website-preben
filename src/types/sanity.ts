@@ -35,6 +35,7 @@ interface Section {
   topic: string;
   text: string;
   courses: Course[];
+  description: string;
 }
 
 /** ✅ New Success Story Type */
@@ -66,6 +67,11 @@ interface ContactSection {
   image: Image;
 }
 
+interface HomeSection {
+  title: string;
+  description: string;
+}
+
 /** ✅ Updated HomePage Type to Match `home.ts` Schema */
 export interface HomePage extends SanityMeta {
   title: string;
@@ -73,7 +79,7 @@ export interface HomePage extends SanityMeta {
   image: Image;
   cta: CallToAction;
   partners: PartnerLogo[];
-  sections: Section[];
+  sections: HomeSection[];
   successStories: SuccessStory[];
   news: NewsItem[];
   statistics: Statistic[];
