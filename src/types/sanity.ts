@@ -234,3 +234,11 @@ export interface Student {
   image: Image;
   year: number;
 }
+
+export interface SolanLinjeforeningPage extends SanityMeta {
+  title: string;
+  description: string;
+  solanUrl: string;
+  videoTitle: string;
+  video: string;
+}
