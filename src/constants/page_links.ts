@@ -4,6 +4,5 @@ export const paths = [
   "/alumni",
   "/program",
   "/about",
-  "/contact",
   "/sok",
 ];

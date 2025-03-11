@@ -8,6 +8,7 @@ import { Container } from "@app/components";
 import { Navbar } from "@app/components/Navbar";
 import { Footer } from "@app/components/Footer";
 import { Analytics } from "@vercel/analytics/react";
+import { ColorProvider } from "@app/context/ColorContext";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -27,6 +28,9 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // Check if we're on the about page
+  const isAboutPage = typeof window !== 'undefined' && window.location.pathname === '/about';
+
   return (
     <html lang="en">
       <body
@@ -35,10 +39,16 @@ export default function RootLayout({
           fontSans.variable,
         )}
       >
-        <Navbar />
-        <Container>{children}</Container>
-        <Footer />
-        <Analytics />
+        <ColorProvider>
+          <div className="flex flex-col min-h-screen">
+            <Navbar />
+            <main className="flex-grow">
+              {isAboutPage ? children : <Container>{children}</Container>}
+            </main>
+            <Footer />
+          </div>
+          <Analytics />
+        </ColorProvider>
       </body>
     </html>
   );

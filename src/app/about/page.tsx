@@ -1,5 +1,5 @@
 import { getAboutData, getFacultyMembers } from "./get_data";
-import { FacultyMembers, AboutContent } from "@app/sections";
+import { AboutWrapper } from "./AboutWrapper";
 
 export default async function About() {
   const about = await getAboutData();
@@ -21,10 +21,5 @@ export default async function About() {
     );
   }
 
-  return (
-    <main className="flex min-h-screen flex-col pb-32">
-      <AboutContent about={about} />
-      <FacultyMembers facultyMembers={facultyMembers} />
-    </main>
-  );
+  return <AboutWrapper about={about} facultyMembers={facultyMembers} />;
 }

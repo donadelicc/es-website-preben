@@ -4,21 +4,16 @@ import Image from "next/image";
 import { Button } from "@app/components";
 import Link from "next/link";
 import { paths } from "@app/constants/page_links";
-import { FullWidthContainer } from "../FullWidhtContainter";
+import { useColors } from "@app/context/ColorContext";
 
 const Navbar = () => {
-  const getDisplayName = (path: string) => {
-    if (path === "/") return "Hjem";
-    if (path === "/sok") return "Søk";
-    return path.slice(1).charAt(0).toUpperCase() + path.slice(2);
-  };
-
-  const navigationLinks = paths.filter((path) => path !== "/sok");
+  const { navbarColor } = useColors();
+  const isDarkBg = navbarColor === 'bg-[#0B3B8F]';
 
   return (
-    <FullWidthContainer bgColor="bg-white">
-      <header className="flex justify-between items-center py-4 mt-6">
-        <Link href={"/"} passHref className={"group"}>
+    <div className={`${navbarColor} w-full py-4`}>
+      <header className="max-w-7xl mx-auto flex justify-between items-center py-6 px-4 md:px-8">
+        <Link href={"/"} passHref className={"group hidden md:block"}>
           <Image
             src={"/NSE.png"}
             alt={"NSE Logo"}
@@ -29,13 +24,15 @@ const Navbar = () => {
         </Link>
 
         <nav className="flex items-center gap-8">
-          {navigationLinks.map((path) => (
+          {paths.filter(path => path !== "/sok").map((path) => (
             <Link
               key={path}
               href={path}
-              className="text-gray-600 hover:text-gray-900 transition-colors"
+              className={`text-sm hover:text-orange-500 transition-colors ${
+                isDarkBg ? 'text-white' : 'text-black'
+              }`}
             >
-              {getDisplayName(path)}
+              {path === "/" ? "Hjem" : path.slice(1).charAt(0).toUpperCase() + path.slice(2)}
             </Link>
           ))}
           <Link href="/sok">
@@ -51,7 +48,7 @@ const Navbar = () => {
           </Link>
         </nav>
       </header>
-    </FullWidthContainer>
+    </div>
   );
 };
 

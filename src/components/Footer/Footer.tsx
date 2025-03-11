@@ -3,8 +3,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import { FullWidthContainer } from "@app/components/FullWidhtContainter";
+import { useColors } from "@app/context/ColorContext";
 
 const Footer = () => {
+  const { footerColor } = useColors();
+  console.log('Footer color:', footerColor);
+
   const links = [
     { label: "Hjem", href: "/" },
     { label: "Studenter", href: "/students" },
@@ -34,8 +38,8 @@ const Footer = () => {
   );
 
   return (
-    <FullWidthContainer bgColor="bg-[#FFF5E6]">
-      <footer className="bg-[#FFF5E6] px-6 py-10">
+    <FullWidthContainer bgColor={footerColor}>
+      <footer className={`${footerColor} px-6 py-10`}>
         <div className="max-w-7xl mx-auto">
           {/* ✅ Top Section - Logo & Navigation */}
           <div className="flex flex-col md:flex-row justify-between items-center md:items-start pb-6 border-b border-gray-300">
@@ -53,8 +57,10 @@ const Footer = () => {
                       href={link.href}
                       className={`${
                         link.isButton
-                          ? "bg-[#FF5F15] text-white px-4 py-2 rounded-md hover:bg-orange-600 text-white"
-                          : "text-gray-600 hover:text-gray-900"
+                          ? "bg-[#FF5F15] text-white px-4 py-2 rounded-md hover:bg-orange-600"
+                          : footerColor === 'bg-[#0B3B8F]' 
+                            ? "text-white hover:text-gray-200" 
+                            : "text-gray-600 hover:text-gray-900"
                       }`}
                     >
                       {link.label}
