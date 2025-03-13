@@ -1,5 +1,5 @@
 import { client } from "@app/config";
-import { SanityImageObject } from "@sanity/image-url/lib/types/types";
+import { Image } from "sanity";
 
 export interface StudentPageData {
   mainTitle: string;
@@ -10,7 +10,7 @@ export interface StudentPageData {
   studentStories: Array<{
     name: string;
     roleInStartup: string;
-    image: SanityImageObject;
+    image: Image;
     text: string;
   }>;
 }
