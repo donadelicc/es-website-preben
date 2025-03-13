@@ -2,7 +2,7 @@ import { HomePage } from "@app/types";
 import { H2, H4, H3 } from "@app/components";
 import { FaLightbulb, FaRocket, FaBullseye, FaChartLine } from "react-icons/fa";
 import React from "react";
-import { FullWidthContainer } from "@app/components/FullWidhtContainter";
+import { FullWidthContainer } from "@app/components/FullWidthContainer";
 interface InformationSectionProps {
   sections: HomePage["sections"];
 }

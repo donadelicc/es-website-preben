@@ -212,6 +212,20 @@ export interface AlumniOrganizationPage extends SanityMeta {
   image: Image;
 }
 
+export interface AlumniPage extends SanityMeta {
+  mainTitle: string;
+  titleText: string;
+  startupTitle: string;
+  alumniTitle: string;
+  alumniStoryTitle: string;
+  alumniStories: Array<{
+    name: string;
+    roleInStartup: string;
+    image: any;
+    text: string;
+  }>;
+}
+
 export interface FacultyMember extends SanityMeta {
   name: string;
   title: string;

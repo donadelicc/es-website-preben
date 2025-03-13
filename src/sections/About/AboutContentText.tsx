@@ -1,5 +1,5 @@
 import { ParagraphBlue, H2 } from "@app/components";
-import { FullWidthContainer } from "@app/components/FullWidhtContainter";
+import { FullWidthContainer } from "@app/components/FullWidthContainer";
 
 interface AboutContentTextProps {
   aboutTitle: string;

@@ -39,7 +39,7 @@ export const FacultyMemberCard = ({ member }: { member: FacultyMember }) => {
               onClick={() => setIsExpanded(!isExpanded)}
               className="text-primary-600 hover:text-primary-700 font-medium text-sm mt-2 focus:outline-none"
             >
-              {isExpanded ? "Les mindre" : "Les mer"}
+              {isExpanded ? "Vis mindre" : "Les mer"}
             </button>
           )}
         </div>

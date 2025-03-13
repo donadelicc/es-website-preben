@@ -19,7 +19,7 @@ export function SolanLinjeforening({ data }: SolanLinjeforeningProps) {
   const videoEmbedUrl = getYouTubeEmbedUrl(data.video);
 
   return (
-    <section className="w-full max-w-3xl mx-auto px-4 md:px-0">
+    <section className="w-full mx-auto px-4 md:px-0 mt-16">
       {/* Title with orange underline */}
       <div className="mb-8">
         <H1 className="mb-2">{data.title}</H1>
@@ -27,7 +27,7 @@ export function SolanLinjeforening({ data }: SolanLinjeforeningProps) {
       </div>
 
       {/* Description with link */}
-      <p className="text-gray-600 mb-12">
+      <p className="text-gray-600 mb-20">
         {data.description}{" "}
         <a
           href={data.solanUrl}
@@ -40,13 +40,9 @@ export function SolanLinjeforening({ data }: SolanLinjeforeningProps) {
         .
       </p>
 
-      {/* Video section */}
-      <div className="mb-8">
-        <div className="mb-4">
-          <H2>{data.videoTitle}</H2>
-          <div className="h-1 w-16 bg-[#f97316]" />
-        </div>
-        {videoEmbedUrl && (
+      {/* Video section - centered but without header */}
+      {videoEmbedUrl && (
+        <div className="max-w-3xl mx-auto">
           <div className="relative w-full pt-[56.25%]">
             <iframe
               className="absolute top-0 left-0 w-full h-full"
@@ -57,8 +53,8 @@ export function SolanLinjeforening({ data }: SolanLinjeforeningProps) {
               allowFullScreen
             />
           </div>
-        )}
-      </div>
+        </div>
+      )}
     </section>
   );
 }

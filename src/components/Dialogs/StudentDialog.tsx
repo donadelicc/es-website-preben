@@ -14,6 +14,7 @@ import Link from "next/link";
 import { IconBrandLinkedin } from "@tabler/icons-react";
 import { ScrollArea } from "@app/components/Dialogs/ScrollArea";
 import { splitTextIntoParagraphs } from "@app/util";
+import { PRIMARY_ORANGE } from "@app/constants";
 
 interface StudentDialogProps {
   student: Student;
@@ -32,9 +33,11 @@ const StartupCard = (student: Student) => {
         width={175}
         height={225}
       />
-      <H6 className="font-medium group-hover:bg-accent group-hover:text-background text-center duration-300 w-full">
+      <p 
+        className="font-medium text-center w-full text-black hover:bg-[#FF5C00] hover:text-white transition-all duration-300"
+      >
         {getFirstName(student.name)}
-      </H6>
+      </p>
     </>
   );
 };

@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { FullWidthContainer } from "@app/components/FullWidhtContainter";
+import { FullWidthContainer } from "@app/components/FullWidthContainer";
 import { useColors } from "@app/context/ColorContext";
 
 const Footer = () => {

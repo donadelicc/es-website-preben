@@ -1,6 +1,5 @@
 export * from "./HeaderSectionWrapper";
 export * from "./Home/HeaderSection";
-export * from "./Program/AlumniSection";
 export * from "./Home/LogoSection";
 export * from "./Home/InformationSection";
 export * from "./Home/SuccessStoriesSection";

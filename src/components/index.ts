@@ -13,3 +13,4 @@ export * from "./Socials";
 export * from "./Typography";
 export * from "./Container";
 export * from "./NavigationSidebar";
+export * from "./FullWidthContainer";

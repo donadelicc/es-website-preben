@@ -24,10 +24,10 @@ function isUrl(str: string): boolean {
 }
 
 function TextWithUrls({ text }: { text: string }) {
-  const words = text.split(' ');
+  const words = text.split(" ");
   return (
     <>
-      {words.map((word, i) => (
+      {words.map((word, i) =>
         isUrl(word) ? (
           <>
             <a
@@ -38,13 +38,12 @@ function TextWithUrls({ text }: { text: string }) {
               rel="noopener noreferrer"
             >
               {word}
-            </a>
-            {' '}
+            </a>{" "}
           </>
         ) : (
           `${word} `
-        )
-      ))}
+        ),
+      )}
     </>
   );
 }

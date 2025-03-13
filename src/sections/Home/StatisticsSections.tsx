@@ -1,5 +1,5 @@
 import { HomePage } from "@app/types";
-import { FullWidthContainer } from "@app/components/FullWidhtContainter";
+import { FullWidthContainer } from "@app/components/FullWidthContainer";
 
 interface StatisticsSectionProps {
   statistics: HomePage["statistics"];
