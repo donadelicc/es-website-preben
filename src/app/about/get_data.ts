@@ -6,6 +6,7 @@ export async function getAboutData() {
     title,
     titleText,
     image,
+    aboutTitle,
     aboutText
   }`;
 

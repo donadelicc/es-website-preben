@@ -8,6 +8,13 @@ interface SanityMeta {
   _updatedAt: Date;
 }
 
+export interface MarkDefinition {
+  _key: string;
+  _type: string; // E.g., "link", "annotation"
+  href?: string; // Used for links
+  [key: string]: unknown; // Allow additional fields without using `any`
+}
+
 export interface Block {
   _key: string;
   _type: "block";
@@ -15,7 +22,7 @@ export interface Block {
   children: {
     text: string;
   }[];
-  markDefs: any[];
+  markDefs: MarkDefinition[]; // ✅ Replace `any[]` with `MarkDefinition[]`
   listItem?: "bullet" | "number";
   level?: number;
 }
@@ -90,6 +97,7 @@ export interface AboutPage extends SanityMeta {
   title: string;
   titleText: string;
   image: Image;
+  aboutTitle: string;
   aboutText: string;
 }
 

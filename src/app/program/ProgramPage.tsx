@@ -14,6 +14,13 @@ interface Section {
   title: string;
 }
 
+interface Course {
+  credits: number;
+  courseCode: string;
+  title: string;
+  url: string;
+}
+
 const splitIntoSentences = (text: string): string[] => {
   // Split by period followed by a space or end of string
   return text
@@ -34,15 +41,21 @@ export default function ProgramPage({ program }: ProgramPageProps) {
 
   // Create an ordered array of all sections
   const orderedSections = program.sections?.reduce(
-    (acc: any[], semester, index) => {
+    (
+      acc: {
+        type: "semester" | "external";
+        data: { courses: Course[] } | any;
+        index: number;
+      }[],
+      semester,
+      index,
+    ) => {
       acc.push({ type: "semester", data: semester, index });
 
-      // After first semester, add CERN
       if (index === 0 && program.cernInfo) {
         acc.push({ type: "external", data: program.cernInfo, index: 100 });
       }
 
-      // After second semester, add Boston
       if (index === 1 && program.bostonInfo) {
         acc.push({ type: "external", data: program.bostonInfo, index: 101 });
       }
@@ -64,9 +77,9 @@ export default function ProgramPage({ program }: ProgramPageProps) {
   // Create navigation sections using topics instead of full titles
   const navigationSections: Section[] = [
     { id: "introduction", title: "Introduksjon" },
-    ...(orderedSections?.map((section, index) => ({
+    ...(orderedSections?.map((section) => ({
       id: `section-${section.index}`,
-      title: section.data.topic || section.data.title, // Use topic if available, fallback to title
+      title: section.data.topic || section.data.title, // Use topic if available
     })) || []),
   ];
 
@@ -139,7 +152,7 @@ export default function ProgramPage({ program }: ProgramPageProps) {
                           </div>
                           <div className="px-4 py-4 space-y-4">
                             {section.data.courses.map(
-                              (course: any, idx: number) => (
+                              (course: Course, idx: number) => (
                                 <div
                                   key={idx}
                                   className="flex items-start space-x-4 hover:bg-gray-50 p-2 rounded-md transition-colors"

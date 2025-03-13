@@ -1,12 +1,13 @@
 import { SanityBlock, H3 } from "@app/components";
 import { PRIMARY_BLUE, PRIMARY_ORANGE } from "@app/constants/colors";
+import { Block } from "@app/types";
 
 interface ProcessSectionProps {
   title: string;
   timeline: {
     date: string;
     title: string;
-    description: any[];
+    description: Block[];
   }[];
 }
 

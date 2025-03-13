@@ -28,7 +28,7 @@ export default async function Apply() {
 
   return (
     <>
-      <div className="flex gap-8">
+      <div className="flex gap-8 mt-24">
         <div className="w-64 hidden md:block mt-32">
           <NavigationSidebar sections={applySections} />
         </div>

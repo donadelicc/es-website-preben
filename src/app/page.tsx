@@ -38,7 +38,7 @@ export default async function Home() {
   }
 
   return (
-    <main className="flex min-h-screen flex-col">
+    <main className="flex min-h-screen flex-col mt-24">
       {/* ✅ Updated Header Section with CTA */}
       <HeaderSection
         title={content.title || "Welcome"}

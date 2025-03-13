@@ -7,11 +7,12 @@ import {
   IconFiles,
 } from "@tabler/icons-react";
 import { PRIMARY_ORANGE } from "@app/constants/colors";
+import { Block } from "@app/types";
 const icons = [IconFileText, IconKey, IconChartBar, IconFiles];
 
 interface ContentSectionProps {
   title: string;
-  introText: any[]; // or Block[] if you import the Block type
+  introText: Block[];
   informationBoxes: {
     title: string;
     text: string;

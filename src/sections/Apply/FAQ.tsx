@@ -6,11 +6,11 @@ import {
   AccordionTrigger,
 } from "@app/components/Accordion";
 import { PRIMARY_BLUE } from "@app/constants/colors";
-
+import { Block } from "@app/types";
 interface FAQSectionProps {
   faqs: {
     title: string;
-    content: any[]; // or Block[] if you import the Block type
+    content: Block[];
   }[];
 }
 

@@ -1,8 +1,9 @@
 import { SanityBlock, H3 } from "@app/components";
+import { Block } from "@app/types";
 
 interface IntroSectionProps {
   title: string;
-  content: any[]; // or Block[] if you import the Block type
+  content: Block[];
 }
 
 export function Intro({ title, content }: IntroSectionProps) {
