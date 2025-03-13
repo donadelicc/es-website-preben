@@ -3,7 +3,7 @@
 import { useColors } from "@app/context/ColorContext";
 import { AboutPage, FacultyMember } from "@app/types";
 import { AboutContent, FacultyMembers } from "@app/sections";
-import { useEffect } from 'react';
+import { useEffect } from "react";
 
 interface AboutWrapperProps {
   about: AboutPage;
@@ -15,14 +15,14 @@ export const AboutWrapper = ({ about, facultyMembers }: AboutWrapperProps) => {
 
   useEffect(() => {
     setColors({
-      navbarColor: 'bg-white',
-      footerColor: 'bg-[#FFF5E6]'
+      navbarColor: "bg-white",
+      footerColor: "bg-[#FFF5E6]",
     });
 
     return () => {
       setColors({
-        navbarColor: 'bg-white',
-        footerColor: 'bg-[#FFF5E6]'
+        navbarColor: "bg-white",
+        footerColor: "bg-[#FFF5E6]",
       });
     };
   }, [setColors]);
@@ -33,4 +33,4 @@ export const AboutWrapper = ({ about, facultyMembers }: AboutWrapperProps) => {
       <FacultyMembers facultyMembers={facultyMembers} />
     </main>
   );
-}; 
+};

@@ -13,7 +13,9 @@ export const AboutContent = ({ about }: AboutContentProps) => {
     <FullWidthContainer bgColor="bg-[#F0F7FF]">
       <section className="w-full max-w-7xl mx-auto px-4 md:px-8 pb-24">
         {/* Title section */}
-        <H1 className="text-5xl font-bold mb-16 text-center text-white pt-16">{about.title}</H1>
+        <H1 className="text-5xl font-bold mb-16 text-center text-white pt-16">
+          {about.title}
+        </H1>
 
         <div className="space-y-12">
           {/* Title text - now left-aligned but centered on page */}
@@ -36,11 +38,8 @@ export const AboutContent = ({ about }: AboutContentProps) => {
 
           {/* Text content in shadowed boxes */}
           <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            {about.aboutText.split('\n\n').map((paragraph, index) => (
-              <div 
-                key={index} 
-                className="bg-white p-8 shadow-md rounded-lg"
-              >
+            {about.aboutText.split("\n\n").map((paragraph, index) => (
+              <div key={index} className="bg-white p-8 shadow-md rounded-lg">
                 <P>{paragraph}</P>
               </div>
             ))}

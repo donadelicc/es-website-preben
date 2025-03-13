@@ -7,7 +7,7 @@ import { useColors } from "@app/context/ColorContext";
 
 const Footer = () => {
   const { footerColor } = useColors();
-  console.log('Footer color:', footerColor);
+  console.log("Footer color:", footerColor);
 
   const links = [
     { label: "Hjem", href: "/" },
@@ -58,8 +58,8 @@ const Footer = () => {
                       className={`${
                         link.isButton
                           ? "bg-[#FF5F15] text-white px-4 py-2 rounded-md hover:bg-orange-600"
-                          : footerColor === 'bg-[#0B3B8F]' 
-                            ? "text-white hover:text-gray-200" 
+                          : footerColor === "bg-[#0B3B8F]"
+                            ? "text-white hover:text-gray-200"
                             : "text-gray-600 hover:text-gray-900"
                       }`}
                     >

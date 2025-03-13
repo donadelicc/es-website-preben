@@ -8,7 +8,7 @@ import { useColors } from "@app/context/ColorContext";
 
 const Navbar = () => {
   const { navbarColor } = useColors();
-  const isDarkBg = navbarColor === 'bg-[#0B3B8F]';
+  const isDarkBg = navbarColor === "bg-[#0B3B8F]";
 
   return (
     <div className={`${navbarColor} w-full py-4`}>
@@ -24,17 +24,21 @@ const Navbar = () => {
         </Link>
 
         <nav className="flex items-center gap-8">
-          {paths.filter(path => path !== "/sok").map((path) => (
-            <Link
-              key={path}
-              href={path}
-              className={`text-sm hover:text-orange-500 transition-colors ${
-                isDarkBg ? 'text-white' : 'text-black'
-              }`}
-            >
-              {path === "/" ? "Hjem" : path.slice(1).charAt(0).toUpperCase() + path.slice(2)}
-            </Link>
-          ))}
+          {paths
+            .filter((path) => path !== "/sok")
+            .map((path) => (
+              <Link
+                key={path}
+                href={path}
+                className={`text-sm hover:text-orange-500 transition-colors ${
+                  isDarkBg ? "text-white" : "text-black"
+                }`}
+              >
+                {path === "/"
+                  ? "Hjem"
+                  : path.slice(1).charAt(0).toUpperCase() + path.slice(2)}
+              </Link>
+            ))}
           <Link href="/sok">
             <Button
               className="px-8 py-2"

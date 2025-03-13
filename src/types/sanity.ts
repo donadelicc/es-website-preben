@@ -180,27 +180,6 @@ interface Course {
   url: string;
 }
 
-interface Semester {
-  title: string;
-  topic: string;
-  courses: Course[];
-}
-
-interface BostonInfo {
-  title: string;
-  topic: string;
-  text: string;
-  url: string;
-}
-
-interface ProgramProgression {
-  title: string;
-  section: {
-    title: string;
-    text: string;
-  }[];
-}
-
 interface ExternalInfo {
   title: string;
   topic: string;

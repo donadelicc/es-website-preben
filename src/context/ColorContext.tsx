@@ -1,7 +1,6 @@
 "use client";
 
-import { createContext, useContext, useState, ReactNode } from 'react';
-import { PRIMARY_BLUE } from '@app/constants/colors';
+import { createContext, useContext, useState, ReactNode } from "react";
 
 interface ColorContextType {
   navbarColor: string;
@@ -10,8 +9,8 @@ interface ColorContextType {
 }
 
 export const ColorContext = createContext<ColorContextType>({
-  navbarColor: 'bg-white',
-  footerColor: 'bg-[#FFF5E6]',
+  navbarColor: "bg-white",
+  footerColor: "bg-[#FFF5E6]",
   setColors: () => {},
 });
 
@@ -19,13 +18,13 @@ export const useColors = () => useContext(ColorContext);
 
 export const ColorProvider = ({ children }: { children: ReactNode }) => {
   const [colors, setColors] = useState({
-    navbarColor: 'bg-white',
-    footerColor: 'bg-[#FFF5E6]'
+    navbarColor: "bg-white",
+    footerColor: "bg-[#FFF5E6]",
   });
 
   return (
-    <ColorContext.Provider 
-      value={{ 
+    <ColorContext.Provider
+      value={{
         ...colors,
         setColors,
       }}
@@ -33,4 +32,4 @@ export const ColorProvider = ({ children }: { children: ReactNode }) => {
       {children}
     </ColorContext.Provider>
   );
-}; 
+};

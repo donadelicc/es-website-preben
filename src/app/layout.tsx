@@ -29,7 +29,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   // Check if we're on the about page
-  const isAboutPage = typeof window !== 'undefined' && window.location.pathname === '/about';
+  const isAboutPage =
+    typeof window !== "undefined" && window.location.pathname === "/about";
 
   return (
     <html lang="en">
