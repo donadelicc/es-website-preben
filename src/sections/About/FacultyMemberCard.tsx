@@ -6,11 +6,7 @@ import Image from "next/image";
 import { FacultyMember } from "@app/types";
 import { urlForProfileImage } from "@app/config";
 
-export const FacultyMemberCard = ({
-  member,
-}: {
-  member: FacultyMember;
-}) => {
+export const FacultyMemberCard = ({ member }: { member: FacultyMember }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (

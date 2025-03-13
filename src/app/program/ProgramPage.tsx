@@ -15,10 +15,30 @@ interface Section {
 }
 
 interface Course {
-  credits: number;
+  credits: string;
   courseCode: string;
   title: string;
   url: string;
+}
+
+interface SemesterData {
+  title: string;
+  topic: string;
+  text: string;
+  courses: Course[];
+}
+
+interface ExternalData {
+  title: string;
+  topic: string;
+  text: string;
+  url: string;
+}
+
+interface OrderedSection {
+  type: "semester" | "external";
+  data: SemesterData | ExternalData;
+  index: number;
 }
 
 const splitIntoSentences = (text: string): string[] => {
@@ -41,23 +61,23 @@ export default function ProgramPage({ program }: ProgramPageProps) {
 
   // Create an ordered array of all sections
   const orderedSections = program.sections?.reduce(
-    (
-      acc: {
-        type: "semester" | "external";
-        data: { courses: Course[] } | any;
-        index: number;
-      }[],
-      semester,
-      index,
-    ) => {
-      acc.push({ type: "semester", data: semester, index });
+    (acc: OrderedSection[], semester, index) => {
+      acc.push({ type: "semester", data: semester as SemesterData, index });
 
       if (index === 0 && program.cernInfo) {
-        acc.push({ type: "external", data: program.cernInfo, index: 100 });
+        acc.push({
+          type: "external",
+          data: program.cernInfo as ExternalData,
+          index: 100,
+        });
       }
 
       if (index === 1 && program.bostonInfo) {
-        acc.push({ type: "external", data: program.bostonInfo, index: 101 });
+        acc.push({
+          type: "external",
+          data: program.bostonInfo as ExternalData,
+          index: 101,
+        });
       }
 
       return acc;
@@ -69,7 +89,7 @@ export default function ProgramPage({ program }: ProgramPageProps) {
   if (program.berlinInfo) {
     orderedSections?.push({
       type: "external",
-      data: program.berlinInfo,
+      data: program.berlinInfo as ExternalData,
       index: 102,
     });
   }
@@ -146,12 +166,11 @@ export default function ProgramPage({ program }: ProgramPageProps) {
                     <div className="border-t border-gray-200">
                       {section.type === "semester" ? (
                         <>
-                          {/* Semester content */}
                           <div className="px-4 py-4 bg-gray-50">
                             <p className="text-gray-700">{section.data.text}</p>
                           </div>
                           <div className="px-4 py-4 space-y-4">
-                            {section.data.courses.map(
+                            {(section.data as SemesterData).courses.map(
                               (course: Course, idx: number) => (
                                 <div
                                   key={idx}
@@ -189,13 +208,12 @@ export default function ProgramPage({ program }: ProgramPageProps) {
                           </div>
                         </>
                       ) : (
-                        /* External program content */
                         <div className="px-4 py-4 border-t border-gray-200">
                           <p className="text-gray-700 mb-4">
                             {section.data.text}
                           </p>
                           <a
-                            href={section.data.url}
+                            href={(section.data as ExternalData).url}
                             className="font-medium hover:underline"
                             style={{ color: PRIMARY_ORANGE }}
                             target="_blank"
