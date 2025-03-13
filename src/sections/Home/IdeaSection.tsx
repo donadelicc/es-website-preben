@@ -27,10 +27,10 @@ const IdeaSection = ({ content }: IdeaSectionProps) => {
 
   return (
     <section className="my-12 w-full md:w-11/12 mx-auto mt-24">
-      <div className="flex flex-col md:flex-row gap-12 items-start">
-        <div className="w-full md:w-1/2 relative">
-          <div className="sticky top-24 flex flex-col mb-8">
-            <H2>{content.contact.title}</H2>
+      <div className="flex flex-col md:flex-row md:gap-24 gap-12 items-start">
+        <div className="w-full md:w-1/2 relative px-4 md:px-0">
+          <div className="sticky top-24 flex flex-col mb-8 text-center md:text-left">
+            <H2 className="text-primary-600 mb-4">{content.contact.title}</H2>
             {splitTextIntoSentences(content.contact.description).map(
               (sentence, index) => (
                 <H6 key={index} className="mt-2">
@@ -62,7 +62,7 @@ const IdeaSection = ({ content }: IdeaSectionProps) => {
         </div>
 
         <form
-          className="w-full md:w-1/3 flex flex-col gap-4 p-6 border border-gray-200 rounded-xl shadow-lg bg-white"
+          className="w-11/12 md:w-1/3 flex flex-col gap-4 p-6 border border-gray-200 rounded-xl shadow-lg bg-white mx-4 md:mx-0"
           action="mailto:besart.olluri@ntnu.no"
           method="post"
           encType="text/plain"
@@ -80,7 +80,7 @@ const IdeaSection = ({ content }: IdeaSectionProps) => {
                 <textarea
                   id={name}
                   name={name}
-                  className={`w-full md:w-3/4 px-2 py-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent input-field`}
+                  className={`w-full px-2 py-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent input-field`}
                   rows={4}
                   required
                 />
@@ -89,7 +89,7 @@ const IdeaSection = ({ content }: IdeaSectionProps) => {
                   type={type}
                   id={name}
                   name={name}
-                  className={`w-full md:w-3/4 px-2 py-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent input-field`}
+                  className={`w-full px-2 py-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent input-field`}
                   required
                 />
               )}

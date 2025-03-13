@@ -14,6 +14,41 @@ interface StepsSectionProps {
   }[];
 }
 
+function isUrl(str: string): boolean {
+  try {
+    new URL(str);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+function TextWithUrls({ text }: { text: string }) {
+  const words = text.split(' ');
+  return (
+    <>
+      {words.map((word, i) => (
+        isUrl(word) ? (
+          <>
+            <a
+              key={i}
+              href={word}
+              style={{ color: PRIMARY_ORANGE }}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {word}
+            </a>
+            {' '}
+          </>
+        ) : (
+          `${word} `
+        )
+      ))}
+    </>
+  );
+}
+
 export function Steps({ title, steps, outroText }: StepsSectionProps) {
   return (
     <div className="w-full">
@@ -22,8 +57,12 @@ export function Steps({ title, steps, outroText }: StepsSectionProps) {
       <div className="space-y-6">
         {steps.map((step, index) => (
           <div key={index} className="bg-white p-6 rounded-lg shadow-sm">
-            <H3 className="font-medium text-lg mb-2">{step.title}</H3>
-            <p className="text-gray-600">{step.text}</p>
+            <H3 className="font-medium text-lg mb-2">
+              {index + 1}. {step.title}
+            </H3>
+            <p className="text-gray-600">
+              <TextWithUrls text={step.text} />
+            </p>
           </div>
         ))}
       </div>
@@ -32,7 +71,9 @@ export function Steps({ title, steps, outroText }: StepsSectionProps) {
         {outroText.map((item, index) => (
           <div key={index}>
             <H3 className="font-medium text-lg">{item.title}</H3>
-            <p className="text-gray-600 mb-2">{item.text}</p>
+            <p className="text-gray-600 mb-2">
+              <TextWithUrls text={item.text} />
+            </p>
             <a
               href={item.url}
               className="font-medium hover:underline"
