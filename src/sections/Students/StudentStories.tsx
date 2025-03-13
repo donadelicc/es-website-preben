@@ -1,6 +1,3 @@
-import { HomePage } from "@app/types";
-import { Title } from "@app/components";
-import Link from "next/link";
 import { H2 } from "@app/components";
 import { StudentPageData } from "@app/app/students/get_data";
 import { FullWidthContainer } from "@app/components/FullWidthContainer";
@@ -9,18 +6,21 @@ import { urlForImage } from "@app/config";
 import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-
 interface StudentStoriesProps {
   title: string;
-  stories: StudentPageData['studentStories'];
+  stories: StudentPageData["studentStories"];
 }
 
 export function StudentStories({ title, stories }: StudentStoriesProps) {
   const [currentPage, setCurrentPage] = useState(0);
   const [totalPages, setTotalPages] = useState(
-    Math.ceil(stories.length / (typeof window !== 'undefined' && window.innerWidth >= 768 ? 2 : 1))
+    Math.ceil(
+      stories.length /
+        (typeof window !== "undefined" && window.innerWidth >= 768 ? 2 : 1),
+    ),
   );
-  const storiesPerPage = typeof window !== 'undefined' && window.innerWidth >= 768 ? 2 : 1;
+  const storiesPerPage =
+    typeof window !== "undefined" && window.innerWidth >= 768 ? 2 : 1;
 
   useEffect(() => {
     const handleResize = () => {
@@ -29,8 +29,8 @@ export function StudentStories({ title, stories }: StudentStoriesProps) {
       setTotalPages(Math.ceil(stories.length / newStoriesPerPage));
     };
 
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, [stories.length]);
 
   const handlePrev = () => {
@@ -45,7 +45,7 @@ export function StudentStories({ title, stories }: StudentStoriesProps) {
 
   const currentStories = stories.slice(
     currentPage * storiesPerPage,
-    (currentPage + 1) * storiesPerPage
+    (currentPage + 1) * storiesPerPage,
   );
 
   return (
@@ -56,21 +56,21 @@ export function StudentStories({ title, stories }: StudentStoriesProps) {
             <div className="flex-1">
               <H2 className="text-left relative pb-4">
                 {title}
-                <div 
-                  className="absolute bottom-0 left-0 w-16 h-1 bg-[#FF8C00]" 
-                  style={{ transform: 'translateY(8px)' }}
+                <div
+                  className="absolute bottom-0 left-0 w-16 h-1 bg-[#FF8C00]"
+                  style={{ transform: "translateY(8px)" }}
                 />
               </H2>
             </div>
             <div className="flex gap-2">
-              <button 
+              <button
                 onClick={handlePrev}
                 className="p-2 rounded-full bg-white shadow-md hover:bg-gray-50"
                 aria-label="Previous stories"
               >
                 <ChevronLeft className="h-6 w-6" />
               </button>
-              <button 
+              <button
                 onClick={handleNext}
                 className="p-2 rounded-full bg-white shadow-md hover:bg-gray-50"
                 aria-label="Next stories"
@@ -79,15 +79,15 @@ export function StudentStories({ title, stories }: StudentStoriesProps) {
               </button>
             </div>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {currentStories.map((story, index) => (
-              <div 
-                key={index} 
+              <div
+                key={index}
                 className={`bg-white rounded-lg shadow-md p-8 ${
-                  index === 1 && window.innerWidth < 768 ? 'hidden' : ''
+                  index === 1 && window.innerWidth < 768 ? "hidden" : ""
                 }`}
-                style={{ backgroundColor: 'white' }}
+                style={{ backgroundColor: "white" }}
               >
                 <div className="flex items-start gap-8">
                   <div className="relative w-24 h-24 flex-shrink-0">
@@ -118,7 +118,7 @@ export function StudentStories({ title, stories }: StudentStoriesProps) {
                 key={index}
                 onClick={() => setCurrentPage(index)}
                 className={`w-2 h-2 rounded-full transition-colors ${
-                  index === currentPage ? 'bg-[#FF8C00]' : 'bg-gray-300'
+                  index === currentPage ? "bg-[#FF8C00]" : "bg-gray-300"
                 }`}
                 aria-label={`Go to page ${index + 1}`}
               />

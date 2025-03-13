@@ -221,7 +221,7 @@ export interface AlumniPage extends SanityMeta {
   alumniStories: Array<{
     name: string;
     roleInStartup: string;
-    image: any;
+    image: Image;
     text: string;
   }>;
 }

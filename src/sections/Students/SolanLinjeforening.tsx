@@ -1,5 +1,5 @@
 import { SolanLinjeforeningPage } from "@app/types";
-import { H1, H2 } from "@app/components/Typography";
+import { H1 } from "@app/components/Typography";
 
 interface SolanLinjeforeningProps {
   data: SolanLinjeforeningPage;

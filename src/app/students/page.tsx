@@ -14,7 +14,9 @@ import { StudentStories } from "@app/sections/Students/StudentStories";
 import type { StudentPageData } from "./get_data";
 
 function StudentDataFetcher() {
-  const [solanData, setSolanData] = useState<SolanLinjeforeningPage | null>(null);
+  const [solanData, setSolanData] = useState<SolanLinjeforeningPage | null>(
+    null,
+  );
   const [pageData, setPageData] = useState<StudentPageData | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const solanDataPromise = useSolanLinjeforening();
@@ -24,7 +26,7 @@ function StudentDataFetcher() {
       try {
         const [solanResult, studentPageData] = await Promise.all([
           solanDataPromise,
-          getStudentPageData()
+          getStudentPageData(),
         ]);
         setSolanData(solanResult.data);
         setPageData(studentPageData);
@@ -42,14 +44,16 @@ function StudentDataFetcher() {
 
   return (
     <>
-      <StudentHeader 
-        mainTitle={pageData?.mainTitle || "Studentene"} 
+      <StudentHeader
+        mainTitle={pageData?.mainTitle || "Studentene"}
         titleText={pageData?.titleText || ""}
       />
-      <StudentStartups startupTitle={pageData?.startupTitle || "Våre oppstarter"} />
+      <StudentStartups
+        startupTitle={pageData?.startupTitle || "Våre oppstarter"}
+      />
       <StudentSection studentTitle={pageData?.studentTitle || "Studentene"} />
-      <StudentStories 
-        title={pageData?.studentStoryTitle || "What our students say"} 
+      <StudentStories
+        title={pageData?.studentStoryTitle || "What our students say"}
         stories={pageData?.studentStories || []}
       />
       <section className="flex my-2 md:my-8 justify-center">

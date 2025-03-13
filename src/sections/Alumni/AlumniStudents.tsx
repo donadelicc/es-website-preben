@@ -7,12 +7,15 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-  Title,
 } from "@app/components";
 import { ALUMNI_YEARS, PRIMARY_ORANGE } from "@app/constants";
 import { StudentDialog } from "@app/components/Dialogs/StudentDialog";
 
-export default function AlumniStudents({ alumniTitle }: { alumniTitle: string }) {
+export default function AlumniStudents({
+  alumniTitle,
+}: {
+  alumniTitle: string;
+}) {
   const { currentValue: currentYear, onChange: onYearChange } =
     useSelect("2024");
 
@@ -21,9 +24,10 @@ export default function AlumniStudents({ alumniTitle }: { alumniTitle: string })
     <>
       <section className="flex my-8 justify-center">
         <div className="flex flex-col md:flex-row justify-center md:justify-between items-center w-11/12">
-        <h2 className="text-4xl font-bold mb-4 mt-8"
+          <h2
+            className="text-4xl font-bold mb-4 mt-8"
             style={{
-              color: PRIMARY_ORANGE
+              color: PRIMARY_ORANGE,
             }}
           >
             {alumniTitle}

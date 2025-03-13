@@ -1,4 +1,5 @@
 import { client } from "@app/config";
+import { SanityImageObject } from "@sanity/image-url/lib/types/types";
 
 export interface StudentPageData {
   mainTitle: string;
@@ -9,7 +10,7 @@ export interface StudentPageData {
   studentStories: Array<{
     name: string;
     roleInStartup: string;
-    image: any;
+    image: SanityImageObject;
     text: string;
   }>;
 }
@@ -35,4 +36,4 @@ export async function getStudentPageData() {
     console.error("Error fetching student page data:", error);
     return null;
   }
-} 
+}

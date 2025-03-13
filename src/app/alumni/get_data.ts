@@ -1,7 +1,6 @@
 import { client } from "@app/config";
 import { AlumniPage } from "@app/types";
 
-
 export async function getAlumniPageData() {
   const query = `*[_type == "alumniPage"][0]{
     mainTitle,
@@ -23,4 +22,4 @@ export async function getAlumniPageData() {
     console.error("Error fetching student page data:", error);
     return null;
   }
-} 
+}

@@ -1,7 +1,7 @@
 "use client";
 
 import { useStudents } from "@app/hooks";
-import { Tabs, TabsList, TabsTrigger, Title } from "@app/components";
+import { Tabs, TabsList, TabsTrigger } from "@app/components";
 import { CURRENT_YEARS } from "@app/constants";
 import { PRIMARY_ORANGE } from "@app/constants";
 import { StudentDialog } from "@app/components/Dialogs/StudentDialog";
@@ -15,9 +15,10 @@ export function StudentSection({ studentTitle }: { studentTitle: string }) {
     <div className="mb-24">
       <section className="flex my-8 justify-center mt-16">
         <div className="flex flex-col md:flex-row justify-center md:justify-between items-center w-11/12">
-          <h2 className="text-4xl font-bold mb-8"
+          <h2
+            className="text-4xl font-bold mb-8"
             style={{
-              color: PRIMARY_ORANGE
+              color: PRIMARY_ORANGE,
             }}
           >
             {studentTitle}
