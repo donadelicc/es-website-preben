@@ -43,7 +43,7 @@ export default function RootLayout({
         <ColorProvider>
           <div className="flex flex-col min-h-screen w-full">
             <Navbar />
-            <main className="flex-grow pt-[72px] md:pt-[100px] w-full">
+            <main className="flex-grow w-full">
               {isAboutPage ? children : <Container>{children}</Container>}
             </main>
             <Footer />

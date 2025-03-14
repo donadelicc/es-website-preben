@@ -15,20 +15,11 @@ const config: Config = {
       center: true,
       padding: {
         DEFAULT: "1rem",
-        sm: "1.5rem",
-        md: "2rem",
-        lg: "3rem",
-        xl: "4rem",
-        "2xl": "5rem",
-      },
-      screens: {
-        DEFAULT: "100%",
-        xs: "375px", // iPhone SE, smaller phones
-        sm: "390px", // iPhone 12/13/14
-        md: "412px", // Larger phones (Android)
-        lg: "768px", // Tablets
-        xl: "1024px", // Small laptops
-        "2xl": "1280px", // Larger screens
+        sm: "1rem",
+        md: "1rem",
+        lg: "2rem",
+        xl: "3rem",
+        "2xl": "4rem",
       },
     },
 

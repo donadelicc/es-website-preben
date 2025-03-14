@@ -10,8 +10,15 @@ export const FullWidthContainer = ({
   bgColor = "bg-white",
 }: FullWidthContainerProps) => {
   return (
-    <div className={`w-full ${bgColor}`}>
-      <div className="w-full px-4 sm:px-6 md:px-8">{children}</div>
+    <div
+      className={`w-full relative ${bgColor}`}
+      style={{
+        marginLeft: "calc(-50vw + 50%)",
+        marginRight: "calc(-50vw + 50%)",
+        width: "100vw",
+      }}
+    >
+      <div className="container mx-auto px-4 sm:px-6 md:px-8">{children}</div>
     </div>
   );
 };
