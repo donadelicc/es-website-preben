@@ -9,16 +9,17 @@ const StatisticsSection = ({ statistics }: StatisticsSectionProps) => {
   return (
     <FullWidthContainer bgColor="bg-[#f97316]">
       <section className="text-white py-12 mt-8 mb-8">
-        <div
-          className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center w-full max-w-6xl mx-auto"
-          style={{ color: "#ffffff" }}
-        >
+        <div className="flex flex-col md:grid md:grid-cols-4 gap-8 text-center w-full max-w-6xl mx-auto px-4">
           {statistics.map((stat, index) => (
-            <div key={index} className="flex flex-col items-center w-60">
-              <p className="text-3xl md:text-5xl text-white font-extrabold mb-4">
+            <div key={index} className="flex flex-col items-center mb-8 md:mb-0">
+              <p className="text-3xl md:text-5xl font-extrabold mb-2"
+              style={{ color: "#ffffff" }}
+              >
                 {stat.value}
               </p>
-              <p className="text-lg text-white leading-tight font-bold">
+              <p className="text-base md:text-lg leading-tight font-bold px-2"
+              style={{ color: "#ffffff" }}
+              >
                 {stat.description}
               </p>
             </div>

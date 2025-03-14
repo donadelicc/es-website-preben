@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { urlForImage } from "@app/config";
 import { HomePage } from "@app/types";
@@ -21,27 +21,48 @@ const SuccessStoriesSection = ({
   successStories,
 }: SuccessStoriesSectionProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const displayedStories = successStories.slice(currentIndex, currentIndex + 2);
+  const [isMobile, setIsMobile] = useState(true);
+  
+  useEffect(() => {
+    const checkIfMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    // Initial check
+    checkIfMobile();
+    
+    // Add event listener for window resize
+    window.addEventListener('resize', checkIfMobile);
+    
+    // Cleanup
+    return () => window.removeEventListener('resize', checkIfMobile);
+  }, []);
+  
+  // Show only 1 story on mobile, 2 on larger screens
+  const storiesPerView = isMobile ? 1 : 2;
+  const displayedStories = successStories.slice(currentIndex, currentIndex + storiesPerView);
 
   const handleNext = () => {
     setCurrentIndex((prev) =>
-      prev + 2 >= successStories.length ? 0 : prev + 2,
+      prev + storiesPerView >= successStories.length ? 0 : prev + storiesPerView,
     );
   };
 
   const handlePrevious = () => {
     setCurrentIndex((prev) =>
-      prev - 2 < 0 ? Math.floor((successStories.length - 1) / 2) * 2 : prev - 2,
+      prev - storiesPerView < 0 
+        ? Math.max(0, successStories.length - storiesPerView) 
+        : prev - storiesPerView,
     );
   };
 
   return (
     <section className="my-6 w-10/12 md:w-[95%] mx-auto mb-32 mt-24">
-      <div className="flex items-center justify-between mb-16">
-        <div className="w-full text-center">
+      <div className="flex flex-col sm:flex-row items-center justify-between mb-8 sm:mb-16">
+        <div className="w-full text-left md:text-center mb-4 sm:mb-0">
           <H2>Suksesshistorier</H2>
         </div>
-        {successStories.length > 3 && (
+        {successStories.length > 1 && (
           <div className="flex gap-2">
             <Button
               variant="ghost"
@@ -64,7 +85,7 @@ const SuccessStoriesSection = ({
           </div>
         )}
       </div>
-      <div className="flex flex-wrap justify-center gap-16 mt-8">
+      <div className="flex flex-wrap justify-center gap-8 mt-8">
         {displayedStories.map((story) => (
           <Card
             key={story.name}

@@ -15,7 +15,7 @@ const Navbar = () => {
 
   return (
     <div className={`${navbarColor} w-full py-2 md:py-4`}>
-      <header className="max-w-7xl mx-auto flex justify-between items-center py-3 sm:py-6 px-4 md:px-8">
+      <header className="container mx-auto flex justify-between items-center py-3 sm:py-6 px-4 sm:px-6 md:px-8 lg:px-12">
         {/* Desktop logo */}
         <Link href={"/"} passHref className={"group hidden md:block"}>
           <Image
