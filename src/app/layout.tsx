@@ -5,7 +5,7 @@ import { Montserrat as FontSans } from "next/font/google";
 
 import { cn } from "@app/lib";
 import { Container } from "@app/components";
-import { Navbar } from "@app/components/Navbar";
+import { Navbar } from "@app/components/Navbar/Navbar";
 import { Footer } from "@app/components/Footer";
 import { Analytics } from "@vercel/analytics/react";
 import { ColorProvider } from "@app/context/ColorContext";

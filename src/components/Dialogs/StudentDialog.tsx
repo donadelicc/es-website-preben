@@ -84,7 +84,7 @@ const StudentDialog = ({ student }: StudentDialogProps) => {
         </DialogHeader>
         <div className="text-black flex flex-col justify-center">
           <ScrollArea className="max-h-[200px] md:max-h-[600px]">
-            {splitTextIntoParagraphs(student.description, 500).map(
+            {splitTextIntoParagraphs(student.description || "", 500).map(
               (paragraph, index) => (
                 <p key={index} className="mb-2">
                   {paragraph}

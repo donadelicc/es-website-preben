@@ -6,7 +6,7 @@ export * from "./Card";
 export * from "./Dialogs";
 export * from "./Footer";
 export * from "./Form";
-export * from "./Navbar/Navbar";
+export * from "./Navbar";
 export * from "./Menu";
 export * from "./SanityBlock";
 export * from "./Socials";
