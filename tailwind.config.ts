@@ -14,19 +14,21 @@ const config: Config = {
     container: {
       center: true,
       padding: {
-        DEFAULT: "4rem", // Increased from 2rem
-        sm: "4rem", // Increased from 2rem
-        md: "6rem", // Increased from 4rem
-        lg: "8rem", // Increased from 6rem
-        xl: "10rem", // Increased from 8rem
-        "2xl": "12rem", // Increased from 10rem
+        DEFAULT: "1rem",
+        sm: "1.5rem",
+        md: "2rem",
+        lg: "3rem",
+        xl: "4rem",
+        "2xl": "5rem",
       },
       screens: {
-        sm: "640px",
-        md: "768px",
-        lg: "1024px",
-        xl: "1280px",
-        "2xl": "1536px", // Increase slightly for ultra-wide screens
+        DEFAULT: "100%",
+        xs: "375px",    // iPhone SE, smaller phones
+        sm: "390px",    // iPhone 12/13/14
+        md: "412px",    // Larger phones (Android)
+        lg: "768px",    // Tablets
+        xl: "1024px",   // Small laptops
+        "2xl": "1280px" // Larger screens
       },
     },
 
@@ -101,6 +103,9 @@ const config: Config = {
       },
       spacing: {
         "300": "300px",
+      },
+      screens: {
+        'xs': '375px',
       },
     },
   },
