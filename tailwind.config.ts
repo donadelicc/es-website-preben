@@ -23,12 +23,12 @@ const config: Config = {
       },
       screens: {
         DEFAULT: "100%",
-        xs: "375px",    // iPhone SE, smaller phones
-        sm: "390px",    // iPhone 12/13/14
-        md: "412px",    // Larger phones (Android)
-        lg: "768px",    // Tablets
-        xl: "1024px",   // Small laptops
-        "2xl": "1280px" // Larger screens
+        xs: "375px", // iPhone SE, smaller phones
+        sm: "390px", // iPhone 12/13/14
+        md: "412px", // Larger phones (Android)
+        lg: "768px", // Tablets
+        xl: "1024px", // Small laptops
+        "2xl": "1280px", // Larger screens
       },
     },
 
@@ -105,7 +105,7 @@ const config: Config = {
         "300": "300px",
       },
       screens: {
-        'xs': '375px',
+        xs: "375px",
       },
     },
   },
