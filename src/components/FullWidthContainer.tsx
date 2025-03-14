@@ -2,18 +2,18 @@ import React from "react";
 
 interface FullWidthContainerProps {
   children: React.ReactNode;
-  bgColor: string;
+  bgColor?: string;
 }
 
 export const FullWidthContainer = ({
   children,
-  bgColor,
+  bgColor = "bg-white",
 }: FullWidthContainerProps) => {
   return (
-    <div
-      className={`w-screen ${bgColor} relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]`}
-    >
-      <div className="container mx-auto px-8 md:px-24 lg:px-32">{children}</div>
+    <div className={`w-full ${bgColor}`}>
+      <div className="w-full px-4 sm:px-6 md:px-8">
+        {children}
+      </div>
     </div>
   );
 };

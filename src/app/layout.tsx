@@ -33,17 +33,17 @@ export default function RootLayout({
     typeof window !== "undefined" && window.location.pathname === "/about";
 
   return (
-    <html lang="en">
+    <html lang="en" className="w-full">
       <body
         className={cn(
-          "min-h-screen bg-background font-sans antialiased",
+          "min-h-screen bg-background font-sans antialiased w-full max-w-full overflow-x-hidden",
           fontSans.variable,
         )}
       >
         <ColorProvider>
-          <div className="flex flex-col min-h-screen">
+          <div className="flex flex-col min-h-screen w-full">
             <Navbar />
-            <main className="flex-grow">
+            <main className="flex-grow pt-[72px] md:pt-[100px] w-full">
               {isAboutPage ? children : <Container>{children}</Container>}
             </main>
             <Footer />

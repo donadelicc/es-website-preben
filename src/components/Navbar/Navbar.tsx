@@ -14,7 +14,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className={`${navbarColor} w-full py-2 sm:py-4`}>
+    <div className={`${navbarColor} w-full py-2 md:py-4`}>
       <header className="max-w-7xl mx-auto flex justify-between items-center py-3 sm:py-6 px-4 md:px-8">
         {/* Desktop logo */}
         <Link href={"/"} passHref className={"group hidden md:block"}>
@@ -42,7 +42,7 @@ const Navbar = () => {
           </Link>
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="text-gray-700 hover:text-orange-500 focus:outline-none p-2"
+            className="text-gray-700 hover:text-orange-500 focus:outline-none p-3"
             aria-label="Toggle menu"
           >
             {isOpen ? <X size={20} /> : <Menu size={20} />}
