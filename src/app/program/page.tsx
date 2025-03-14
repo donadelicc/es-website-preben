@@ -14,8 +14,8 @@ export default async function Program() {
 
   return (
     <>
-      <div className="flex gap-8 mt-24">
-        <main className="flex-1">
+      <div className="w-full px-4 sm:px-6 md:px-8 mt-12 md:mt-24">
+        <main className="max-w-7xl mx-auto">
           <ProgramPage program={content} />
         </main>
       </div>

@@ -28,15 +28,17 @@ export default async function Apply() {
 
   return (
     <>
-      <div className="flex gap-8 mt-24">
+      <div className="flex flex-col md:flex-row md:gap-8 px-4 sm:px-6 md:px-8 mt-12 md:mt-24">
         <div className="w-64 hidden md:block mt-32">
           <NavigationSidebar sections={applySections} />
         </div>
 
-        <main className="flex-1">
-          <H1 className="text-5xl font-bold mb-24">{content.title}</H1>
+        <main className="flex-1 overflow-hidden">
+          <H1 className="text-lg sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-6 md:mb-8 lg:mb-12 overflow-hidden">
+            {content.title}
+          </H1>
 
-          <section className="space-y-12">
+          <section className="space-y-8 md:space-y-12">
             {content.subsections?.map((subsection) => {
               switch (subsection._type) {
                 case "introSection":
@@ -82,7 +84,7 @@ export default async function Apply() {
               }
             })}
 
-            <section id="faq" className="my-12">
+            <section id="faq" className="my-8 md:my-12">
               <FAQ faqs={content.FAQ} />
             </section>
           </section>

@@ -43,9 +43,14 @@ export function StudentSection({ studentTitle }: { studentTitle: string }) {
         </div>
       </section>
       <section className="flex my-2 md:my-8 justify-center">
-        <div className="w-11/12 flex flex-wrap justify-center gap-6">
+        <div className="w-11/12 grid grid-cols-2 md:flex md:flex-wrap md:justify-center gap-3 md:gap-6">
           {students.map((student) => (
-            <StudentDialog student={student} key={student.name} />
+            <div key={student.name} className="flex justify-center">
+              <StudentDialog
+                student={student}
+                className="w-full max-w-[150px] md:max-w-none"
+              />
+            </div>
           ))}
         </div>
       </section>

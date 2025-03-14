@@ -99,27 +99,32 @@ export default function ProgramPage({ program }: ProgramPageProps) {
     { id: "introduction", title: "Introduksjon" },
     ...(orderedSections?.map((section) => ({
       id: `section-${section.index}`,
-      title: section.data.topic || section.data.title, // Use topic if available
+      title: section.data.topic || section.data.title,
     })) || []),
   ];
 
   return (
-    <>
-      <div className="flex gap-8">
-        <ProgramNavigationWrapper
-          navigationSections={navigationSections}
-          expandedSections={expandedSections}
-          toggleSection={toggleSection}
-        />
+    <div className="w-full">
+      <div className="flex flex-col md:flex-row md:gap-8">
+        {/* Desktop Navigation - Only shown on desktop */}
+        <div className="hidden md:block">
+          <ProgramNavigationWrapper
+            navigationSections={navigationSections}
+            expandedSections={expandedSections}
+            toggleSection={toggleSection}
+          />
+        </div>
 
         <main className="flex-1">
-          <H1 className="text-5xl font-bold mb-24">
+          <H1 className="text-xl sm:text-3xl md:text-3xl lg:text-4xl font-bold mb-6 md:mb-8 lg:mb-12 overflow-hidden">
             {program.title || "Program"}
           </H1>
 
-          {/* Introduction section - back to original styling */}
-          <div id="introduction" className="mb-8">
-            <H3 className="mb-8">{program.introTitle || "Introduksjon"}</H3>
+          {/* Introduction section */}
+          <div id="introduction" className="mb-6 md:mb-8">
+            <H3 className="mb-3 md:mb-4 lg:mb-6 text-lg sm:text-xl md:text-2xl">
+              {program.introTitle || "Introduksjon"}
+            </H3>
             <div className="text-gray-800 leading-relaxed">
               {sentences.reduce((pairs, sentence, index) => {
                 if (index % 2 === 0) {
@@ -129,7 +134,7 @@ export default function ProgramPage({ program }: ProgramPageProps) {
                   pairs.push(
                     <p
                       key={index}
-                      className="mb-6 text-left text-base md:text-lg"
+                      className="mb-3 md:mb-4 text-left text-sm sm:text-base md:text-lg"
                     >
                       {pair}
                     </p>,
@@ -140,20 +145,20 @@ export default function ProgramPage({ program }: ProgramPageProps) {
             </div>
           </div>
 
-          {/* Updated Semesters and External Programs section */}
-          <div id="semesters" className="w-full space-y-4">
+          {/* Semesters and External Programs section */}
+          <div id="semesters" className="w-full space-y-3 md:space-y-4">
             {orderedSections?.map((section, arrayIndex) => (
               <div key={arrayIndex} id={`section-${section.index}`}>
                 <div className="bg-white shadow-md rounded-lg border border-gray-200">
                   <div
-                    className="p-4 cursor-pointer flex justify-between items-center"
+                    className="p-3 sm:p-4 cursor-pointer flex justify-between items-center"
                     onClick={() => toggleSection(section.index)}
                   >
-                    <div>
-                      <H3 className="text-xl font-medium">
+                    <div className="flex-1 pr-2">
+                      <H3 className="text-base sm:text-lg md:text-xl font-medium">
                         {section.data.title}
                       </H3>
-                      <p className="text-gray-600 text-sm mt-1">
+                      <p className="text-gray-600 text-xs sm:text-sm mt-1">
                         {section.data.topic}
                       </p>
                     </div>
@@ -166,19 +171,21 @@ export default function ProgramPage({ program }: ProgramPageProps) {
                     <div className="border-t border-gray-200">
                       {section.type === "semester" ? (
                         <>
-                          <div className="px-4 py-4 bg-gray-50">
-                            <p className="text-gray-700">{section.data.text}</p>
+                          <div className="px-3 sm:px-4 py-3 sm:py-4 bg-gray-50">
+                            <p className="text-gray-700 text-xs sm:text-sm md:text-base">
+                              {section.data.text}
+                            </p>
                           </div>
-                          <div className="px-4 py-4 space-y-4">
+                          <div className="px-3 sm:px-4 py-3 sm:py-4 space-y-3 sm:space-y-4">
                             {(section.data as SemesterData).courses.map(
                               (course: Course, idx: number) => (
                                 <div
                                   key={idx}
-                                  className="flex items-start space-x-4 hover:bg-gray-50 p-2 rounded-md transition-colors"
+                                  className="flex items-start space-x-2 sm:space-x-3 md:space-x-4 hover:bg-gray-50 p-2 rounded-md transition-colors"
                                 >
-                                  <div className="min-w-[48px] text-center">
+                                  <div className="min-w-[36px] sm:min-w-[40px] md:min-w-[48px] text-center">
                                     <span
-                                      className="inline-block px-2 py-1 text-sm border rounded-md"
+                                      className="inline-block px-1 sm:px-1 md:px-2 py-1 text-xs md:text-sm border rounded-md"
                                       style={{
                                         color: PRIMARY_ORANGE,
                                         borderColor: PRIMARY_ORANGE,
@@ -194,10 +201,10 @@ export default function ProgramPage({ program }: ProgramPageProps) {
                                       rel="noopener noreferrer"
                                       className="hover:underline"
                                     >
-                                      <div className="font-medium text-gray-900">
+                                      <div className="font-medium text-xs sm:text-sm md:text-base text-gray-900">
                                         {course.courseCode}
                                       </div>
-                                      <div className="text-gray-600">
+                                      <div className="text-xs md:text-sm text-gray-600">
                                         {course.title}
                                       </div>
                                     </a>
@@ -208,13 +215,13 @@ export default function ProgramPage({ program }: ProgramPageProps) {
                           </div>
                         </>
                       ) : (
-                        <div className="px-4 py-4 border-t border-gray-200">
-                          <p className="text-gray-700 mb-4">
+                        <div className="px-3 sm:px-4 py-3 sm:py-4 border-t border-gray-200">
+                          <p className="text-gray-700 text-xs sm:text-sm md:text-base mb-3 sm:mb-4">
                             {section.data.text}
                           </p>
                           <a
                             href={(section.data as ExternalData).url}
-                            className="font-medium hover:underline"
+                            className="font-medium text-xs sm:text-sm md:text-base hover:underline"
                             style={{ color: PRIMARY_ORANGE }}
                             target="_blank"
                             rel="noopener noreferrer"
@@ -231,6 +238,6 @@ export default function ProgramPage({ program }: ProgramPageProps) {
           </div>
         </main>
       </div>
-    </>
+    </div>
   );
 }

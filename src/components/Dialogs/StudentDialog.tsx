@@ -13,9 +13,11 @@ import Link from "next/link";
 import { IconBrandLinkedin } from "@tabler/icons-react";
 import { ScrollArea } from "@app/components/Dialogs/ScrollArea";
 import { splitTextIntoParagraphs } from "@app/util";
+import { cn } from "@app/lib/utils";
 
 interface StudentDialogProps {
   student: Student;
+  className?: string;
 }
 
 const getFirstName = (name: string) => {
@@ -38,13 +40,13 @@ const StartupCard = (student: Student) => {
   );
 };
 
-const StudentDialog = ({ student }: StudentDialogProps) => {
+const StudentDialog = ({ student, className }: StudentDialogProps) => {
   const noDescription =
     student.description === null || student.description === undefined;
 
   if (noDescription) {
     return (
-      <div className="flex flex-col items-center group">
+      <div className={cn("flex flex-col items-center group", className)}>
         <StartupCard {...student} />
       </div>
     );
@@ -52,8 +54,10 @@ const StudentDialog = ({ student }: StudentDialogProps) => {
 
   return (
     <Dialog>
-      <DialogTrigger className="flex flex-col items-center group ">
-        <StartupCard {...student} />
+      <DialogTrigger asChild>
+        <div className={cn("cursor-pointer hover:opacity-80", className)}>
+          <StartupCard {...student} />
+        </div>
       </DialogTrigger>
       <DialogContent>
         <DialogHeader className="flex flex-row justify-start items-center">

@@ -22,36 +22,41 @@ const SuccessStoriesSection = ({
 }: SuccessStoriesSectionProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(true);
-  
+
   useEffect(() => {
     const checkIfMobile = () => {
       setIsMobile(window.innerWidth < 768);
     };
-    
+
     // Initial check
     checkIfMobile();
-    
+
     // Add event listener for window resize
-    window.addEventListener('resize', checkIfMobile);
-    
+    window.addEventListener("resize", checkIfMobile);
+
     // Cleanup
-    return () => window.removeEventListener('resize', checkIfMobile);
+    return () => window.removeEventListener("resize", checkIfMobile);
   }, []);
-  
+
   // Show only 1 story on mobile, 2 on larger screens
   const storiesPerView = isMobile ? 1 : 2;
-  const displayedStories = successStories.slice(currentIndex, currentIndex + storiesPerView);
+  const displayedStories = successStories.slice(
+    currentIndex,
+    currentIndex + storiesPerView,
+  );
 
   const handleNext = () => {
     setCurrentIndex((prev) =>
-      prev + storiesPerView >= successStories.length ? 0 : prev + storiesPerView,
+      prev + storiesPerView >= successStories.length
+        ? 0
+        : prev + storiesPerView,
     );
   };
 
   const handlePrevious = () => {
     setCurrentIndex((prev) =>
-      prev - storiesPerView < 0 
-        ? Math.max(0, successStories.length - storiesPerView) 
+      prev - storiesPerView < 0
+        ? Math.max(0, successStories.length - storiesPerView)
         : prev - storiesPerView,
     );
   };

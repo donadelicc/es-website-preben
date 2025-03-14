@@ -25,7 +25,7 @@ export default function AlumniStudents({
       <section className="flex my-8 justify-center">
         <div className="flex flex-col md:flex-row justify-center md:justify-between items-center w-11/12">
           <h2
-            className="text-4xl font-bold mb-4 mt-8"
+            className="text-3xl md:text-4xl font-bold mb-4 mt-8 text-center md:text-left"
             style={{
               color: PRIMARY_ORANGE,
             }}
@@ -51,10 +51,15 @@ export default function AlumniStudents({
         </div>
       </section>
       <section className="flex my-2 md:my-8 justify-center">
-        {/*todo : make flex, and make more responsive */}
-        <div className="w-11/12 flex flex-wrap justify-center gap-6 mb-16">
+        <div className="w-11/12 grid grid-cols-2 md:flex md:flex-wrap md:justify-center gap-3 md:gap-6 mb-16">
           {students.map((student) => (
-            <StudentDialog student={student} key={student.name} />
+            <div key={student.name} className="flex justify-center">
+              <StudentDialog
+                student={student}
+                key={student.name}
+                className="w-full max-w-[150px] md:max-w-none"
+              />
+            </div>
           ))}
         </div>
       </section>

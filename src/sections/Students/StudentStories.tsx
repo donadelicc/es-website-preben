@@ -13,22 +13,17 @@ interface StudentStoriesProps {
 
 export function StudentStories({ title, stories }: StudentStoriesProps) {
   const [currentPage, setCurrentPage] = useState(0);
-  const [totalPages, setTotalPages] = useState(
-    Math.ceil(
-      stories.length /
-        (typeof window !== "undefined" && window.innerWidth >= 768 ? 2 : 1),
-    ),
-  );
-  const storiesPerPage =
-    typeof window !== "undefined" && window.innerWidth >= 768 ? 2 : 1;
+  const [isMobile, setIsMobile] = useState(false);
+  const [totalPages, setTotalPages] = useState(0);
 
   useEffect(() => {
     const handleResize = () => {
-      const newStoriesPerPage = window.innerWidth >= 768 ? 2 : 1;
-      setCurrentPage(0);
-      setTotalPages(Math.ceil(stories.length / newStoriesPerPage));
+      const mobile = window.innerWidth < 768;
+      setIsMobile(mobile);
+      setTotalPages(Math.ceil(stories.length / (mobile ? 1 : 2)));
     };
 
+    handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, [stories.length]);
@@ -43,6 +38,7 @@ export function StudentStories({ title, stories }: StudentStoriesProps) {
 
   if (!stories?.length) return null;
 
+  const storiesPerPage = isMobile ? 1 : 2;
   const currentStories = stories.slice(
     currentPage * storiesPerPage,
     (currentPage + 1) * storiesPerPage,
@@ -50,10 +46,10 @@ export function StudentStories({ title, stories }: StudentStoriesProps) {
 
   return (
     <FullWidthContainer bgColor="bg-[#F0F7FF]">
-      <div className="w-full py-24">
+      <div className="w-full py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="flex items-center justify-between mb-16">
-            <div className="flex-1">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8 md:mb-16">
+            <div className="flex-1 mb-6 md:mb-0">
               <H2 className="text-left relative pb-4">
                 {title}
                 <div
@@ -62,7 +58,7 @@ export function StudentStories({ title, stories }: StudentStoriesProps) {
                 />
               </H2>
             </div>
-            <div className="flex gap-2">
+            <div className="flex gap-2 self-end md:self-auto">
               <button
                 onClick={handlePrev}
                 className="p-2 rounded-full bg-white shadow-md hover:bg-gray-50"
@@ -84,13 +80,10 @@ export function StudentStories({ title, stories }: StudentStoriesProps) {
             {currentStories.map((story, index) => (
               <div
                 key={index}
-                className={`bg-white rounded-lg shadow-md p-8 ${
-                  index === 1 && window.innerWidth < 768 ? "hidden" : ""
-                }`}
-                style={{ backgroundColor: "white" }}
+                className="bg-white rounded-lg shadow-md p-6 md:p-8"
               >
-                <div className="flex items-start gap-8">
-                  <div className="relative w-24 h-24 flex-shrink-0">
+                <div className="flex flex-col md:flex-row md:items-start md:gap-8">
+                  <div className="relative w-16 h-16 md:w-24 md:h-24 flex-shrink-0 mb-4 md:mb-0 mx-auto md:mx-0">
                     <Image
                       src={urlForImage(story.image)}
                       alt={story.name}
@@ -99,7 +92,7 @@ export function StudentStories({ title, stories }: StudentStoriesProps) {
                     />
                   </div>
                   <div className="flex-1">
-                    <div className="mb-4">
+                    <div className="mb-4 text-center md:text-left">
                       <h3 className="text-xl font-semibold">{story.name}</h3>
                       <p className="text-gray-600">{story.roleInStartup}</p>
                     </div>
