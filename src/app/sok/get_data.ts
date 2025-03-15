@@ -4,21 +4,28 @@ import { ApplyPage } from "@app/types";
 export async function getData() {
   const query = `*[_type == 'apply'][0]{
     title,
-    subsections[]{
-      _type,
-      _key,
+    intro{
       title,
-      content,
+      content
+    },
+    process{
+      title,
       timeline[]{
         date,
         title,
         description
-      },
+      }
+    },
+    content{
+      title,
       introText,
       informationBoxes[]{
         title,
         text
-      },
+      }
+    },
+    steps{
+      title,
       steps[]{
         title,
         text

@@ -39,53 +39,49 @@ export default async function Apply() {
           </H1>
 
           <section className="space-y-8 md:space-y-12">
-            {content.subsections?.map((subsection) => {
-              switch (subsection._type) {
-                case "introSection":
-                  return (
-                    <div key={subsection._key} id="first-step">
-                      <Intro
-                        title={subsection.title || ""}
-                        content={subsection.content || []}
-                      />
-                    </div>
-                  );
-                case "processSection":
-                  return (
-                    <div key={subsection._key} id="application-process">
-                      <Process
-                        title={subsection.title || ""}
-                        timeline={subsection.timeline || []}
-                      />
-                    </div>
-                  );
-                case "contentSection":
-                  return (
-                    <div key={subsection._key} id="application-content">
-                      <Content
-                        title={subsection.title || ""}
-                        introText={subsection.introText || []}
-                        informationBoxes={subsection.informationBoxes || []}
-                      />
-                    </div>
-                  );
-                case "stepsSection":
-                  return (
-                    <div key={subsection._key} id="how-to-apply">
-                      <Steps
-                        title={subsection.title || ""}
-                        steps={subsection.steps || []}
-                        outroText={subsection.outroText || []}
-                      />
-                    </div>
-                  );
-                default:
-                  return null;
-              }
-            })}
+            {/* Intro Section */}
+            <div id="first-step">
+              <Intro
+                title={content.intro.title || ""}
+                content={content.intro.content || []}
+              />
+            </div>
 
+            {/* Process Section */}
+            {content.process && (
+              <div id="application-process">
+                <Process
+                  title={content.process.title || ""}
+                  timeline={content.process.timeline || []}
+                />
+              </div>
+            )}
+
+            {/* Content Section */}
+            {content.content && (
+              <div id="application-content">
+                <Content
+                  title={content.content.title || ""}
+                  introText={content.content.introText || []}
+                  informationBoxes={content.content.informationBoxes || []}
+                />
+              </div>
+            )}
+
+            {/* Steps Section */}
+            {content.steps && (
+              <div id="how-to-apply">
+                <Steps
+                  title={content.steps.title || ""}
+                  steps={content.steps.steps || []}
+                  outroText={content.steps.outroText || []}
+                />
+              </div>
+            )}
+
+            {/* FAQ Section */}
             <section id="faq" className="my-8 md:my-12">
-              <FAQ faqs={content.FAQ} />
+              <FAQ faqs={content.FAQ || []} />
             </section>
           </section>
         </main>

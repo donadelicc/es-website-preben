@@ -140,44 +140,34 @@ export interface SanityBase {
   _key: string;
 }
 
-export interface IntroSection extends SanityBase {
-  _type: "introSection";
-  title: string;
-  content: Block[];
-}
-
-export interface ProcessSection extends SanityBase {
-  _type: "processSection";
-  title: string;
-  introText: Block[];
-  timeline: TimelineItem[];
-}
-
-export interface ContentSection extends SanityBase {
-  _type: "contentSection";
-  title: string;
-  introText: Block[];
-  informationBoxes: InformationBox[];
-}
-
-export interface StepsSection extends SanityBase {
-  _type: "stepsSection";
-  title: string;
-  steps: Step[];
-  outroText: OutroTextItem[];
-}
-
-type Subsection = IntroSection | ProcessSection | ContentSection | StepsSection;
-
 interface FAQItem {
   _key: string;
   title: string;
   content: Block[];
 }
 
+interface IntroSection {
+  title: string;
+  content: Block[];
+}
+
 export interface ApplyPage extends SanityMeta {
   title: string;
-  subsections: Subsection[];
+  intro: IntroSection;
+  process: {
+    title: string;
+    timeline: TimelineItem[];
+  };
+  content: {
+    title: string;
+    introText: Block[];
+    informationBoxes: InformationBox[];
+  };
+  steps: {
+    title: string;
+    steps: Step[];
+    outroText: OutroTextItem[];
+  };
   FAQ: FAQItem[];
 }
 
